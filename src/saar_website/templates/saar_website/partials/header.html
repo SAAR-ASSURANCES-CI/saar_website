@@ -48,7 +48,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Accueil</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">Accueil</a>
                         <a href="about.html" class="nav-item nav-link">Automobile</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Assurance de Personnes</a>
@@ -91,12 +91,33 @@
                         <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
+
+                      
+                        
+                        {% for carousel in carousels %}  
+                         <div class="carousel-item {% if forloop.first %} active {% endif %}">
+
                             {% comment %} <img src="{% static 'img/carousel-2.jpg' %}" class="img-fluid" alt="Image"> {% endcomment %}
-                            <img src="{% static 'img/essai2.jpg' %}" class="img-fluid" alt="Image">
+                            <img src="{{ carousel.path.url }}" class="img-fluid" alt="Image">
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
                                      {% comment %} <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4> {% endcomment %}
+                                    <h1 class="display-2 text-capitalize text-primary mb-4">{{carousel.titre|default_if_none:""}}</h1>
+                                    <p class="mb-5 fs-5">{{carousel.contenu|default_if_none:""}}</p> 
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{% url 'carousel' numero=forloop.counter %}">En savoir plus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                            
+
+                        {% comment %} <div class="carousel-item active">
+                            <img src="{% static 'img/essai2.jpg' %}" class="img-fluid" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="p-3" style="max-width: 900px;">
                                     <h1 class="display-2 text-capitalize text-primary mb-4">ASSURANCE AUTO</h1>
                                     <p class="mb-5 fs-5">Votre sécurité est notre priorité absolue sur la route. Avec notre assurance automobile, vous bénéficiez d'une protection fiable et d'un service attentionné à chaque étape, 
                                     </p> 
@@ -106,27 +127,26 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="carousel-item">
-                            {% comment %} <img src="{% static 'img/carousel-1.jpg' %}" class="img-fluid" alt="Image"> {% endcomment %}
                             <img src="{% static 'img/joker_bailleur_cp.jpg' %}" class="img-fluid" alt="Image">
 
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
-                                    {% comment %} <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4>
                                     <h1 class="display-2 text-capitalize text-white mb-4">Find Your Perfect Tour At Travel</h1>
                                     <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                    </p>  {% endcomment %}
+                                    </p>  
                                     <div class="d-flex align-items-center justify-content-center">
                                         <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">En savoir plus</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="carousel-item">
                             <img src="{% static 'img/saar_takaful_cp2.jpg' %}" class="img-fluid" alt="Image">
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
-                                    {% comment %} <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">SAAR TAKAFUL</h4> {% endcomment %}
                                     <h1 class="display-2 text-capitalize text-primary mb-4">SAAR TAKAFUL</h1>
                                     <p class="mb-5 fs-5">Protégez votre avenir avec SAAR TAKAFUL, une assurance conforme aux principes islamiques,
                                     </p>
@@ -135,7 +155,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
+
+                        
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon btn bg-primary" aria-hidden="false"></span>

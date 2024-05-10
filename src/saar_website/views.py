@@ -1,9 +1,17 @@
 from django.shortcuts import render
 
+from administration.models import Caroussel
+
 
 def index(request):
 
     context = {}
+
+    # Carousel
+
+    carousels = Caroussel.objects.all()
+
+    context['carousels'] = carousels
 
     context['assurance_auto'] = "Votre sécurité est notre priorité absolue sur la route. Avec notre assurance automobile, vous bénéficiez d'une protection fiable et d'un service attentionné à chaque étape. 𝐀𝐒𝐒𝐔𝐑𝐀𝐍𝐂𝐄 𝐌𝐎𝐓𝐎  : À partir de 10 000 FCFA / Année. 𝑨̀ 𝑵𝒐𝒕𝒆𝒓 : 𝑳𝒆𝒔 𝒑𝒓𝒊𝒎𝒆𝒔 𝒏𝒆 𝒔𝒐𝒏𝒕 𝒑𝒂𝒔 𝒇𝒊𝒙𝒆s : La prime à payer dépendra de l'usage de votre véhicule, de  l'énergie et de la puissance ou le tonnage."
     context['assurance_sante'] = "SAAR SANTE est une belle compilation de trois risques : maladie, assistance et évacuation sanitaire. Il s'agit d'un '3 en 1', au choix du client. SAAR SANTE garantit, dans les limites du plafond de remboursement, la prise en charge des risques de voyage suivants :"
@@ -19,4 +27,13 @@ def index(request):
     context['actualite_1'] = "Ce mercredi 1er Mai s'est tenue, à l'hotel FAMILLE MONDIALE, la célébration de la fête du travail réunissant tous les employés de la SAAR Côte d'Ivoire."
     context['actualite_2'] = "Du 𝟎𝟖 𝐚𝐮 𝟏𝟎 𝐌𝐚𝐫𝐬, la 𝐒𝐨𝐜𝐢𝐞́𝐭𝐞́ 𝐀𝐟𝐫𝐢𝐜𝐚𝐢𝐧𝐞 𝐝'𝐀𝐬𝐬𝐮𝐫𝐚𝐧𝐜𝐞𝐬 𝐞𝐭 𝐝𝐞 𝐑𝐞́𝐚𝐬𝐬𝐮𝐫𝐚𝐧𝐜𝐞𝐬 𝐝𝐞 𝐂𝐨̂𝐭𝐞 𝐝'𝐈𝐯𝐨𝐢𝐫𝐞 (𝐒𝐀𝐀𝐑 𝐂𝐈) a organisé 𝐮𝐧𝐞 𝐬𝐞́𝐚𝐧𝐜𝐞 𝐝𝐞 𝐭𝐫𝐚𝐯𝐚𝐢𝐥 à 𝗖𝗮𝗻𝗻𝗮𝗻 𝗛𝗶𝗹𝗹𝘀, 𝗬𝗮𝗺𝗼𝘂𝘀𝘀𝗼𝘂𝗸𝗿𝗼. Dans un cadre professionnel empreint de sérieux et de rigueur, ces journées ont été marquées par une intense réflexion sur l'avenir de l'assurance."
     context['actualite_3'] = "ce samedi 07 Octobre, nous avons organisé avec le Club des Hommes d'affaires musulmans de Côte d'Ivoire CHAMCI, un déjeuner de présentation de nos offres SAAR_TAKAFUL, notre gamme de produits d'assurance conforme à la Sharia. Après la présentation faite par monsieur Loïc Armel KENGNE WAFO,LLB,MBA,ACCPA , la centaine de Dirigeants d'entreprises s'est dite satisfaite de cette innovation."
+    
     return render(request, "saar_website/index.html", context=context)
+
+
+def carousel(request, numero):
+
+    try:
+        return render(request, f"saar_website/carousel/carousel_{numero}.html")
+    except:
+        return render(request, "saar_website/404.html")
