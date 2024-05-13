@@ -287,109 +287,81 @@
                     <h1 class="mb-0">Nos dernières activités</h1>
                 </div>
                 <div class="packages-carousel owl-carousel">
+
+                    
+                   {% for actualite in actualites %}
                     <div class="packages-item">
                         <div class="packages-img">
-                            {% comment %} <img src="{% static 'img/packages-4.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image"> {% endcomment %}
-                            
+
+                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top test_img" alt="Image">
+
+                        </div>
+                        <div class="packages-content bg-light" style="width: 415px; height:350px;">
+                            <div class="p-4 pb-0">
+                                <h5 class="mb-0">{{actualite.titre}}</h5>
+                                <small class="text-uppercase">Publié le {{actualite.date_publication|date:"d F Y"}}</small>
+                               
+                                <p class="mb-4">{{actualite.contenu}}</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    {% endfor %} 
+                        
+                    
+{% comment %} 
+                    <div class="packages-item">
+                        <div class="packages-img">
+
                             <img src="{% static 'img/actualite-1.jpeg' %}" class="img-fluid w-100 rounded-top test_img" alt="Image">
 
-                            {% comment %} <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$349.00</div> {% endcomment %}
                         </div>
                         <div class="packages-content bg-light" style="width: 415px; height:350px;">
                             <div class="p-4 pb-0">
                                 <h5 class="mb-0">Fête du travail</h5>
                                 <small class="text-uppercase">Publié le 02 Mai 2024</small>
-                                {% comment %} <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div> {% endcomment %}
+                               
                                 <p class="mb-4">{{actualite_1}}</p>
                             </div>
-                            {% comment %} <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
-                                </div>
-                            </div> {% endcomment %}
+                        
                         </div>
-                    </div>
-                    <div class="packages-item">
+                    </div> {% endcomment %}
+
+
+                    {% comment %} <div class="packages-item">
                         <div class="packages-img">
                             <img src="{% static 'img/actualite-2.jpeg' %}" class="img-fluid w-100 rounded-top test_img" alt="Image">
-                            {% comment %} <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$449.00</div> {% endcomment %}
+                           
                         </div>
                         <div class="packages-content bg-light" style="width: 415px; height:350px;">
                             <div class="p-4 pb-0">
                                 <h5 class="mb-0">𝗦𝗲́𝗮𝗻𝗰𝗲 𝗱𝗲 𝗧𝗿𝗮𝘃𝗮𝗶𝗹 𝗜𝗻𝘀𝗽𝗶𝗿𝗮𝗻𝘁𝗲 !</h5>
                                 <small class="text-uppercase">Publié le 13 Mars 2024</small>
-                                {% comment %} <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div> {% endcomment %}
+                               
                                 <p class="mb-4">{{actualite_2}}</p>
                             </div>
-                            {% comment %} <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
-                                </div>
-                            </div> {% endcomment %}
+                           
                         </div>
-                    </div>
-                    <div class="packages-item">
+                    </div> {% endcomment %}
+
+                    {% comment %} <div class="packages-item">
                         <div class="packages-img">
                             <img src="{% static 'img/actualite-3.jpeg' %}" class="img-fluid test_img w-100 rounded-top" alt="Image">
-                            {% comment %} <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt me-2"></i>Venice - Italy</small>
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>3 days</small>
-                                <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>2 Person</small>
-                            </div>
-                            <div class="packages-price py-2 px-4">$549.00</div> {% endcomment %}
+                        
                         </div>
                         <div class="packages-content bg-light" style="width: 415px; height:350px;">
                             <div class="p-4 pb-0">
                                 <h5 class="mb-0">Déjeuner de présentation de SAAR_TAKAFUL</h5>
-                                <small class="text-uppercase">Publié le 08 Octobre 2024</small>
-                                {% comment %} <div class="mb-3">
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                    <small class="fa fa-star text-primary"></small>
-                                </div> {% endcomment %}
+                                <small class="text-uppercase">Publié le 08 Octobre 2023</small>
+                                
                                 <p class="mb-4">{{actualite_3}}</p>
                             </div>
-                            {% comment %} <div class="row bg-primary rounded-bottom mx-0">
-                                <div class="col-6 text-start px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Read More</a>
-                                </div>
-                                <div class="col-6 text-end px-0">
-                                    <a href="#" class="btn-hover btn text-white py-2 px-4">Book Now</a>
-                                </div>
-                            </div> {% endcomment %}
+                           
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                   
+
+
                 </div>
             </div>
         </div>
