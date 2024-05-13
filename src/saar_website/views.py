@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from administration.models import Caroussel
+from administration.models import Caroussel, Actualite
 
 
 def index(request):
@@ -10,8 +10,10 @@ def index(request):
     # Carousel
 
     carousels = Caroussel.objects.all()
+    actualites = Actualite.objects.all()
 
     context['carousels'] = carousels
+    context['actualites'] = actualites
 
     context['assurance_auto'] = "Votre sécurité est notre priorité absolue sur la route. Avec notre assurance automobile, vous bénéficiez d'une protection fiable et d'un service attentionné à chaque étape. 𝐀𝐒𝐒𝐔𝐑𝐀𝐍𝐂𝐄 𝐌𝐎𝐓𝐎  : À partir de 10 000 FCFA / Année. 𝑨̀ 𝑵𝒐𝒕𝒆𝒓 : 𝑳𝒆𝒔 𝒑𝒓𝒊𝒎𝒆𝒔 𝒏𝒆 𝒔𝒐𝒏𝒕 𝒑𝒂𝒔 𝒇𝒊𝒙𝒆s : La prime à payer dépendra de l'usage de votre véhicule, de  l'énergie et de la puissance ou le tonnage."
     context['assurance_sante'] = "SAAR SANTE est une belle compilation de trois risques : maladie, assistance et évacuation sanitaire. Il s'agit d'un '3 en 1', au choix du client. SAAR SANTE garantit, dans les limites du plafond de remboursement, la prise en charge des risques de voyage suivants :"
