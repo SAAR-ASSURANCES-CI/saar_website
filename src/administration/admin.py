@@ -3,12 +3,12 @@ from .models import Caroussel, Actualite
 
 
 class CarouselAdmin(admin.ModelAdmin):
-    list_display = ('id','titre', 'contenu',)
-    prepopulated_fields = {'slug': ('titre',)}
+    list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator')
+    # prepopulated_fields = {'slug': ('titre',)}
 
 
 class ActualiteAdmin(admin.ModelAdmin):
-    list_display = ('id','titre', 'contenu',)
+    list_display = ('id','titre', 'contenu', 'date_publication',)
 
 
 # Register your models here.

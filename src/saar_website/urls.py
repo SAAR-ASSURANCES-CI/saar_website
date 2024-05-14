@@ -20,7 +20,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import index, carousel, CarouselListView, CarouselDetailView
+#from .views import index, carousel, CarouselListView, CarouselDetailView
+
+from .views import index, carousel
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,8 +31,8 @@ urlpatterns = [
 
     path('carousel/<str:numero>/', carousel, name='carousel'),
 
-    path('', CarouselListView.as_view(), name="carousel_detail"),
-    path('carousel/<slug:slug>', CarouselDetailView.as_view() , name="carousel_detail"),
+    # path('', CarouselListView.as_view(), name="carousel_detail"),
+    # path('carousel/<slug:slug>', CarouselDetailView.as_view() , name="carousel_detail"),
 
     path('administration/', include('administration.urls')),
 

@@ -38,19 +38,23 @@ def index(request):
 def carousel(request, numero):
 
     try:
-        return render(request, f"saar_website/carousel/carousel_{numero}.html")
+        context = {}
+        carousel = Caroussel.objects.get(pk=numero)
+
+        context['carousel'] = carousel
+        return render(request, f"saar_website/carousel/carousels.html", context=context)
     except:
         return render(request, "saar_website/404.html")
     
 
-class CarouselListView(ListView):
-    model = Caroussel
-    template_name = "saar_website/index.html"
+# class CarouselListView(ListView):
+#     model = Caroussel
+#     template_name = "saar_website/index.html"
 
 
-class CarouselDetailView(DetailView):
-    model = Caroussel
-    template_name = "saar_website/carousel/carousels.html"
+# class CarouselDetailView(DetailView):
+#     model = Caroussel
+#     template_name = "saar_website/carousel/carousels.html"
 
 
 
