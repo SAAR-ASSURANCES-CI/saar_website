@@ -106,6 +106,7 @@
                                     <p class="mb-5 fs-5">{{carousel.contenu|default_if_none:""}}</p> 
                                     <div class="d-flex align-items-center justify-content-center">
                                         <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{% url 'carousel' numero=forloop.counter %}">En savoir plus</a>
+                                        {% comment %} <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{{carousel.get_absolute_url}}">En savoir plus</a> {% endcomment %}
                                     </div>
                                 </div>
                             </div>
