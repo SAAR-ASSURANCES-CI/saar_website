@@ -5,6 +5,13 @@ from administration.models import Caroussel, Actualite, Produit
 from django.views.generic import ListView, DetailView
 
 
+produits = Produit.objects.all()
+
+products_keys = []
+
+for prod in produits:
+    products_keys.append(prod.pk)
+
 def index(request):
 
     context = {}
@@ -15,16 +22,15 @@ def index(request):
     actualites = Actualite.objects.all()
     produits = Produit.objects.all()
 
-    products_keys = []
-
-    for prod in produits:
-        products_keys.append(prod.pk)
+    
 
     context['carousels'] = carousels
     context['actualites'] = actualites
     context['produits'] = produits
 
     context['products_keys'] = products_keys
+
+    context['active_index'] = 'active_index'
 
     # context['assurance_auto'] = "Votre sécurité est notre priorité absolue sur la route. Avec notre assurance automobile, vous bénéficiez d'une protection fiable et d'un service attentionné à chaque étape. 𝐀𝐒𝐒𝐔𝐑𝐀𝐍𝐂𝐄 𝐌𝐎𝐓𝐎  : À partir de 10 000 FCFA / Année. 𝑨̀ 𝑵𝒐𝒕𝒆𝒓 : 𝑳𝒆𝒔 𝒑𝒓𝒊𝒎𝒆𝒔 𝒏𝒆 𝒔𝒐𝒏𝒕 𝒑𝒂𝒔 𝒇𝒊𝒙𝒆s : La prime à payer dépendra de l'usage de votre véhicule, de  l'énergie et de la puissance ou le tonnage."
     # context['assurance_sante'] = "SAAR SANTE est une belle compilation de trois risques : maladie, assistance et évacuation sanitaire. Il s'agit d'un '3 en 1', au choix du client. SAAR SANTE garantit, dans les limites du plafond de remboursement, la prise en charge des risques de voyage suivants :"
@@ -51,9 +57,12 @@ def carousel(request, numero):
         carousel = Caroussel.objects.get(pk=numero)
 
         context['carousel'] = carousel
+        context['products_keys'] = products_keys
+        context['active_carousel'] = 'active_carousel'
+
         return render(request, f"saar_website/carousel/carousels.html", context=context)
     except:
-        return render(request, "saar_website/404.html")
+        return render(request, "saar_website/404.html", context=context)
     
 
 def produit(request, numero):
@@ -63,9 +72,12 @@ def produit(request, numero):
         produit = Produit.objects.get(pk=numero)
 
         context['produit'] = produit
+        context['products_keys'] = products_keys
+        context[f'active_produit{numero}'] = f'active_produit{numero}'
+
         return render(request, f"saar_website/produit/produits.html", context=context)
     except:
-        return render(request, "saar_website/404.html")    
+        return render(request, "saar_website/404.html", context=context)    
     
 
 # class CarouselListView(ListView):
@@ -76,6 +88,39 @@ def produit(request, numero):
 # class CarouselDetailView(DetailView):
 #     model = Caroussel
 #     template_name = "saar_website/carousel/carousels.html"
+
+
+def about(request):
+
+    context = {}
+
+    context['active_about'] = 'active_about'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/about.html", context=context)
+
+
+def contact(request):
+
+    context = {}
+
+    context['active_contact'] = 'active_contact'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/contact.html", context=context)
+
+
+def agences(request):
+
+    context = {}
+
+    context['active_agences'] = 'active_agences'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/agences.html", context=context)
 
 
 
