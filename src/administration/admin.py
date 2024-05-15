@@ -1,10 +1,14 @@
 from django.contrib import admin
-from .models import Caroussel, Actualite
+from .models import Caroussel, Actualite, Produit
 
 
 class CarouselAdmin(admin.ModelAdmin):
     list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator')
     # prepopulated_fields = {'slug': ('titre',)}
+
+
+class ProduitAdmin(admin.ModelAdmin):
+    list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator')    
 
 
 class ActualiteAdmin(admin.ModelAdmin):
@@ -16,5 +20,8 @@ class ActualiteAdmin(admin.ModelAdmin):
 # Panneau défilant
 admin.site.register(Caroussel, CarouselAdmin)
 
-# Articles
+# Produits
+admin.site.register(Produit, ProduitAdmin)
+
+# Actualités
 admin.site.register(Actualite, ActualiteAdmin)

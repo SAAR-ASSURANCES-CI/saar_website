@@ -22,14 +22,16 @@ from django.conf.urls.static import static
 
 #from .views import index, carousel, CarouselListView, CarouselDetailView
 
-from .views import index, carousel
+from .views import index, carousel, produit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', index, name='index'),
 
-    path('carousel/<str:numero>/', carousel, name='carousel'),
+    path('carousels/<str:numero>/', carousel, name='carousel'),
+
+    path('produits/<str:numero>/', produit, name='produit'),
 
     # path('', CarouselListView.as_view(), name="carousel_detail"),
     # path('carousel/<slug:slug>', CarouselDetailView.as_view() , name="carousel_detail"),

@@ -18,7 +18,7 @@ class Caroussel(models.Model):
     path = models.ImageField(upload_to='img/')
 
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
 
     creator = models.CharField(max_length=100, blank=True)
 
@@ -44,6 +44,24 @@ class Actualite(models.Model):
     contenu = models.TextField(blank=True, default="")
     date_publication = models.DateField()
     path = models.ImageField(upload_to='img/')
+
+    def __str__(self):
+        return self.path.url
+    
+
+
+ # ACTUALITES
+class Produit(models.Model):
+    titre = models.CharField(max_length=100)
+    contenu = models.TextField(blank=True, default="")
+    path = models.ImageField(upload_to='img/')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    #slug = models.SlugField(max_length=200, unique=True, default="")
 
     def __str__(self):
         return self.path.url
