@@ -56,6 +56,32 @@
                     </p> {% endcomment %}
                 </div>
                 <div class="row g-4 mb-3 justify-content-center">
+                    
+                    {% for produit in produits %}
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <div class="blog-img-inner">
+                                    {% comment %} <img class="img-fluid w-100 rounded-top" src="{% static 'img/assurance_auto.jpg' %}" alt="Image"> {% endcomment %}
+                                    <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                    <div class="blog-icon">
+                                        <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content border border-top-0 rounded-bottom p-4">
+                                <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
+                                <p class="my-3">{{ produit.contenu | truncatechars:200 }}</p>
+                                <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                    <!-- 
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
                             <div class="blog-img">
@@ -79,7 +105,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+
+                    -->
+
+                    <!--     <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
                             <div class="blog-img">
                                 <div class="blog-img-inner">
@@ -102,6 +131,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
                             <div class="blog-img">
@@ -125,8 +155,10 @@
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
 
+                <!--
                 <div class="row g-4 mb-3 justify-content-center">
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
@@ -199,7 +231,9 @@
                     </div>
                 </div>
 
+                -->
 
+                <!--
                 <div class="row g-4 justify-content-start">
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
@@ -274,6 +308,7 @@
                         </div>
                     </div> 
                 </div>
+                -->
             </div>
         </div>
         <!-- Blog End -->
