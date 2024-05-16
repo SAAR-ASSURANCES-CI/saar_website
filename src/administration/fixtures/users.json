@@ -1,0 +1,20 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$yWAGYgIhFDF51rFWpKQe9h$T/wbzsKVA/XNHhPEmoM8IDDdQkb62oWnxNzqaL73Fqw=",
+    "last_login": "2024-05-14T16:35:16.480Z",
+    "is_superuser": true,
+    "username": "ulrich.kouakou",
+    "first_name": "",
+    "last_name": "",
+    "email": "emmanuelug.kouakou@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-05-10T16:50:02.773Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

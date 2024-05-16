@@ -6,13 +6,12 @@ class CarouselAdmin(admin.ModelAdmin):
     list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator')
     # prepopulated_fields = {'slug': ('titre',)}
 
+class ActualiteAdmin(admin.ModelAdmin):
+    list_display = ('id','titre', 'contenu', 'date_publication',)
+
 
 class ProduitAdmin(admin.ModelAdmin):
     list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator')    
-
-
-class ActualiteAdmin(admin.ModelAdmin):
-    list_display = ('id','titre', 'contenu', 'date_publication',)
 
 
 # Register your models here.
@@ -20,8 +19,8 @@ class ActualiteAdmin(admin.ModelAdmin):
 # Panneau défilant
 admin.site.register(Caroussel, CarouselAdmin)
 
-# Produits
-admin.site.register(Produit, ProduitAdmin)
-
 # Actualités
 admin.site.register(Actualite, ActualiteAdmin)
+
+# Produits
+admin.site.register(Produit, ProduitAdmin)

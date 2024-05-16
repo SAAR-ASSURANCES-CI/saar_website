@@ -22,11 +22,11 @@ class Caroussel(models.Model):
 
     creator = models.CharField(max_length=100, blank=True)
 
-    #slug = models.SlugField(max_length=200, unique=True, default="")
-
     def __str__(self):
         return self.path.url
 
+################################################################################
+    #slug = models.SlugField(max_length=200, unique=True, default="")
     
     # def get_absolute_url(self):
     #     return reverse('carousel_detail', kwargs={'slug': self.slug})
@@ -36,7 +36,7 @@ class Caroussel(models.Model):
     #     self.slug = slugify(value, allow_unicode=True)
     #     return super().save(*args, **kwargs)
     
-
+################################################################################
 
 # ACTUALITES
 class Actualite(models.Model):
@@ -50,7 +50,7 @@ class Actualite(models.Model):
     
 
 
- # ACTUALITES
+#  # PRODUITS
 class Produit(models.Model):
     titre = models.CharField(max_length=100)
     contenu = models.TextField(blank=True, default="")
@@ -60,8 +60,6 @@ class Produit(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     creator = models.CharField(max_length=100, blank=True)
-
-    #slug = models.SlugField(max_length=200, unique=True, default="")
 
     def __str__(self):
         return self.path.url
