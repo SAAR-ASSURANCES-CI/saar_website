@@ -52,36 +52,41 @@
                         {% if active_index or active_about or active_agences %}
                         active
                         {% endif %} ">Accueil</a>
-                        <a href="{% url 'produit' numero=1 %}" class="nav-item nav-link {% if active_produit1 %}
-                        active
+
+                        <a href="{% url 'produit' numero=products_keys.0 %}" class="nav-item nav-link 
+                        {% if produit %}
+                            {% if products_keys.0 == produit.pk %} active {% endif %}
                         {% endif %}">Automobile</a>
+
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle {% if active_produit2 or active_produit3 or active_produit4 %}
-                            active
+                            <a href="#" class="nav-link dropdown-toggle 
+                            {% if produit %}
+                            {% if products_keys.1 == produit.pk or products_keys.2 == produit.pk or products_keys.3 == produit.pk %} active {% endif %}
                             {% endif %}" data-bs-toggle="dropdown">Assurance de Personnes</a>
                             <div class="dropdown-menu m-0">
-                                <a href="{% url 'produit' numero=2 %}" class="dropdown-item {% if active_produit2 %}
-                                active
-                                {% endif %}">Santé</a>
-                                <a href="{% url 'produit' numero=3 %}" class="dropdown-item {% if active_produit3 %}
-                                active
+                                <a href="{% url 'produit' numero=products_keys.1 %}" class="dropdown-item {% if produit %}
+                                {% if products_keys.1 == produit.pk %} active {% endif %}
+                                {% endif %} ">Santé</a>
+
+                                <a href="{% url 'produit' numero=products_keys.2 %}" class="dropdown-item {% if produit %}
+                                {% if products_keys.2 == produit.pk %} active {% endif %}
                                 {% endif %}">Individuelle Accidents</a>
-                                <a href="{% url 'produit' numero=4 %}" class="dropdown-item {% if active_produit4 %}
-                                active
+                                <a href="{% url 'produit' numero=products_keys.3 %}" class="dropdown-item {% if produit %}
+                                {% if products_keys.3 == produit.pk %} active {% endif %}
                                 {% endif %}">Voyage</a>
                             </div>
                         </div>
-                        <a href="{% url 'produit' numero=5 %}" class="nav-item nav-link {% if active_produit5 %}
-                        active
+                        <a href="{% url 'produit' numero=products_keys.4 %}" class="nav-item nav-link {% if produit %}
+                        {% if products_keys.4 == produit.pk %} active {% endif %}
                         {% endif %}">Habitation</a>
-                        <a href="{% url 'produit' numero=6 %}" class="nav-item nav-link {% if active_produit6 %}
-                        active
+                        <a href="{% url 'produit' numero=products_keys.5 %}" class="nav-item nav-link {% if produit %}
+                        {% if products_keys.5 == produit.pk %} active {% endif %}
                         {% endif %}">Transport</a>
-                        <a href="{% url 'produit' numero=7 %}" class="nav-item nav-link {% if active_produit7 %}
-                        active
+                        <a href="{% url 'produit' numero=products_keys.6 %}" class="nav-item nav-link {% if produit %}
+                        {% if products_keys.6 == produit.pk %} active {% endif %}
                         {% endif %}">Caution</a>
-                        <a href="{% url 'produit' numero=8 %}" class="nav-item nav-link {% if active_produit8 %}
-                        active
+                        <a href="{% url 'produit' numero=products_keys.7 %}" class="nav-item nav-link {% if produit %}
+                        {% if products_keys.7 == produit.pk %} active {% endif %}
                         {% endif %}">Risques Divers</a>
                         {% comment %} <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
