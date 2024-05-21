@@ -9,7 +9,7 @@
         <div class="container text-center py-5" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">A propos</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Accueil</a></li>
                 {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
                 <li class="breadcrumb-item active text-white">A propos de nous</li>
             </ol>    
@@ -24,10 +24,10 @@
                 <div class="col-lg-5">
                     {% comment %} <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">#B99470 {% endcomment %}
                     <div class="h-100" style="border: 50px solid; border-color: transparent #B99470 transparent #B99470;">
-                        <img src="{% static 'img/about-img.jpg' %}" class="img-fluid w-100 h-100" alt="">
+                        <img src="{% static 'img/saar_img_1.png' %}" class="img-fluid w-100 h-100" alt="">
                     </div>
                 </div>
-                <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/saar_img_1.png);">
                     <h5 class="section-about-title pe-3">Qui somme nous ?</h5>
                     <h1 class="mb-4">Bienvenue à <span class="text-primary">Saar Assurances</span></h1>
                     <p class="mb-4">SAAR ASSURANCES CÔTE D'IVOIRE est une société anonyme au capital de 3.000.000.000 FCFA composée de deux sociétés d'assurance (assurances vie et assurances IARD), habilitées à présenter les opérations d'assurance en République de Côte d'Ivoire. Elle est membre du groupe SAAR qui est présent depuis plus de 30 ans dans de nombreux pays africains : Bénin, Côte d’Ivoire, Guinée équatoriale, Liberia, République de Guinée, Sao Tomé-et-Principe, Sénégal et Tchad.</p>
@@ -54,7 +54,7 @@
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
                         </div> {% endcomment %}
                     </div>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="https://www.youtube.com/watch?v=lF5Ei5ArOz0&t=2s">Vidéo de présentation</a>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" target="_blank" href="https://www.youtube.com/watch?v=lF5Ei5ArOz0&t=2s">Vidéo de présentation</a>
                 </div>
             </div>
         </div>
@@ -74,13 +74,13 @@
                         <div class="guide-img">
                             <div class="guide-img-efects">
                                 {% comment %} <img src="{% static 'img/guide-1.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image"> {% endcomment %}
-                                <img src="{% static 'img/guide-1.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                <img src="{% static 'img/dg_saar.jpeg' %}" class="img-fluid w-100 rounded-top" alt="Image">
                             </div>
                             <div class="guide-icon rounded-pill p-2">
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a> {% endcomment %}
                                 {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a> {% endcomment %}
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" target="_blank" href="https://www.linkedin.com/in/lo%C3%AFc-armel-kengne-wafo-llb-mba-accpa-85236643/"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                         <div class="guide-title text-center rounded-bottom p-4">
@@ -95,13 +95,13 @@
                     <div class="guide-item">
                         <div class="guide-img">
                             <div class="guide-img-efects">
-                                <img src="{% static 'img/guide-2.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
+                                <img src="{% static 'img/df_saar.jpeg' %}" class="img-fluid w-100 rounded-top" alt="Image">
                             </div>
                             <div class="guide-icon rounded-pill p-2">
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a> {% endcomment %}
                                 {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a> {% endcomment %}
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle mx-1" target="_blank" href="https://www.linkedin.com/in/temole-kuate-yannick-cpa-k-23901455/"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                         <div class="guide-title text-center rounded-bottom p-4">

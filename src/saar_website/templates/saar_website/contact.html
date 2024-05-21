@@ -9,7 +9,7 @@
         <div class="container text-center py-5" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">Contactez Nous</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Accueil</a></li>
                 {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
                 <li class="breadcrumb-item active text-white">Contact</li>
             </ol>    
@@ -55,19 +55,19 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <label for="name">Votre Nom</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                    <label for="email">Votre Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control border-0" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <label for="subject">Sujet</label>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -77,16 +77,21 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit">Envoyer Message</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="col-12">
                     <div class="rounded">
-                        <iframe class="rounded w-100" 
+                        {% comment %} <iframe class="rounded w-100" 
                         style="height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> {% endcomment %}
+
+                        <iframe class="rounded w-100" 
+                        style="height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127110.79577805122!2d-4.074285054687907!3d5.384565464068948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19573d2cd45bb%3A0x89cf94865aa422e7!2sSAAR%20ASSURANCES!5e0!3m2!1sfr!2sci!4v1716312762005!5m2!1sfr!2sci" 
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        {% comment %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127110.79577805122!2d-4.074285054687907!3d5.384565464068948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19573d2cd45bb%3A0x89cf94865aa422e7!2sSAAR%20ASSURANCES!5e0!3m2!1sfr!2sci!4v1716312762005!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> {% endcomment %}
                     </div>
                 </div>
             </div>
