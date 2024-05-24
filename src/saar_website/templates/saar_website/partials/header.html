@@ -88,6 +88,9 @@
                         <a href="{% url 'produit' numero=products_keys.7 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.7 == produit.pk %} active {% endif %}
                         {% endif %}">Risques Divers</a>
+                        <a href="{% url 'produit' numero=products_keys.8 %}" class="nav-item nav-link {% if produit %}
+                        {% if products_keys.8 == produit.pk %} active {% endif %}
+                        {% endif %}">Assurance Takaful</a>
                         {% comment %} <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
@@ -104,7 +107,7 @@
                         active
                         {% endif %}">Contact</a>
                     </div>
-                    <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Faire un devis</a>
+                    {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Faire un devis</a> {% endcomment %}
                 </div>
             </nav>
 

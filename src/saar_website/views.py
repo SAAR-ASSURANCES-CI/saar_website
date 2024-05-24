@@ -86,6 +86,15 @@ def about(request):
     return render(request, "saar_website/about.html", context=context)
 
 
+def about_grp(request):
+
+    context = {}
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/about_grp.html", context=context)
+
+
 def contact(request):
 
     context = {}

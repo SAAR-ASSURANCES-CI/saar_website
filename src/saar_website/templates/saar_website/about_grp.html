@@ -7,62 +7,71 @@
       <!-- Header Start -->
       <div class="container-fluid bg-breadcrumb">
         <div class="container text-center py-5" style="max-width: 900px;">
-            <h3 class="text-white display-3 mb-4">A propos</h1>
+            <h3 class="text-white display-3 mb-4">Le Groupe Saar</h1>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="{% url 'index' %}">Notre Société</a></li>
                 {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
-                <li class="breadcrumb-item active text-white">A propos de nous</li>
+                <li class="breadcrumb-item active text-white">Le Groupe Saar</li>
             </ol>    
         </div>
     </div>
     <!-- Header End -->
 
-    <!-- About Start -->
-    <div class="container-fluid about py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    {% comment %} <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">#B99470 {% endcomment %}
-                    {% comment %} <div class="h-100" style="border: 50px solid; border-color: transparent #D6B033 transparent #D6B033;"> {% endcomment %}
-                        {% comment %} <img src="{% static 'img/saar_img_1.png' %}" class="img-fluid w-100 h-100" alt=""> {% endcomment %}
-                        {% comment %} <img src="{% static 'img/saar_assurances2.jpg' %}" class="img-fluid w-100 h-100" alt=""> {% endcomment %}
-                        {% comment %} <video src="https://www.youtube.com/watch?v=lF5Ei5ArOz0&t=2s">Texte</video> {% endcomment %}
-                        <iframe width="600" height="400" src="https://www.youtube.com/embed/lF5Ei5ArOz0?si=4acVZP64dmBruxlw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    {% comment %} </div> {% endcomment %}
-                </div>
-                <div class="col-lg-6" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/saar_img_1.png);">
-                    <h5 class="section-about-title pe-3">Qui somme nous ?</h5>
-                    <h1 class="mb-4">Bienvenue à <span class="text-primary">Saar Assurances</span></h1>
-                    <p class="mb-4">SAAR ASSURANCES CÔTE D'IVOIRE est une société anonyme au capital de 3.000.000.000 FCFA composée de deux sociétés d'assurance (assurances vie et assurances IARD), habilitées à présenter les opérations d'assurance en République de Côte d'Ivoire. Elle est membre du groupe SAAR qui est présent depuis plus de 30 ans dans de nombreux pays africains : Bénin, Côte d’Ivoire, Guinée équatoriale, Liberia, République de Guinée, Sao Tomé-et-Principe, Sénégal et Tchad.</p>
-                    <p class="mb-4">Le directeur général actuel est <strong>Monsieur KENGNE Wafo Loïc Armel</strong>, poste occupé depuis le 25 Novembre 2021.</p>
+   
+    <!-- Contact Start -->
+    <div class="container-fluid contact bg-light py-5">
+        <div class="container py-2">
+            {% comment %} <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Contactez Nous</h5>
+                <h1 class="mb-0">Contact Pour Toutes Préoccupations</h1>
+            </div> {% endcomment %}
 
-                    {% comment %} <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos voluptatem suscipit neque enim, doloribus ipsum rem eos distinctio, dignissimos nisi saepe nulla? Libero numquam perferendis provident placeat molestiae quia?</p> {% endcomment %}
+            <div class="row justify-content-center">
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="rounded">
+                    
+                        <img src="{% static 'img/saar_assurances2.jpg' %}" class="img-fluid w-100 h-100" alt="">
+
+                    </div>
+                </div>
+               <div class="col-md-6 col-lg-6">
+                    {% comment %} <h3 class="mb-2">Envoyer un message</h3> {% endcomment %}
+                    <p class="mb-4">La Société africaine d’assurances et de réassurances <strong>(SAAR)</strong> a été créée au Cameroun le 27 novembre 1990, avec un capital social de 400 000 000 FCFA.</p>
+                    <p class="mb-4">Entreprise dynamique et visionnaire, elle fait partie aujourd’hui des leaders dans la zone CIMA, grâce à un Réseau couvrant neuf pays du continent africain : <strong>BENIN – CAMEROUN - COTE D’IVOIRE - GUINEE EQUATORIALE - LIBERIA, REPUBLIQUE DE GUINEE - SAO TOME ET PRINCIPE – SENEGAL - TCHAD.</strong> </p>
+                    <p class="mb-4">La SAAR offre des produits dans les secteurs de <strong>l’assurance vie, l’assurance non-vie et de l’immobilier</strong>.</p>
+                    <p class="mb-4">Dans la Branche non-vie, les garanties couvrent <strong>l’Automobile, la Santé, les Transports, la Responsabilité Civile, et les Risques Divers. Dans la Branche vie, nous proposons des produits en Epargne et en Prévoyance</strong>.</p>
+                    <p>La vision de l’entreprise,« World Class African Insurance », se résume en trois points : </p>
+                    <ol >
+                        <li><strong>Assurer un service aux standards internationaux de l’assurance ;</strong></li>
+                        <li><strong>Fournir des solutions adaptées aux besoins de nos clients ;</strong></li>
+                        <li><strong>Œuvrer efficacement au développement du continent africain.</strong></li>
+                    </ol>
+                    
+                    <p class="mb-4">Capital le plus précieux, les femmes et les hommes qui travaillent avec nous au quotidien sont au cœur de la protection des personnes et des biens.  </p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>50-100 employés</p>
-                        </div>
-                        {% comment %} <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Fondée en 1990</p>
-                        </div> {% endcomment %}
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Spécialisations : Assurances vie, Assurances non vie, Assurance Takaful et Immobilier </p>
-                        </div>
-                        {% comment %} <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>201-500 employés</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Siège social : Douala, Cameroun </p>
                         </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
-                        </div> {% endcomment %}
                     </div>
-                    {% comment %} <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" target="_blank" href="https://www.youtube.com/watch?v=lF5Ei5ArOz0&t=2s">Vidéo de présentation</a> {% endcomment %}
-                </div>
+                </div> 
+
+               
             </div>
+
+            {% comment %} <div class="col-8">
+                <h3 class="mb-2">Envoyer un message</h3>
+                <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+            </div> {% endcomment %}
+
+
         </div>
     </div>
-    <!-- About End -->
+    <!-- Contact End -->
+
 
     <!-- Travel Guide Start -->
     <div class="container-fluid guide py-5">
