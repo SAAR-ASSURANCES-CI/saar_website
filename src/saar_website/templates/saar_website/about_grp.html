@@ -38,7 +38,7 @@
                <div class="col-md-6 col-lg-6">
                     {% comment %} <h3 class="mb-2">Envoyer un message</h3> {% endcomment %}
                     <p class="mb-4">La Société africaine d’assurances et de réassurances <strong>(SAAR)</strong> a été créée au Cameroun le 27 novembre 1990, avec un capital social de 400 000 000 FCFA.</p>
-                    <p class="mb-4">Entreprise dynamique et visionnaire, elle fait partie aujourd’hui des leaders dans la zone CIMA, grâce à un Réseau couvrant neuf pays du continent africain : <strong>BENIN – CAMEROUN - COTE D’IVOIRE - GUINEE EQUATORIALE - LIBERIA, REPUBLIQUE DE GUINEE - SAO TOME ET PRINCIPE – SENEGAL - TCHAD.</strong> </p>
+                    <p class="mb-4">Entreprise dynamique et visionnaire, elle fait partie aujourd’hui des leaders dans la zone CIMA, grâce à un Réseau couvrant neuf pays du continent africain : <strong>CAMEROUN - COTE D’IVOIRE - GUINEE EQUATORIALE - LIBERIA - REPUBLIQUE DE GUINEE - SAO TOME ET PRINCIPE – SENEGAL - TCHAD.</strong> </p>
                     <p class="mb-4">La SAAR offre des produits dans les secteurs de <strong>l’assurance vie, l’assurance non-vie et de l’immobilier</strong>.</p>
                     <p class="mb-4">Dans la Branche non-vie, les garanties couvrent <strong>l’Automobile, la Santé, les Transports, la Responsabilité Civile, et les Risques Divers. Dans la Branche vie, nous proposons des produits en Epargne et en Prévoyance</strong>.</p>
                     <p>La vision de l’entreprise,« World Class African Insurance », se résume en trois points : </p>
@@ -79,24 +79,20 @@
 
 
     <!-- Travel Guide Start -->
-    <div class="container-fluid guide py-5">
+    {% comment %} <div class="container-fluid guide py-5">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">CONSEIL D'ADMINISTRATION</h5>
-                {% comment %} <h1 class="mb-0">Meet Our Guide</h1> {% endcomment %}
             </div>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-3">
                     <div class="guide-item">
                         <div class="guide-img">
                             <div class="guide-img-efects">
-                                {% comment %} <img src="{% static 'img/guide-1.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image"> {% endcomment %}
                                 <img src="{% static 'img/dg_saar.jpeg' %}" class="img-fluid w-100 rounded-top" alt="Image">
                             </div>
                             <div class="guide-icon rounded-pill p-2">
-                                {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a> {% endcomment %}
-                                {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a> {% endcomment %}
+                            
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" target="_blank" href="https://www.linkedin.com/in/lo%C3%AFc-armel-kengne-wafo-llb-mba-accpa-85236643/"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -115,9 +111,7 @@
                                 <img src="{% static 'img/df_saar.jpeg' %}" class="img-fluid w-100 rounded-top" alt="Image">
                             </div>
                             <div class="guide-icon rounded-pill p-2">
-                                {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a> {% endcomment %}
-                                {% comment %} <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a> {% endcomment %}
+                          
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" target="_blank" href="https://www.linkedin.com/in/temole-kuate-yannick-cpa-k-23901455/"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
@@ -129,51 +123,10 @@
                         </div>
                     </div>
                 </div>
-                {% comment %} <div class="col-md-6 col-lg-3">
-                    <div class="guide-item">
-                        <div class="guide-img">
-                            <div class="guide-img-efects">
-                                <img src="{% static 'img/guide-3.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
-                            </div>
-                            <div class="guide-icon rounded-pill p-2">
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="guide-title text-center rounded-bottom p-4">
-                            <div class="guide-title-inner">
-                                <h4 class="mt-3">Full Name</h4>
-                                <p class="mb-0">Designation</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="guide-item">
-                        <div class="guide-img">
-                            <div class="guide-img-efects">
-                                <img src="{% static 'img/guide-4.jpg' %}" class="img-fluid w-100 rounded-top" alt="Image">
-                            </div>
-                            <div class="guide-icon rounded-pill p-2">
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="guide-title text-center rounded-bottom p-4">
-                            <div class="guide-title-inner">
-                                <h4 class="mt-3">Full Name</h4>
-                                <p class="mb-0">Designation</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> {% endcomment %}
+               
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
     <!-- Travel Guide End -->
 
 
