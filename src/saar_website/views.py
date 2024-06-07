@@ -138,3 +138,27 @@ def agences(request):
 
 
 
+def reclamation(request):
+
+    context = {}
+
+    # context['active_agences'] = 'active_agences'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/reclamation.html", context=context)
+
+
+
+def valeurs(request):
+
+    context = {}
+
+    # context['active_agences'] = 'active_agences'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/valeurs.html", context=context)
+
+
+

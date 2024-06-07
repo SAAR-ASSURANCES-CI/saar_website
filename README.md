@@ -16,3 +16,8 @@ Elements impactés par la modif des couleurs :
 - .btn-primary (background-color ; border-color)
 - .dropdown-item.active,.dropdown-item:active (background-color)
 - .bg-primary (background-color)
+
+
+
+
+https://www.shutterstock.com/fr/search/assurance-voiture-africain
