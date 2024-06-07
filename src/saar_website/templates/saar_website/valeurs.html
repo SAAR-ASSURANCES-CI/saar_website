@@ -1,0 +1,87 @@
+{% extends 'saar_website/layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+      <!-- Header Start -->
+      <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Nos Valeurs</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Notre Société</a></li>
+                {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
+                <li class="breadcrumb-item active text-white">Nos Valeurs</li>
+            </ol>    
+        </div>
+    </div>
+    <!-- Header End -->
+
+   
+    <!-- Contact Start -->
+    <div class="container-fluid contact bg-light py-5">
+        <div class="container py-2">
+            {% comment %} <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Contactez Nous</h5>
+                <h1 class="mb-0">Contact Pour Toutes Préoccupations</h1>
+            </div> {% endcomment %}
+
+            <div class="row justify-content-center  mb-5">
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="rounded">
+                    
+                        <img src="{% static 'img/saar-valeurs.jpg' %}" class="img-fluid w-100 h-100" alt="">
+
+                    </div>
+                </div>
+                
+               
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-12 col-lg-12">
+                    <div class="alert alert-success" role="alert">
+                        <h2>1 | PROFESSIONNALISME</h2>
+                        <p>A simple success alert—check it out!</p>
+                    </div>
+
+                    <div class="alert alert-primary" role="alert">
+                        <h2>2 | EXCELLENT SERVICE QUALITE</h2>
+                        <p>A simple success alert—check it out!</p>
+                    </div>
+
+                    <div class="alert alert-info" role="alert">
+                        <h2>3 | RESPECTER NOS ENGAGEMENTS</h2>
+                        <p>A simple success alert—check it out!</p>
+                    </div>
+
+                    <div class="alert alert-warning" role="alert">
+                        <h2>4 | L'ESPRIT D'EQUIPE</h2>
+                        <p>A simple success alert—check it out!</p>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert">
+                        <h2>5 | INNOVATION</h2>
+                        <p>A simple success alert—check it out!</p>
+                    </div>
+                </div>
+                
+            </div>    
+
+            {% comment %} <div class="col-8">
+                <h3 class="mb-2">Envoyer un message</h3>
+                <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+            </div> {% endcomment %}
+
+
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+    
+
+
+{% endblock content %}

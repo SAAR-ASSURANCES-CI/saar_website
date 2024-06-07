@@ -5,50 +5,73 @@
 {% block content %}
 
      <!-- Header Start -->
-     <div class="container-fluid bg-breadcrumb">
+     <div class="container-fluid bg-breadcrumb-2">
         <div class="container text-center py-5" style="max-width: 900px;">
-            <h3 class="text-white display-3 mb-4">Contactez Nous</h1>
+            <h3 class="text-white display-3 mb-4">Déclarer un sinistre</h1>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="{% url 'index' %}">Notre Société</a></li>
                 {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
-                <li class="breadcrumb-item active text-white">Contact</li>
+                <li class="breadcrumb-item active text-white">Réclamation</li>
             </ol>    
         </div>
     </div>
     <!-- Header End -->
 
+
+
     <!-- Contact Start -->
     <div class="container-fluid contact bg-light py-5">
-        <div class="container py-5">
+        <div class="container py-2">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Contactez Nous</h5>
-                <h1 class="mb-0">Contact Pour Toutes Préoccupations</h1>
-            </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-4">
-                    <div class="bg-white rounded p-4">
-                        <div class="text-center mb-4">
-                            <i class="fa fa-map-marker-alt fa-3x text-primary"></i>
-                            <h4 class="text-primary"><Address></Address></h4>
-                            <p class="mb-0">7eme Tranche, Cocody II Plateaux Aghien, <br>Abidjan, Côte d'Ivoire</p>
-                        </div>
-                        <div class="text-center mb-4">
-                            <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
-                            <h4 class="text-primary">Mobile</h4>
-                            <p class="mb-0">+225 27 22 50 81 50</p>
-                            {% comment %} <p class="mb-0">+012 345 67890</p> {% endcomment %}
-                        </div>
-                       
-                        <div class="text-center">
-                            <i class="fa fa-envelope-open fa-3x text-primary mb-3"></i>
-                            <h4 class="text-primary">Email</h4>
-                            <p class="mb-0">saarci@saar-assurances.com</p>
-                            {% comment %} <p class="mb-0">info@example.com</p> {% endcomment %}
-                        </div>
+                <h5 class="section-title px-3">Par Téléphone</h5>
+                {% comment %} <h1 class="mb-0">Contact Pour Toutes Préoccupations</h1> {% endcomment %}
+            </div> 
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="rounded">
+                        <img src="{% static 'img/saar-sinistre.jpg' %}" class="img-fluid w-100 h-100" alt="">
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <h3 class="mb-2">Envoyer un message</h3>
+                <div class="col-md-6 col-lg-6 bg-white rounded p-4">
+                    {% comment %} <h1 class="mb-4 text-center">Par téléphone</h1> {% endcomment %}
+
+                    <h5 class="mb-4 text-center">Nous sommes là pour vous aider ! En cas d'incident, contactez notre équipe dédiée au :  </h5>
+    
+                    <div class="rounded p-4">
+                        <div class="text-center mb-4">
+                            <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
+                            <h4>Mobile</h4>
+                            <h6 class="mb-0">+225 07 11 25 28 61</h6>
+                            <h6 class="mb-0">+225 07 47 84 08 97</h6>
+                            <h6 class="mb-0">+225 27 22 50 81 50</h6>
+                        </div>
+                    </div>
+    
+                    <h6 class="mb-4 text-center">*Du lundi au vendredi de 8h30 à 17h30 et le samedi de 9h à 12h30</h6>
+                    <h6 class="mb-4 text-center">Nous vous assisterons rapidement et professionnellement tout au long du processus. </h6>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid contact bg-light">
+        <div class="container py-5">
+
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">En ligne</h5>
+                {% comment %} <h1 class="mb-0">Déclarer votre sinistre en ligne</h1>  {% endcomment %}
+            </div>
+
+            <div class="row g-5 justify-content-center align-items-center">
+               
+                <div class="col-lg-12">
+                    <h3 class="mb-4">Formulaire de déclaration</h3>
 
                     {% if messages %}
                     {% for message in messages %}
@@ -60,7 +83,9 @@
                     {% endfor %}
                     {% endif %}
 
-                    {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
+                    <p class="mb-0">Déclarez en ligne votre sinistre avec la possibilité de télécharger des documents et de vous faire contacter par un gestionnaire spécialisé.</p>
+                    <p class="mb-4">Veuillez remplir le formulaire ci-dessous !</p>
+
                     <form method="post" action="">
 
                         {% csrf_token %}
@@ -91,12 +116,13 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Envoyer Message</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit">Envoyer</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-12">
+
+              <!--  <div class="col-12">
                     <div class="rounded">
                         {% comment %} <iframe class="rounded w-100" 
                         style="height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
@@ -107,7 +133,9 @@
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         {% comment %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127110.79577805122!2d-4.074285054687907!3d5.384565464068948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19573d2cd45bb%3A0x89cf94865aa422e7!2sSAAR%20ASSURANCES!5e0!3m2!1sfr!2sci!4v1716312762005!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> {% endcomment %}
                     </div>
-                </div>
+                </div> -->
+
+
             </div>
         </div>
     </div>

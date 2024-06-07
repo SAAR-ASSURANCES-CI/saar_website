@@ -1,8 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from administration.models import Caroussel, Actualite, Produit
 
 from django.views.generic import ListView, DetailView
+
+from django.core.mail import send_mail, BadHeaderError
+
+from django.conf import settings
+
+from django.contrib import messages
 
 
 produits = Produit.objects.all()
@@ -86,6 +92,15 @@ def about(request):
     return render(request, "saar_website/about.html", context=context)
 
 
+def about_grp(request):
+
+    context = {}
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/about_grp.html", context=context)
+
+
 def contact(request):
 
     context = {}
@@ -93,6 +108,20 @@ def contact(request):
     context['active_contact'] = 'active_contact'
 
     context['products_keys'] = products_keys
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        from_email = request.POST['from_email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        send_mail(subject=f'{subject}', message=f'{message} {name} {from_email}', from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[settings.EMAIL_HOST_USER])
+
+        message = f"Votre message a bien été envoyé, un de nos conseiller vous contacteras dans un bref délai."
+        messages.success(request, message)
+
+        return redirect('contact')
+
 
     return render(request, "saar_website/contact.html", context=context)
 
@@ -106,6 +135,30 @@ def agences(request):
     context['products_keys'] = products_keys
 
     return render(request, "saar_website/agences.html", context=context)
+
+
+
+def reclamation(request):
+
+    context = {}
+
+    # context['active_agences'] = 'active_agences'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/reclamation.html", context=context)
+
+
+
+def valeurs(request):
+
+    context = {}
+
+    # context['active_agences'] = 'active_agences'
+
+    context['products_keys'] = products_keys
+
+    return render(request, "saar_website/valeurs.html", context=context)
 
 
 
