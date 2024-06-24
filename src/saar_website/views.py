@@ -16,7 +16,7 @@ produits = Produit.objects.all()
 products_keys = []
 
 for prod in produits:
-    products_keys.append(prod.pk)
+    products_keys.append(int(prod.pk))
 
 def index(request):
 
@@ -66,7 +66,7 @@ def produit(request, numero):
         context['products_keys'] = products_keys
         context[f'active_produit{numero}'] = f'active_produit{numero}'
 
-        return render(request, f"saar_website/produit/produits.html", context=context)
+        return render(request, f"saar_website/produits/produit-{numero}.html", context=context)
     except:
         return render(request, "saar_website/404.html", context=context)    
     

@@ -53,54 +53,54 @@
                         <a href="{% url 'index' %}" class="nav-item nav-link 
                         {% if active_index or active_about or active_agences %}
                         active
-                        {% endif %} ">Accueil</a>
+                        {% endif %} text-center">Accueil</a>
 
                         <a href="{% url 'produit' numero=products_keys.0 %}" class="nav-item nav-link 
                         {% if produit %}
                             {% if products_keys.0 == produit.pk %} active {% endif %}
-                        {% endif %}">Assurance Automobile</a>
+                        {% endif %} text-center">Assurance Automobile</a>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle 
                             {% if produit %}
                             {% if products_keys.1 == produit.pk or products_keys.2 == produit.pk or products_keys.3 == produit.pk %} active {% endif %}
-                            {% endif %}" data-bs-toggle="dropdown">Assurance de Personnes</a>
+                            {% endif %} text-center" data-bs-toggle="dropdown">Assurance de Personnes</a>
                             <div class="dropdown-menu m-0">
                                 <a href="{% url 'produit' numero=products_keys.1 %}" class="dropdown-item {% if produit %}
                                 {% if products_keys.1 == produit.pk %} active {% endif %}
-                                {% endif %} ">Assurance Santé</a>
+                                {% endif %} text-center">Assurance Santé</a>
 
                                 <a href="{% url 'produit' numero=products_keys.2 %}" class="dropdown-item {% if produit %}
                                 {% if products_keys.2 == produit.pk %} active {% endif %}
-                                {% endif %}">Individuelle Accidents</a>
+                                {% endif %} text-center">Individuelle Accidents</a>
                                 <a href="{% url 'produit' numero=products_keys.3 %}" class="dropdown-item {% if produit %}
                                 {% if products_keys.3 == produit.pk %} active {% endif %}
-                                {% endif %}">Assurance Voyage</a>
+                                {% endif %} text-center">Assurance Voyage</a>
                             </div>
                         </div>
                         <a href="{% url 'produit' numero=products_keys.4 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.4 == produit.pk %} active {% endif %}
-                        {% endif %}">Assurance Habitation</a>
+                        {% endif %} text-center">Assurance Habitation</a>
 
-                        <a href="{% url 'produit' numero=products_keys.4 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.4 == produit.pk %} active {% endif %}
-                        {% endif %}">Assurance Loyers Impayés</a>
+                        <a href="{% url 'produit' numero=products_keys.9 %}" class="nav-item nav-link {% if produit %}
+                        {% if products_keys.9 == produit.pk %} active {% endif %}
+                        {% endif %} text-center">Assurance Loyers Impayés</a>
 
                         <a href="{% url 'produit' numero=products_keys.5 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.5 == produit.pk %} active {% endif %}
-                        {% endif %}">Assurance Transport</a>
+                        {% endif %} text-center">Assurance Transport</a>
 
                         <a href="{% url 'produit' numero=products_keys.6 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.6 == produit.pk %} active {% endif %}
-                        {% endif %}">Assurance Caution</a>
+                        {% endif %} text-center">Assurance Caution</a>
                        
                         <a href="{% url 'produit' numero=products_keys.8 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.8 == produit.pk %} active {% endif %}
-                        {% endif %}">Assurance Takaful</a>
+                        {% endif %} text-center">Assurance Takaful</a>
 
                         <a href="{% url 'produit' numero=products_keys.7 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.7 == produit.pk %} active {% endif %}
-                        {% endif %}">Risques Divers</a>
+                        {% endif %} text-center">Risques Divers</a>
                         {% comment %} <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
@@ -115,7 +115,7 @@
                         </div> {% endcomment %}
                         <a href="{% url 'contact' %}" class="nav-item nav-link {% if active_contact %}
                         active
-                        {% endif %}">Contact</a>
+                        {% endif %} text-center">Contact</a>
                     </div>
                     {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Faire un devis</a> {% endcomment %}
                 </div>

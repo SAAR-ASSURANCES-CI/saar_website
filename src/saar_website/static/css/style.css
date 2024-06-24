@@ -1285,5 +1285,8 @@ color: #fc0e0e;
     height: auto;
 }
 
+fieldset, legend {
+    all: revert;
+ }
 
 /*** copyright end ***/
