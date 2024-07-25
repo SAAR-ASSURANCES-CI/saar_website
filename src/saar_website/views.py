@@ -18,6 +18,8 @@ products_keys = []
 for prod in produits:
     products_keys.append(int(prod.pk))
 
+products_keys = sorted(products_keys)
+
 def index(request):
 
     context = {}
