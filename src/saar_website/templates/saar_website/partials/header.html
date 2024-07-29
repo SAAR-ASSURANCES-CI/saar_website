@@ -40,10 +40,12 @@
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="{% url 'index' %}" class="navbar-brand p-0">
                     {% comment %} <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Saar Côte d'Ivoire</h1> {% endcomment %}
-                    <h1 class="m-0"> SAAR Assurances </h1>
-                    <h1 class="m-0"> Côte d'Ivoire </h1>
+                    {% comment %} <div class="d-flex justify-content-center"> {% endcomment %}
+                <h1 class="m-0" style="text-align: end; font-size: 1.8em;"><img src="{% static 'img/logo-saar.jpeg' %}" style="height: 500px;" alt="Logo"> Assurances </h1>
+                <h1 class="m-0" style="text-align: end; font-size: 1.8em;"> Côte d'Ivoire </h1>
+                    {% comment %} </div> {% endcomment %}
+                    
 
-                    {% comment %} <img src="{% static 'img/saar_img.jpg' %}" style="height: 900px; width : 300px;" alt="Logo"> {% endcomment %}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -72,7 +74,7 @@
 
                                 <a href="{% url 'produit' numero=products_keys.2 %}" class="dropdown-item {% if produit %}
                                 {% if products_keys.2 == produit.pk %} active {% endif %}
-                                {% endif %} text-center">Individuelle Accidents</a>
+                                {% endif %} text-center">Assurance Individuelle Accidents</a>
                                 <a href="{% url 'produit' numero=products_keys.3 %}" class="dropdown-item {% if produit %}
                                 {% if products_keys.3 == produit.pk %} active {% endif %}
                                 {% endif %} text-center">Assurance Voyage</a>
