@@ -17,127 +17,42 @@
     </div>
     <!-- Header End -->
 
-      <!-- Services Start -->
-      <div class="container-fluid bg-white service py-5">
+     <!-- Services Start -->
+     <div class="container-fluid bg-white service">
         <div class="container py-5">
-            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Garanties</h5>
-                <h1 class="mb-0">Nos Garanties</h1>
+
+            <div class="mx-auto mb-5" style="max-width: 900px;">
+                {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
+                <P style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}} <br><strong>SAAR Assurances</strong> prend en charge les dommages subis par vos biens lors d'une opération de transport.</P>
             </div>
 
+          
+            
+           
 
-            {% comment %} <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">WorldWide Tours</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-globe fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">Hotel Reservation</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-hotel fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">Travel Guides</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-user fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">Event Management</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-cog fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-globe fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">WorldWide Tours</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-hotel fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">Hotel Reservation</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-user fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">Travel Guides</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-cog fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">Event Management</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="text-center">
-                        <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Service More</a>
-                    </div>
-                </div>
-            </div> {% endcomment %}
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">NOS GARANTIES</h1>
+                <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                    <li> Dommages aux biens transportés.</li>
+                    <li> Perte des biens transportés.</li>
+                    <li> Pertes de poids sur les biens transportés.</li>            
+                </ul>
+            </div>
 
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Toute personne physique ou morale.</P>
+            </div>
+
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">COMMENT SOUSCRIRE A CE PRODUIT ?</h1>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Il suffit de remplir un questionnaire conçu à cet effet et fournir les informations demandées pour obtenir une cotation auprès de n'importe quel bureau de la <strong>SAAR Assurances</strong> Côte d'Ivoire.</P>
+            </div>
+
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Déclarez le sinistre dans les plus brefs délais (48h pour les vols, 5 jours pour les autres sinistres).</P>
+            </div>
 
         </div>
     </div>
