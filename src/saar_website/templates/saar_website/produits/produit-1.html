@@ -18,12 +18,12 @@
     <!-- Header End -->
 
       <!-- Services Start -->
-      <div class="container-fluid bg-white service py-5">
+      <div class="container-fluid bg-white service">
         <div class="container py-5">
 
             <div class="mx-auto mb-5" style="max-width: 900px;">
                 {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
-                <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}}</P>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}}</P>
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li><strong>Dommages couverts : </strong>Accident, choc, collision, incendie, explosion, vol, vol des accessoires, bris de glace.</li>
                     <li><strong>Assistance : </strong>Soutien à l'assuré en cas d'accident selon les options choisies.</li>
@@ -31,8 +31,8 @@
 
             </div>
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
-                <h1 class="mb-0" style="color: red;">NOS FORMULES</h1>
+            <div class="mx-auto" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">NOS FORMULES</h1>
                 {% comment %} <P class="mb-4" style="font-size: 1.25em; color: black;">aszdzaaaaaaaaaaaad</P> {% endcomment %}
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li><strong>Tierce Simple : </strong>Pour véhicule de tout âge.</li>
@@ -41,11 +41,157 @@
                     <li><strong>Dommages tous accidents (Tous Risques) : </strong>Pour véhicule de 0 à 5 ans.</li>
                     <li><strong>Soutrali Auto (mini tous risques) : </strong>Pour véhicule de plus de 5 ans.</li>
                 </ul>
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="bg-danger" style="color: white; text-align: center;">GARANTIES</th>
+                        <th class="table-active" style="color: black; text-align: center;">Tierce Simple (Tout âge)</th>
+                        <th class="table-active" style="color: black; text-align: center;">Tierce SAAR (Tout âge)</th>
+                        <th class="table-active" style="color: black; text-align: center;">Tierce Confort (Tout âge)</th>
+                        <th class="table-active" style="color: black; text-align: center;">Tous Risques (0 à 5 ans)</th>
+                        <th class="table-active" style="color: black; text-align: center;">Soutrali Auto (Plus de 5 ans)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Responsabilité Civile</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Défense et Recours</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Avance sur Recours</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Dommage Corporel au Conducteur</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Bris de glace</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Vol et Vol des accessoires</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Incendie</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Vandalisme</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Dommages Tous accidents</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">-</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">SAAR Assistance</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+
+                      <tr>
+                        <td class="bg-warning" style="color: black; text-align: center; font-weight: bold;">Dommages au véhicule</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">-</td>
+                        <td style="color: black; text-align: center;">Incluse</td>
+                      </tr>
+                    
+                    </tbody>
+                </table>
             </div>
             
+            <div class="mx-auto text-center py-5" style="max-width: 900px;">
+                <h1 class="section-title px-3" >SOUTRALI AUTO</h1>
+                {% comment %} <h1 class="mb-0">Meet Our Guide</h1> {% endcomment %}
+            </div>
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
-                <h1 class="mb-0" style="color: red;">NOS GARANTIES</h1>
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">QUE GUARANTIT CE PRODUIT ?</h1>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Cette garantie comprend :</P>
+                <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                    <li>La réparation de votre véhicule entre <strong>750 000 FCFA</strong> et <strong>5 500 000 FCFA</strong>.</li>
+                    <li>Le remorquage du véhicule du lieu de l'accident au garage agréé le plus proche.</li>
+                    <li>Une assistance immobilisation jusqu'à 14 jours.</li>
+                </ul>
+            </div>
+
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Toute personne ou toute entreprise pour son parc automobile.</P>
+            </div>
+
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">COMMENT SOUSCRIRE A CE PRODUIT ?</h1>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">La prime d'assurance est fonction de la valeur vénale du véhicule et du capital assistance choisie. Pour souscrire ou en savoir plus, contactez-nous. </P>
+            </div>
+
+            <div class="mx-auto mb-4" style="max-width: 900px;">
+                <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
+                <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                    <li>
+                        <strong> Constat et Assistance :</strong> Etablissez un constat amiable avec les autres parties impliquées. Si un accord n'est pas possible, contactez la police pour un constat officiel ou demandez un PV de gendarmerie. <br>Pour une assistance immédiate, contactez l'un des numéros suivants : <strong>07 11 25 29 01, 07 47 84 08 97,</strong> ou <strong>07 11 25 28 61</strong>.
+                    </li>
+                    <li><strong>Documentation des Dommages :</strong> Prenez des photos détaillés des dommages sur les différents véhicules impliqués. Assurez vous de photographier également les pièces détaillées et les plaques d'immatriculation des véhicules.</li>
+                    <li><strong>Déclaration à l'Assurance :</strong> Rendez vous dans le bureau <strong>SAAR Assurances Côte d'Ivoire</strong> le plus proche pour déclarer l'accident dans un délai de 5 jours ouvrés.</li>
+                </ul>
             </div>
 
         </div>
