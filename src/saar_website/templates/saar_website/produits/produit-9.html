@@ -5,7 +5,7 @@
 {% block content %}
 
      <!-- Header Start -->
-     <div class="container-fluid bg-breadcrumb">
+     <div class="container-fluid bg-breadcrumb-TA">
         <div class="container text-center py-5" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">{{produit.titre}}</h1>
            <!--  <ol class="breadcrumb justify-content-center mb-0">
@@ -18,128 +18,48 @@
     <!-- Header End -->
 
       <!-- Services Start -->
-      <div class="container-fluid bg-white service py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Garanties</h5>
-                <h1 class="mb-0">Nos Garanties</h1>
-            </div>
+      <div class="mx-5 py-5">
 
+        {% comment %} <div class="mx-auto mb-5" style="max-width: 900px;"> {% endcomment %}
+        <div class="mx-5 mb-5">
 
-            {% comment %} <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">WorldWide Tours</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-globe fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">Hotel Reservation</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-hotel fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">Travel Guides</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-user fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                <div class="service-content text-end">
-                                    <h5 class="mb-4">Event Management</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-cog fa-4x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-globe fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">WorldWide Tours</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-hotel fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">Hotel Reservation</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-user fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">Travel Guides</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                <div class="service-icon p-4">
-                                    <i class="fa fa-cog fa-4x text-primary"></i>
-                                </div>
-                                <div class="service-content">
-                                    <h5 class="mb-4">Event Management</h5>
-                                    <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="text-center">
-                        <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Service More</a>
-                    </div>
-                </div>
-            </div> {% endcomment %}
-
-
+            {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
+            <P style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu | safe}}</P>
+            <P style="font-size: 1.25em; color: black; text-align: justify;"> <strong>SAAR TAKAFUL</strong> est basée sur l'interdiction de trois éléments :</P>
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Gharar :</strong> Interdiction de toutes les activités qui ont un élément d'incertitude exagéré, d'ambiguitéou ou de déception.</li>
+                <li class="mb-4"><strong>Matsir :</strong> Interdiction de toute forme d'arrangement où le droit des contractants dépend d'un évènement aléatoire.</li>
+                <li class="mb-4"><strong>Al Riba :</strong> l'Islam interdit le paiement et la perception de l'intérêt.</li>
+            </ul>
         </div>
+
+        <div class="mx-5 mb-5">
+            <h1 class="mb-4" style="color: red;">NOS PRODUITS</h1> 
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>TAKAFUL AUTO</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL INCENDIE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL VOYAGE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL SANTE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL CHANTIER</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL HABITATION</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL INDIVIDUEL ACCIDENT</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL RESPONSABILITE CIVILE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL MULTIRISQUE ENTREPRISE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL TRANSPORT</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL RESPONSABILITE DECENNALE</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="mx-5 mb-5">
+            <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
+            <p style="font-size: 1.25em; color: black; text-align: justify;">Tout personne qui sollicite une assurance alternative à l'assurance classique.</p>
+        </div>
+
+        <div class="mx-5 mb-5">
+            <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
+            <p style="font-size: 1.25em; color: black; text-align: justify;">Contactez immédiatement la compagnie par un des numéros suivants : <strong>(+225) 07 11 25 29 01, 07 47 84 08 97,</strong> ou <strong>07 11 25 28 61</strong>. </p>
+        </div>
+
     </div>
     <!-- Services End -->
 

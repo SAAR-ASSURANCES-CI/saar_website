@@ -5,7 +5,7 @@
 {% block content %}
 
      <!-- Header Start -->
-     <div class="container-fluid bg-breadcrumb">
+     <div class="container-fluid bg-breadcrumb-JB">
         <div class="container text-center py-5" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">{{produit.titre}}</h1>
            <!--  <ol class="breadcrumb justify-content-center mb-0">
@@ -17,47 +17,179 @@
     </div>
     <!-- Header End -->
 <!-- Services Start -->
-<div class="container-fluid bg-white service">
-    <div class="container py-5">
+{% comment %} <div class="container-fluid bg-white "> {% endcomment %}
+    <div class="mx-5 py-5">
 
-        <div class="mx-auto mb-5" style="max-width: 900px;">
+        {% comment %} <div class="mx-auto mb-5" style="max-width: 900px;"> {% endcomment %}
+        <div class="mx-5 mb-5">
+
             {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
-            <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}} <br>Grâce au contrat JOKER BAILLEUR de SAAR Assurances, l'investissement dans l'immobilier locatif est une partie de plaisir.</P>
+            <P style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}}</P>
         </div>
 
-        <div class="mx-auto mb-4" style="max-width: 900px;">
-            <h1 class="mb-2" style="color: red;">NOS GARANTIES</h1>
+        <div class="mx-5 mb-5">
+            <h1 class="mb-4" style="color: red;">NOS GARANTIES</h1>
+
+            <h2 class="mb-4" style="color: red;">Garentie Loyers Impayés</h2>
+            <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">L'assureur rembourse les pertes financières dues au non-paiement des loyers, charges et taxes récupérables prévues au bail, pour les biens immobiliers gérés par le souscripteur du contrat.</P>
             <ul style="font-size: 1.25em; color: black; text-align: justify;">
-                <li><strong>Incendie</strong></li>
-                <li><strong>LOYERS IMPAYES</strong></li> 
-                <li><strong>DETERIORATIONS IMMOBILIERES</strong></li>
-                <li><strong>DEFENSE ET RECOURS</strong></li>               
-            </ul>
+                <li class="mb-4"><strong>Les inclusions :</strong>
+                    <ul>
+                        <li> Les loyers, charges et taxes dues par le locataire.</li>
+                        <li>Les indemnités d’occupation fixées par le tribunal.</li>
+                        <li>Les frais et honoraires de procédure d’expulsion et de recouvrement.</li>
+                        <li>Les régularisations de charges et taxes d’ordures ménagères.</li>
+                        <li>Les dommages matériels consécutifs à la procédure d’expulsion.</li>
+                    </ul> 
+                </li>      
+                <li class="mb-4"><strong>Exclusions :</strong> dépôt de garantie impayé, frais d’agence, honoraires de location, clauses pénales, frais de relance, frais d’envoi, frais de rejet bancaire.</li>
+                <li class="mb-4"><strong>Plafond de la Garantie :</strong> Cette garantie couvre jusqu'à <strong>douze (12)</strong> mois de loyer. Le montant de la franchise s'applique pour tout sinistre et est <strong>d'un mois</strong> de loyer.</li>
+                <li class="mb-4"><strong>Fait Générateur du Sinistre :</strong> Le fait générateur est le premier jour du premier terme impayé, c’est-à-dire tout loyer non réglé totalement ou partiellement dans le mois de son échéance prévue au bail. La garantie est exclue si l’impayé intervient le premier mois.</li>
+                <li class="mb-4"><strong>Obligation du souscripteur :</strong> En cas de non-paiement du loyer, le souscripteur doit suivre ces étapes :
+                    <ul>
+                        <li>J + 15 : Envoi d’une relance en lettre simple.</li>
+                        <li>J + 30 : Envoi d’une mise en demeure recommandée.</li>
+                        <li>J + 45 : Commandement de payer par huissier.</li>
+                        <li>J + 60 : Déclaration du dossier sinistre à l’assureur.</li>
+                    </ul> 
+                </li>
+
+                <li class="mb-4"><strong>Constitution du dossier sinistre :</strong> La déclaration de sinistre doit inclure :
+                    <ul>
+                        <li>La page « Déclaration de sinistre » complétée.</li>
+                        <li>La copie du mandat de gestion.</li>
+                        <li>La copie du bail de location.</li>
+                        <li>La fiche de renseignements du locataire.</li>
+                        <li>Les courriers de rappel et de mise en demeure.</li>
+                        <li>La demande et le commandement de payer.</li>
+                        <li>Le décompte des sommes dues par le locataire.</li>
+                        <li>Les justificatifs des autres sommes mises en compte.</li>
+                        <li>Les états des lieux d’entrée et de sortie.</li>
+                        <li>La nouvelle adresse du locataire, si connue.</li>
+                        <li>Tout autre document utile à l’instruction du dossier.</li>
+                    </ul>
+                </li>
+
+                <li class="mb-4"><strong>Fin de la garantie :</strong> La garantie cesse :
+                    <ul>
+                        <li>À la remise des clés du locataire.</li>
+                        <li>À la reprise des lieux par le souscripteur ou l’assuré.</li>
+                        <li>Au décès du locataire.</li>
+                        <li>À la résiliation du mandat de gestion.</li>
+                        <li>En cas de vente du portefeuille ou de changement de souscripteur.</li>
+                        <li>Si le plafond de garantie est atteint.</li>
+                        <li>Si une mesure légale autorise le locataire à ne plus payer les loyers.</li>
+                    </ul>
+                </li>
+
+            </ul> 
+
+            <h2 class="mb-4" style="color: red;">Garentie Incendie</h2>
+            <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">La garantie Incendie du produit Joker Bailleur de SAAR ASSURANCES offre une protection complète contre les dommages causés par l'incendie, que ce soit par conflagration, embrasement ou simple combustion. Cette garantie couvre également les dommages causés par les moyens utilisés pour l'extinction, comme l'eau, ainsi que ceux survenant lors des opérations de sauvetage.</P>
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Risque :</strong> Cette garantie s'applique aux bâtiments de toutes sortes, qu'ils soient construits, en construction ou à construire, situés aux adresses indiquées dans le contrat. Peu importe l'usage, l'élévation ou la destination des bâtiments, ils sont couverts s'ils appartiennent à la Société assurée ou s'ils sont pris en location par elle. Cela inclut également les dépendances, annexes et installations fixes, intérieures ou extérieures, telles que les installations de chauffage d'eau, de gaz, d'électricité et de téléphone. Tous les agrandissements et nouvelles constructions sont automatiquement couverts au fur et à mesure de leur exécution.</li>
+                <li class="mb-4"><strong>Risques Annexes :</strong> Les garanties du contrat peuvent être peuvent être étendues pour couvrir les pertes ou destructions résultant des événements suivants : <strong>Explosions et Chute de la Foudre</strong>, <strong>Chute d'Appareils de Navigation Aérienne et Choc de Véhicule Terrestre</strong>, <strong>Tempête, Ouragan, Tornade, Trombe et Cyclone</strong>. </li>
+                <li class="mb-4"><strong>Limite et calcul de l'indemnité :</strong> L'engagement de l'assureur par sinistre est fixé à 100 % du montant déterminé par les experts. Cette garantie couvre jusqu'à <strong>dix (10) fois le loyer annuel</strong>. La franchise d'avarie s'applique pour tout sinistre, dont le montant est déterminé dans les Conditions Particulières.</li>
+                <li class="mb-4"><strong>Résiliation :</strong> Les parties contractantes se réservent la faculté réciproque de résilier l’assurance <strong>Tempête, Ouragans, Trombes, Tornades</strong> indépendamment de l’assurance  <strong>Incendie</strong> à chaque échéance annuelle, par lettre recommandée, avec préavis d’un mois.</li>
+                <li class="mb-4"><strong>Remboursement des honoraires d'experts :</strong> En cas de sinistre, l'assureur rembourse les frais et honoraires de l'expert choisi par l'assuré, selon un barème spécifique. Ce remboursement ne peut excéder le montant des honoraires réellement payés ou celui défini dans les Conditions Particulières.</li>
+            </ul> 
+
+
+
+            <h2 class="mb-4" style="color: red;">Garentie Dégradations Locatives Immobilières</h2>
+            <p class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">La garantie <strong>« Dégradations Immobilières »</strong> couvre les dégradations et destructions des biens immobiliers imputables au locataire. Elle s'applique uniquement aux immeubles par nature ou par destination, tels que définis par le Code Civil, et se base sur la comparaison des états des lieux d’entrée et de sortie.</p>
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Les inclusions :</strong>
+                    <ul>
+                        <li>La prise en charge des frais de réparation des dommages causés par le locataire.</li>
+                        <li>Les dommages matériels liés à une procédure d’expulsion.</li>
+                        <li>Les frais et honoraires de procédure d’expulsion et de recouvrement.</li>
+                        <li>Les frais d’expertise, et les frais d’état des lieux de sortie établis par l’huissier.</li>
+                    </ul> 
+                </li>   
+                <li class="mb-4"><strong>Garantie Valeur à neuf :</strong> La garantie <strong>« Dégradations Immobilières »</strong> comprend également la prise en charge de la vétusté selon un barème spécifique. Les dommages sont couverts à leur valeur à neuf, avec un règlement basé sur les devis pour les réparations et les factures dans les six mois suivant le sinistre. En l’absence de factures, l’indemnisation se limitera à la valeur vénale, déduction faite de la vétusté.</li> 
+
+                <li class="mb-4"><strong>Exclusions :</strong> Les exclusions incluent les dommages aux biens mobiliers, les réparations locatives, l’usure normale, les frais d’entretien, les dommages aux espaces extérieurs, les transformations des locaux, les vols, les dégradations dues à l’humidité, les dommages couverts par une autre police d’assurance, et les dommages en cas d’absence d’état des lieux.</li>
+       
+                <li class="mb-4"><strong>Plafond de la Garantie :</strong> Les dommages matériels et les pertes pécuniaires sont couverts dans les limites d’un montant maximum dépendant du nombre de pièces du logement :
+                    <ul>
+                        <li><strong>1 pièce principale</strong> 700 000 FCFA</li>
+                        <li><strong>2 pièces principales</strong> 1 000 000 FCFA</li>
+                        <li><strong>3 pièces principales</strong> 1 200 000 FCFA</li>
+                        <li><strong>4 pièces principales</strong> 1 500 000 FCFA</li>
+                        <li><strong>5 pièces principales et plus</strong> 3 000 000 FCFA</li> 
+                    </ul> 
+                    <p style=" color: black; text-align: justify;">En cas d’absence ou d’impayé du dépôt de garantie, <strong>une franchise équivalente à un mois de loyer</strong> sera appliquée à l’indemnité versée.</p>
+                </li>   
+                
+                <li class="mb-4"><strong>Fait Générateur du Sinistre :</strong> Le fait générateur de la garantie est défini par l’état des lieux de sortie ou, à défaut, le procès-verbal de constat établi par l’huissier. Le sinistre doit être survenu après la prise d’effet du contrat et avant sa résiliation. Les sinistres sont évalués indépendamment pour chaque type de garantie.</li>
+                
+                <li class="mb-4"><strong>Déclaration du sinistre :</strong> La déclaration de sinistre doit être faite dans un délai précis, comprenant la demande de devis, l’envoi d’une sommation au locataire, et la transmission du dossier complet à l’assureur. En cas de départ sans adresse, le sinistre doit être déclaré dans les dix jours suivant la constatation des dommages.</li>
+
+                <li class="mb-4"><strong>Constitution du dossier sinistre :</strong> Le dossier sinistre doit inclure la déclaration complète, les états des lieux, les devis ou factures, la lettre de résiliation de bail, le décompte des frais, les correspondances échangées, le contrat multirisques habitation du locataire, et tous documents pertinents. Le non-respect de ces obligations peut entraîner une demande de réparation de préjudice ou la perte des garanties en cas de fraude.</li>
+
+            </ul> 
+
+            <h2 class="mb-4" style="color: red;">Garentie Protection Juridique ou Défense et Recours</h2>
+            <p class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">La garantie « Protection Juridique ou Défense et Recours » intervient en cas de litige garanti, prenant en charge la défense des intérêts de l’Assuré par voie amiable ou judiciaire.</p>
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Les inclusions :</strong>
+                    <ul>
+                        <li>La fourniture de conseils et d’informations pour évaluer la portée ou les conséquences du litige, et pour rechercher une solution amiable conforme aux intérêts de l’Assuré.</li>
+                        <li>Les honoraires d’avocat et les frais nécessaires au règlement du litige, dans les limites prévues aux Conditions Particulières.</li>
+                    </ul> 
+                </li>   
+    
+                <li class="mb-4"><strong>Exclusions :</strong> Ne sont pas pris en charge, par exemple, le coût des consultations ou des actes de procédure réalisés avant la déclaration du sinistre sans l’accord de l’Assureur, les frais engagés pour vérifier la réalité du préjudice, les amendes, les sommes mises à la charge de l’Assuré en vertu d’une décision de justice, ou encore les honoraires de résultat. Les frais de déplacement et vacations en cas de plaidoirie devant un tribunal où l’avocat de l’Assuré n’est pas habilité à postuler ne sont pas non plus couverts.</li>
+       
+                <li class="mb-4"><strong>Plafond de la Garantie :</strong> Les dommages matériels et les pertes pécuniaires sont couverts dans les limites d’un montant maximum dépendant de la nature de l'intervention :
+                    <ul>
+                        <li><strong>Intervention amiable</strong> 250 000 FCFA</li>
+                        <li><strong>Bonus en cas de transaction mettant fin au litige et ayant reçu notre agrément</strong> 50 000 FCFA</li>
+                        <li><strong>Référé</strong> 250 000 FCFA</li>
+                        <li><strong>Juridiction de première instance</strong> 400 000 FCFA</li>
+                        <li><strong>Cours d’Appel</strong> 550 000 FCFA</li>
+                        <li><strong>Cours de Cassation</strong> 750 000 FCFA</li> 
+                        <li><strong>Arbitrage</strong> 700 000 FCFA</li>  
+                    </ul> 
+                </li>   
+                            
+                <li class="mb-4"><strong>Déclaration du sinistre :</strong> Le Souscripteur doit déclarer par écrit les litiges à l’Assureur dès qu’il en a connaissance et lui transmettre tous les éléments prouvant la réalité du litige et du préjudice.</li>
+    
+                <li class="mb-4"><strong>Constitution du dossier sinistre :</strong> Le dossier sinistre doit inclure des documents tels que la copie du bail, le dossier du locataire, le mandat de gérance, et tout autre document nécessaire à l’instruction du dossier. Le non-respect de ces obligations peut entraîner la déchéance de la garantie si l’Assureur subit un préjudice en conséquence.</li>
+                
+                <li><strong>Réglement des sinistres :</strong> Lorsqu’un différend doit être réglé en justice et que la partie adverse est représentée par un avocat, l’Assuré a le libre choix de son avocat. Il peut également demander à l’Assureur de lui proposer un avocat. Les honoraires d’un seul avocat par procédure sont pris en charge par l’Assureur.</li>
+    
+            </ul> 
+
         </div>
 
-        <div class="mx-auto mb-4" style="max-width: 900px;">
+        <div class="mx-5 mb-5">
             <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
-            <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Tout bailleur ou gestionnaire immobilier.</P>
+            <p style="font-size: 1.25em; color: black; text-align: justify;">Tout bailleur ou gestionnaire immobilier.</p>
         </div>
 
-        <div class="mx-auto mb-4" style="max-width: 900px;">
+        <div class="mx-5 mb-5">
             <h1 class="mb-2" style="color: red;">POURQUOI SOUSCRIRE AU CONTRAT JOKER BAILLEUR ?</h1>
             <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;"><strong>JOKER BAILLEUR</strong> est une solution qui garantit non seulement les revenus locatifs, mais également assure la pérennité du bien du bailleur en prenant en charge les dommages physiques que celui-ci peut subir.</P>
-            <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">En pratique, lorsqu'un promoteur immobilier s'engage dans les constructions de logements à but locatifs, il compte sur les loyers à percevoir pour faire face à ses multiples engagements et donc il encourt un risque d'insolvabilité en cas de non règlement du loyer par le locataire.</P>
+            <P style="font-size: 1.25em; color: black; text-align: justify;">En pratique, lorsqu'un promoteur immobilier s'engage dans les constructions de logements à but locatifs, il compte sur les loyers à percevoir pour faire face à ses multiples engagements et donc il encourt un risque d'insolvabilité en cas de non règlement du loyer par le locataire.</P>
         </div>
 
-        <div class="mx-auto mb-4" style="max-width: 900px;">
+        <div class="mx-5 mb-5">
             <h1 class="mb-2" style="color: red;">COMMENT SOUSCRIRE A CE PRODUIT ?</h1>
-            <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Il suffit de <strong>remplir le questionnaire</strong> conçu à cet effet et fournir les informations demandées pour obtenir une cotation auprès de n'importe quel bureau <strong>SAAR ASSURANCES</strong> en Côte d'Ivoire.</P>
+            <p style="font-size: 1.25em; color: black; text-align: justify;">Il suffit de <strong>remplir le questionnaire</strong> conçu à cet effet et fournir les informations demandées pour obtenir une cotation auprès de n'importe quel bureau <strong>SAAR ASSURANCES</strong> en Côte d'Ivoire.</p>
         </div>
 
+    </div>
+
+      
         {% comment %} <div class="mx-auto mb-4" style="max-width: 900px;">
             <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
             <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Contactez MAPFRE ASSISTANCIA France au <strong>+33 4 37 37 28 98</strong>.</P>
         </div> {% endcomment %}
 
     </div>
-</div>
+{% comment %} </div> {% endcomment %}
 <!-- Services End -->
 
 
