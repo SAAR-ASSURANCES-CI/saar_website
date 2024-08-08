@@ -53,7 +53,24 @@ def carousel(request, numero):
         context['products_keys'] = products_keys
         context['active_carousel'] = 'active_carousel'
 
-        return render(request, f"saar_website/carousel/carousels.html", context=context)
+        if carousel.id==1:
+            produit = Produit.objects.get(pk=1)
+            context['produit'] = produit
+            return render(request, f"saar_website/produits/produit-1.html", context=context)
+        
+        if carousel.id==2:
+            produit = Produit.objects.get(pk=10)
+            context['produit'] = produit
+            return render(request, f"saar_website/produits/produit-10.html", context=context)
+
+        if carousel.id==3:
+            produit = Produit.objects.get(pk=9)
+            context['produit'] = produit
+            return render(request, f"saar_website/produits/produit-9.html", context=context) 
+
+        # return render(request, f"saar_website/carousel/carousel_{numero}.html", context=context)
+
+        # return render(request, f"saar_website/carousel/carousels.html", context=context)
     except:
         return render(request, "saar_website/404.html", context=context)
     
