@@ -18,12 +18,12 @@
     <!-- Header End -->
 
       <!-- Services Start -->
-      <div class="container-fluid bg-white service">
-        <div class="container py-5">
+      <div class="mx-5 py-5">
+        {% comment %} <div class="container py-5"> {% endcomment %}
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
-                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}}</P>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu | safe}}</P>
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li><strong>Dommages couverts : </strong>Accident, choc, collision, incendie, explosion, vol, vol des accessoires, bris de glace.</li>
                     <li><strong>Assistance : </strong>Soutien à l'assuré en cas d'accident selon les options choisies.</li>
@@ -31,15 +31,15 @@
 
             </div>
 
-            <div class="mx-auto" style="max-width: 900px;">
-                <h1 class="mb-2" style="color: red;">NOS FORMULES</h1>
+            <div class="mx-5 mb-5">
+                <h1 class="mb-4" style="color: red;">NOS FORMULES</h1>
                 {% comment %} <P class="mb-4" style="font-size: 1.25em; color: black;">aszdzaaaaaaaaaaaad</P> {% endcomment %}
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
-                    <li><strong>Tierce Simple : </strong>Pour véhicule de tout âge.</li>
-                    <li><strong>Tierce SAAR : </strong>Pour véhicule de tout âge.</li>
-                    <li><strong>Tierce Confort (Tiers Complet) : </strong>Pour véhicule de tout âge.</li>
-                    <li><strong>Dommages tous accidents (Tous Risques) : </strong>Pour véhicule de 0 à 5 ans.</li>
-                    <li><strong>Soutrali Auto (mini tous risques) : </strong>Pour véhicule de plus de 5 ans.</li>
+                    <li class="mb-4"><strong>Tierce Simple : </strong>Pour véhicule de tout âge.</li>
+                    <li class="mb-4"><strong>Tierce SAAR : </strong>Pour véhicule de tout âge.</li>
+                    <li class="mb-4"><strong>Tierce Confort (Tiers Complet) : </strong>Pour véhicule de tout âge.</li>
+                    <li class="mb-4"><strong>Dommages tous accidents (Tous Risques) : </strong>Pour véhicule de 0 à 5 ans.</li>
+                    <li class="mb-4"><strong>Soutrali Auto (mini tous risques) : </strong>Pour véhicule de plus de 5 ans.</li>
                 </ul>
 
                 <table class="table">
@@ -157,33 +157,115 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="mx-5 mb-5">
+              <h1 class="mb-4" style="color: red;">NOS GARANTIES</h1>
+              {% comment %} <P class="mb-4" style="font-size: 1.25em; color: black;">aszdzaaaaaaaaaaaad</P> {% endcomment %}
+
+
+              <h2 class="mb-4" style="color: red;">Responsabilité Civile (RC)</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Elle couvre les conséquences pécuniaires de la RESPONSABILITE CIVILE (RC) de l’assuré en raison des dommages corporels ou matériels causés à des tiers non survenus au cours ou à l’occasion de la circulation et résultant d’accident, d’incendie ou d’explosion provenant du véhicule assuré  ou occasionné par lui, les accessoires ou produits servant ainsi que les objets ou substances qu’il transporte.</P>
+              <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Les personnes assurées :</strong>
+                  <ul>
+                  <li>Le propriétaire du véhicule ;</li>
+                  <li>Le souscripteur du contrat ;</li>
+                  <li>Toute personne ayant la garde ou la conduite même non autorisée du véhicule ;</li>
+                  <li>Les passagers du véhicule.</li>
+                  </ul> 
+                </li>
+
+                <li class="mb-4"><strong>Les exclusions :</strong> La RC ne couvre pas les dommages subis par les personnes suivantes :
+                  <ul>
+                  <li class="mb-1">L’assuré c'est-à-dire le propriétaire du véhicule, le souscripteur du contrat ou toute personne ayant la garde ou la conduite même autorisée du véhicule, les salariés ou préposés de l’assuré responsable du sinistre dans l’exercice de leur fonction ; </li>
+                  <li class="mb-1">Les personnes transportées à titre onéreux ;</li>
+                  <li class="mb-1">Les personnes transportées dans une remorque ou en dehors de la cabine, des personnes installées sur les marchandises, des toitures, des ailes ou des marchepieds ;</li>
+                  <li class="mb-1">Les choses, immeubles, animaux appartenant à l’assuré ou au conducteur ou qui leur ont été confiés pour quelques raisons que ce soit notamment les dommages survenus en cours de chargement ou de déchargement du véhicule dans la mesure où les opérations ne sont pas des risques de circulation ;</li>
+                  <li class="mb-1">Les accidents survenus lorsque le conducteur au moment de l’accident n’est pas titulaire d’un permis de conduire ou pour les taxis, sauf en cas de violence lorsque le véhicule est volé ou utilisé à l’insu de l’assuré au moment de l’accident ;</li>  
+                  <li class="mb-1">Les accidents survenant  pendant les rallyes, les compétitions automobiles et les essais préparatoires.</li>
+                </ul> 
+                </li>
+              </ul> 
+
+              <h2 class="mb-4" style="color: red;">Défense et Recours</h2>
+              <P style="font-size: 1.25em; color: black; text-align: justify;">La garantie Défense et Recours de SAAR Assurance est une protection juridique qui couvre l'assuré en cas de litige lié à un accident de la route. Elle permet à l'assuré de bénéficier d'un soutien juridique pour défendre ses droits, que ce soit en tant que responsable ou victime, et de demander réparation des préjudices subis.</P>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Concrètement, cette garantie prend en charge les frais de justice, les honoraires d'avocats, ainsi que les frais d'expertise nécessaires pour régler le différend, que ce soit à l'amiable ou devant les tribunaux.</P>
+
+
+              <h2 class="mb-4" style="color: red;">La Garantie Dommages</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Elle se décompose en deux types :</P>
+              <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Dommages Tous Accidents :</strong> Elle prend en charge les sinistres provenant:
+                  <ul>
+                  <li>D’une collision avec un autre véhicule ;</li>
+                  <li>D’un choc avec un corps fixe ou mobile (poteau électrique, animaux) ;</li>
+                  <li>D’un renversement du véhicule sans collision préalable.</li>
+                  </ul> 
+                </li>
+
+                <li class="mb-4"><strong>Dommages Collision :</strong> Elle prend en charge les sinistres provenant:
+                  <ul>
+                  <li>D’une collision avec un piéton identifié ;</li>
+                  <li>D’une collision avec un véhicule ou un animal appartenant à une personne identifiée.</li>
+                  </ul> 
+                </li>
             
-            <div class="mx-auto text-center py-5" style="max-width: 900px;">
-                <h1 class="section-title px-3" >SOUTRALI AUTO</h1>
-                {% comment %} <h1 class="mb-0">Meet Our Guide</h1> {% endcomment %}
+              </ul> 
+
+              <h2 class="mb-4" style="color: red;">La Garantie Incendie</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Elle couvre les dommages résultant de l’incendie, de l’explosion, de la combustion spontané et de la chute de la foudre.
+              </P>
+              <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Les exclusions :</strong>
+                  <ul>
+                  <li>Elle ne couvre pas les véhicules lorsqu’ils transportent des explosifs ;</li>
+                  <li>Elle ne couvre pas les dommages résultant de la seule action de la chaleur ;</li>
+                  <li>Elle ne couvre pas les marchandises transportées.</li>
+                  </ul> 
+                </li>   
+              </ul> 
+
+              <h2 class="mb-4" style="color: red;">La Garantie Vol</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Elle se décompose en trois types: 
+              </P>
+              <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>La Garantie Vol :</strong> Elle couvre les dommages causés par la disparition ou la détérioration de véhicule assuré à la suite d’un vol ou tentative de vol ainsi que les frais engagés avec l’accord de l’assureur en vue de la récupération du véhicule volé.</li>   
+                <li class="mb-4"><strong>La Garantie Vol Partiel :</strong> C’est une extension de la garantie Vol accompagnée avec surprime qui étend le champ de couverture aux objets ci-après sans qu’il soit nécessaire que le vol soit commis dans un garage ou une remise ou que ces objets soient volés en même temps que le véhicule.</li>   
+                <li class="mb-4"><strong>La Garantie Vol Par Braquage :</strong> C’est une extension de la garantie Vol accompagnée avec surprime qui étend le champ de couverture au braquage.</li>   
+              </ul>
+            
+              <h2 class="mb-4" style="color: red;">La Garantie Bris de Glace</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Elle couvre les <strong>Bris de Glace accidentels du Pare Brise, des glaces latérales et de la lunette arrière du véhicule assuré</strong>. En principe, Cette garantie ne couvre pas <strong>les bris de verre, de phare, de rétroviseurs, etc</strong>. qui sont du ressort de la garantie de dommage par accident.</P>
+           
+              <h2 class="mb-4" style="color: red;">La Garantie Personnes Transportées</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">La garantie de la personne transportée est une couverture qui protège <strong>les passagers d'un véhicule en cas d'accident</strong>. Elle prévoit une indemnisation en cas de blessures corporelles ou de décès des passagers transportés dans le véhicule assuré, que l'accident soit causé par le conducteur du véhicule ou par un tiers. Cette garantie prend en charge les frais médicaux, les indemnités journalières en cas d'incapacité temporaire, et un capital en cas d'invalidité permanente ou de décès.</P>
+          
+              <h2 class="mb-4" style="color: red;">La Garantie Dommage Corporel au Conducteur</h2>
+              <P style="font-size: 1.25em; color: black; text-align: justify;">La garantie protection du conducteur est une assurance qui couvre <strong>les dommages corporels subis par le conducteur du véhicule assuré en cas d'accident, même si celui-ci est responsable</strong>. Contrairement aux garanties classiques qui indemnisent uniquement les tiers (passagers, piétons, etc.).</P>
+              <p class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Cette garantie prend en charge <strong>les frais médicaux, les pertes de revenus en cas d'incapacité de travail, et verse un capital en cas d'invalidité permanente ou de décès du conducteur</strong>. Elle permet ainsi de compléter la couverture de la responsabilité civile qui ne couvre pas les dommages corporels du conducteur lui-même.</p>
+
+              <h2 class="mb-4" style="color: red;">SOUTRALI AUTO</h2>
+              <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Pour les véhicules de <strong>plus de 5 ans</strong>. Prendre en charge la réparation de votre véhicule avant de rechercher toutes responsabilités ou effectuer tous recours. Cette garantie comprend :
+              </P>
+              <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4">La réparation de votre véhicule entre <strong>750 000 FCFA</strong> et <strong>5 500 000 FCFA</strong>.</li>   
+                <li class="mb-4">Le remorquage du véhicule du lieu de l'accident au garage agréé le plus proche.</li>   
+                <li class="mb-4">Une assistance immobilisation jusqu'à 14 jours.</li>   
+              </ul>
+            
             </div>
 
-            <div class="mx-auto mb-4" style="max-width: 900px;">
-                <h1 class="mb-2" style="color: red;">QUE GUARANTIT CE PRODUIT ?</h1>
-                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Cette garantie comprend :</P>
-                <ul style="font-size: 1.25em; color: black; text-align: justify;">
-                    <li>La réparation de votre véhicule entre <strong>750 000 FCFA</strong> et <strong>5 500 000 FCFA</strong>.</li>
-                    <li>Le remorquage du véhicule du lieu de l'accident au garage agréé le plus proche.</li>
-                    <li>Une assistance immobilisation jusqu'à 14 jours.</li>
-                </ul>
-            </div>
-
-            <div class="mx-auto mb-4" style="max-width: 900px;">
+            <div class="mx-5 mb-5" style="max-width: 900px;">
                 <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
                 <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Toute personne ou toute entreprise pour son parc automobile.</P>
             </div>
 
-            <div class="mx-auto mb-4" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 <h1 class="mb-2" style="color: red;">COMMENT SOUSCRIRE A CE PRODUIT ?</h1>
                 <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">La prime d'assurance est fonction de la valeur vénale du véhicule et du capital assistance choisie. Pour souscrire ou en savoir plus, contactez-nous. </P>
             </div>
 
-            <div class="mx-auto mb-4" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li>
@@ -194,7 +276,7 @@
                 </ul>
             </div>
 
-        </div>
+        {% comment %} </div> {% endcomment %}
     </div>
     <!-- Services End -->
 
