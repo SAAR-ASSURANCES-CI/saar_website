@@ -18,12 +18,12 @@
     <!-- Header End -->
 
       <!-- Services Start -->
-    <div class="container-fluid bg-white service py-5">
-        <div class="container py-5">
+    <div class="mx-5 py-5">
+        {% comment %} <div class="container py-5"> {% endcomment %}
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
-                <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}}</P>
+                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu | safe}}</P>
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li>Préfinancement de vos soins et remboursement de vos dépenses.</li>
                     <li>Prise en charge de tous vos actes, soins médicaux et frais pharmaceutiques selon votre taux de couverture.</li>
@@ -32,8 +32,8 @@
             </div>
 
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
-                <h1 class="mb-0" style="color: red;">COMMENT SOUSCRIRE?</h1><br/> 
+            <div class="mx-5 mb-5">
+                <h1 class="mb-2" style="color: red;">COMMENT SOUSCRIRE?</h1><br/> 
                 {% comment %} <P class="mb-4" style="font-size: 1.25em; color: black;">aszdzaaaaaaaaaaaad</P> {% endcomment %}
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li>Remplissez un questionnaire de souscription dans nos agences, représentations ou chez nos courtiers partenaires.</li>
@@ -41,8 +41,8 @@
                 </ul>
             </div>
       
-            <div class="mx-auto mb-5" style="max-width: 900px;" >
-                 <h1 class="mb-0" style="color: red;">NOS GARANTIES</h1><br/> 
+            <div class="mx-5 mb-5">
+                 <h1 class="mb-2" style="color: red;">NOS GARANTIES</h1><br/> 
                 <ul style="font-size: 1.25em; color: black; text-align: justify;" >
                     <li ><strong>Consultation, Hospitalisation, Chirurgie </strong></li>
                     <li><strong>Frais médicaux et pharmaceutiques </strong></li>
@@ -56,8 +56,8 @@
                 </ul>
             </div>
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
-                <h1 class="mb-0" style="color: red;">PRISE EN CHARGE MEDICALE</h1><br/> 
+            <div class="mx-5 mb-5">
+                <h1 class="mb-2" style="color: red;">PRISE EN CHARGE MEDICALE</h1><br/> 
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li><strong>Tiers Payant : </strong>rendez vous dans les cliniques et pharmacie agrées par SAAR Assurances Côte d'Ivoire muni de votre carte d'assurance santé pour une prise en charge complète.</strong></li>
                     <li><strong>Hors Tiers Payant   : </strong>si vous êtes pris en charge dans un centre de santé non agréé par SAAR Assurances, trabsmettez-nous les justificatifs pour remboursement.</strong></li>
@@ -66,7 +66,7 @@
 
     
 
-        </div>
+        {% comment %} </div> {% endcomment %}
     </div>
     <!-- Services End -->
 

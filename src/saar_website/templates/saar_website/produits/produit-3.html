@@ -18,19 +18,19 @@
     <!-- Header End -->
 
      <!-- Services Start -->
-     <div class="container-fluid bg-white service">
-        <div class="container py-5">
+     <div class="mx-5 py-5">
+        {% comment %} <div class="container py-5"> {% endcomment %}
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
-                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}} En cas d'accident portant atteinte à votre intégrité physique, SAAR Assurances vous garantit une prise en charge immédiate.</P>
+                <P style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu | safe}} En cas d'accident portant atteinte à votre intégrité physique, SAAR Assurances vous garantit une prise en charge immédiate.</P>
             </div>
 
           
             
            
 
-            <div class="mx-auto mb-4" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 <h1 class="mb-2" style="color: red;">NOS GARANTIES</h1>
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li><strong>Frais de traitement :</strong> Remboursement des frais médicaux sur justificatifs, dans la limite du plafond prévu.</li>
@@ -41,9 +41,9 @@
                 <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;"><strong>NB :</strong> Les capitaux décès et incapacité totale ne peuvent pas se cumuler.</P>    
             </div>
 
-            <div class="mx-auto mb-4" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
-                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Toute personne physique ou morale.</P>
+                <P style="font-size: 1.25em; color: black; text-align: justify;">Toute personne physique ou morale.</P>
             </div>
 
             {% comment %} <div class="mx-auto mb-4" style="max-width: 900px;">
@@ -51,12 +51,12 @@
                 <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Fournissez votre passeport et les informations demandées pour obtenir une cotation auprès de n'importe quel bureau <strong>SAAR Assurances</strong> en Côte d'Ivoire.</P>
             </div> {% endcomment %}
 
-            <div class="mx-auto mb-4" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
-                <P class="mb-2" style="font-size: 1.25em; color: black; text-align: justify;">Déclarez à un point d'accueil <strong>SAAR Assurances</strong> Côte d'Ivoire dans les plus brefs délais.</P>
+                <P style="font-size: 1.25em; color: black; text-align: justify;">Déclarez à un point d'accueil <strong>SAAR Assurances</strong> Côte d'Ivoire dans les plus brefs délais.</P>
             </div>
 
-        </div>
+        {% comment %} </div> {% endcomment %}
     </div>
     <!-- Services End -->
 
