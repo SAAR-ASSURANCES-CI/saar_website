@@ -73,7 +73,7 @@
                             </div>
                             <div class="blog-content border border-top-0 rounded-bottom p-4">
                                 <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
-                                <p class="my-3" style="text-align: justify;">{{ produit.contenu | truncatechars:200 }}</p>
+                                <p class="my-3" style="text-align: justify;">{{ produit.contenu | safe | truncatechars:200 }}</p>
                                 <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
                             </div>
                         </div>
