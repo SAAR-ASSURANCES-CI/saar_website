@@ -1,15 +1,31 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from administration.models import Caroussel, Actualite, Produit
+from administration.models import Caroussel, Actualite, Produit, Sinistre
 
 from django.views.generic import ListView, DetailView
 
 from django.core.mail import send_mail, BadHeaderError
 
+from django.core.mail import EmailMessage
+
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template import Context
+
+from django.template.loader import render_to_string
+
 from django.conf import settings
 
 from django.contrib import messages
 
+from administration.forms import SinistreForm
+
+from weasyprint import HTML, CSS
+
+import pandas as pd
+
+from datetime import datetime
 
 produits = Produit.objects.all()
 
@@ -134,7 +150,20 @@ def contact(request):
         subject = request.POST['subject']
         message = request.POST['message']
 
-        send_mail(subject=f'{subject}', message=f'{message} {name} {from_email}', from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[settings.EMAIL_HOST_USER])
+        
+        # Load the HTML template
+        context_template = {'name': name, 'from_email': from_email, 'message':message}
+        html_content = render_to_string('saar_website/email_template.html', context=context_template)
+
+        # email = EmailMessage(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=['saarci.assurance@gmail.com'])
+
+        email = EmailMultiAlternatives(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=[from_email])
+        email.attach_alternative(html_content, "text/html")
+
+
+        email.send()
+
+        # send_mail(subject=f'{subject}', message=f'{message} {name} {from_email}', from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[settings.EMAIL_HOST_USER])
 
         message = f"Votre message a bien été envoyé, un de nos conseiller vous contacteras dans un bref délai."
         messages.success(request, message)
@@ -163,7 +192,217 @@ def reclamation(request):
 
     # context['active_agences'] = 'active_agences'
 
+    # sinistre_form = SinistreForm()
+    # context['sinistre_form'] = sinistre_form
+
+
     context['products_keys'] = products_keys
+
+    if request.method == 'POST':
+
+        # request.POST['constat_a']
+        # request.POST['salarie_a']
+        # request.POST['constat_b']
+        # request.POST['salarie_a']
+
+         # Champs du sinistre
+        date_sinistre = request.POST['date_sinistre']
+        lieu_sinistre = request.POST['lieu_sinistre']
+        periode_du = request.POST['periode_du']
+        periode_au = request.POST['periode_au']
+        numero_police = request.POST['name']
+        intervention = request.POST['intervention']
+
+        # Champs de l'assuré
+        nom_a = request.POST['nom_a']
+        adresse_a = request.POST['adresse_a']
+        phone_a = request.POST['phone_a']
+        email_a = request.POST['email_a']
+
+        # Champs du véhicule
+        marque_a = request.POST['marque_a']
+        imma_a = request.POST['imma_a']
+        visite_du_a = request.POST['visite_du_a']
+        visite_au_a = request.POST['visite_au_a']
+        usage_a = request.POST['usage_a']
+
+        # Champs du conducteur
+        conducteur_a = request.POST['conducteur_a']
+        adresse_conducteur_a = request.POST['adresse_conducteur_a']
+        phone_conducteur_a = request.POST['phone_conducteur_a']
+        profession_conducteur_a = request.POST['profession_conducteur_a']
+        numero_permis = request.POST['numero_permis']
+        date_delivrance_a = request.POST['date_delivrance_a']
+        lieu_delivrance_a = request.POST['lieu_delivrance_a']
+        categorie_a = request.POST['categorie_a']
+        dure_a = request.POST['dure_a']
+
+        # Champs pour les questions avec réponses Oui/Non
+        constat_a = request.POST['constat_a']
+        salarie_a = request.POST['salarie_a']
+
+         # Récupérer les données du formulaire
+        nom_b = request.POST['nom_b']
+        adresse_b = request.POST['adresse_b']
+        phone_b = request.POST['phone_b']
+        email_b = request.POST['email_b']
+        marque_b = request.POST['marque_b']
+        imma_b = request.POST['imma_b']
+        visite_du_b = request.POST['visite_du_b']
+        visite_au_b = request.POST['visite_au_b']
+        usage_b = request.POST['usage_b']
+
+        conducteur_b = request.POST['conducteur_b']
+        adresse_conducteur_b = request.POST['adresse_conducteur_b']
+        phone_conducteur_b = request.POST['phone_conducteur_b']
+        profession_conducteur_b = request.POST['profession_conducteur_b']
+        numero_permis_b = request.POST['numero_permis_b']
+        date_delivrance_b = request.POST['date_delivrance_b']
+        lieu_delivrance_b = request.POST['lieu_delivrance_b']
+        categorie_b = request.POST['categorie_b']
+        dure_b = request.POST['dure_b']
+        constat_b = request.POST['constat_b']
+        salarie_b = request.POST['salarie_b']
+
+        circonstance = request.POST['circonstance']
+        dommages = request.POST['dommages']
+
+
+        sinistre = Sinistre(
+            date_sinistre = date_sinistre,
+            lieu_sinistre = lieu_sinistre,
+            periode_du = periode_du,
+            periode_au = periode_au,
+            numero_police = numero_police,
+            intervention = intervention,
+            nom_a = nom_a,
+            adresse_a = adresse_a,
+            phone_a = phone_a,
+            email_a = email_a,
+            marque_a = marque_a,
+            imma_a = imma_a,
+            visite_du_a = visite_du_a,
+            visite_au_a = visite_au_a,
+            usage_a = usage_a,
+            conducteur_a = conducteur_a,
+            adresse_conducteur_a = adresse_conducteur_a,
+            phone_conducteur_a = phone_conducteur_a,
+            profession_conducteur_a = profession_conducteur_a,
+            numero_permis = numero_permis,
+            date_delivrance_a = date_delivrance_a,
+            lieu_delivrance_a = lieu_delivrance_a,
+            categorie_a = categorie_a,
+            dure_a = dure_a,
+            constat_a = constat_a,
+            salarie_a = salarie_a,
+            nom_b=nom_b,
+            adresse_b=adresse_b,
+            phone_b=phone_b,
+            email_b=email_b,
+            marque_b=marque_b,
+            imma_b=imma_b,
+            visite_du_b=visite_du_b,
+            visite_au_b=visite_au_b,
+            usage_b=usage_b,
+            conducteur_b=conducteur_b,
+            adresse_conducteur_b=adresse_conducteur_b,
+            phone_conducteur_b=phone_conducteur_b,
+            profession_conducteur_b=profession_conducteur_b,
+            numero_permis_b=numero_permis_b,
+            date_delivrance_b=date_delivrance_b,
+            lieu_delivrance_b=lieu_delivrance_b,
+            categorie_b=categorie_b,
+            dure_b=dure_b,
+            constat_b=constat_b,
+            salarie_b=salarie_b,
+            circonstance=circonstance,
+            dommages=dommages
+        )
+
+        sinistre.save()
+
+        if sinistre:
+            context_template = {}
+
+            context_template['date_sinistre'] = pd.to_datetime(date_sinistre)
+            context_template['lieu_sinistre'] = lieu_sinistre
+            context_template['periode_du'] = pd.to_datetime(periode_du)
+            context_template['periode_au'] = pd.to_datetime(periode_au)
+            context_template['numero_police'] = numero_police
+            context_template['intervention'] = intervention
+            context_template['nom_a'] = nom_a
+            context_template['adresse_a'] = adresse_a
+            context_template['phone_a'] = phone_a
+            context_template['email_a'] = email_a
+            context_template['marque_a'] = marque_a
+            context_template['imma_a'] = imma_a
+            context_template['visite_du_a'] = pd.to_datetime(visite_du_a)
+            context_template['visite_au_a'] = pd.to_datetime(visite_au_a)
+            context_template['usage_a'] = usage_a
+            context_template['conducteur_a'] = conducteur_a
+            context_template['adresse_conducteur_a'] = adresse_conducteur_a
+            context_template['phone_conducteur_a'] = phone_conducteur_a
+            context_template['profession_conducteur_a'] = profession_conducteur_a
+            context_template['numero_permis'] = numero_permis
+            context_template['date_delivrance_a'] = pd.to_datetime(date_delivrance_a)
+            context_template['lieu_delivrance_a'] = lieu_delivrance_a
+            context_template['categorie_a'] = categorie_a
+            context_template['dure_a'] = dure_a
+            context_template['constat_a'] = constat_a
+            context_template['salarie_a'] = salarie_a
+            context_template['nom_b'] = nom_b
+            context_template['adresse_b'] = adresse_b
+            context_template['phone_b'] = phone_b
+            context_template['email_b'] = email_b
+            context_template['marque_b'] = marque_b
+            context_template['imma_b'] = imma_b
+            context_template['visite_du_b'] = pd.to_datetime(visite_du_b)
+            context_template['visite_au_b'] = pd.to_datetime(visite_au_b)
+            context_template['usage_b'] = usage_b
+            context_template['conducteur_b'] = conducteur_b
+            context_template['adresse_conducteur_b'] = adresse_conducteur_b
+            context_template['phone_conducteur_b'] = phone_conducteur_b
+            context_template['profession_conducteur_b'] = profession_conducteur_b
+            context_template['numero_permis_b'] = numero_permis_b
+            context_template['date_delivrance_b'] = pd.to_datetime(date_delivrance_b)
+            context_template['lieu_delivrance_b'] = lieu_delivrance_b
+            context_template['categorie_b'] = categorie_b
+            context_template['dure_b'] = dure_b
+            context_template['constat_b'] = constat_b
+            context_template['salarie_b'] = salarie_b
+            context_template['circonstance'] = circonstance
+            context_template['dommages'] = dommages
+
+            date_actuel = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
+                # html_content = render_to_string('saar_website/template_sinistre.html', context=context_template)
+
+            html_string = render_to_string('saar_website/template_sinistre2.html', context=context_template)
+            #pdf_file = HTML(string=html_string).write_pdf(stylesheets=[CSS(settings.STATIC_ROOT / 'css/style.css'), CSS(settings.STATIC_ROOT / 'css/bootstrap.min.css')])
+            pdf_file = HTML(string=html_string).write_pdf(stylesheets=[CSS(settings.STATICFILES_DIRS[0] / 'css/style_pdf.css'), CSS(settings.STATIC_ROOT / 'css/style.css'), CSS(settings.STATIC_ROOT / 'css/bootstrap.min.css')])
+
+            email = EmailMessage(subject=f'DECLARATION SINISTRE AUTOMOBILE {date_actuel}', body=f"Veuillez trouver ci-joint le PDF de déclaration de sinistre de l'assuré {nom_a}, numéro de police {numero_police} à la date du {date_actuel}.", from_email='saarci.assurance@gmail.com', to=['saarci.assurance@gmail.com'])
+            email.attach('declaration_sinistre.pdf', pdf_file, 'application/pdf')
+            
+            email.send()
+
+            message = f"Votre réclamation a bien été enregistré et transmis au service sinistre, un de nos gestionnaire sinistre vous contactera dans un bref délai pour finaliser votre procédure."
+            messages.success(request, message)
+
+            return redirect('reclamation')
+            #return render(request, 'saar_website/template_sinistre.html', context=context_template)
+
+            # response = HttpResponse(pdf_file, content_type="application/pdf")
+            # response['Content-Disposition'] = 'filename="test.pdf"'
+
+            # return response
+
+        else:
+            message = f"Aucun enregistrement n'a été fait dans la base."
+            messages.warning(request, message)
+
+            return redirect('reclamation')
+
 
     return render(request, "saar_website/reclamation.html", context=context)
 
