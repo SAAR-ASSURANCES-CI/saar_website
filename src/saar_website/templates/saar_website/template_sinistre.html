@@ -1,0 +1,561 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>
+            
+            {% block titre %}
+             Accueil | Saar CI   
+            {% endblock titre %}
+                
+        </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+         <!-- Favicons -->
+        <link href="{% static 'img/logo-saar.png' %}" rel="icon" sizes="60x60">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+
+
+            <!-- Contact Start -->
+    <div class="container-fluid contact bg-light">
+        <div class="container py-5">
+
+            <div class="row g-5 justify-content-center align-items-center">
+               
+                <div class="col-lg-12">
+                    <h1 class="mb-4">DECLARATION DE SINISTRE AUTOMOBILE</h1>
+
+                    <form method="post" action=""> 
+
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="date_sinistre" name="date_sinistre" placeholder="Date et heure du sinistre" value="{{date_sinistre.0}}" disabled>
+                                    <label for="date_sinistre">Date et heure du sinistre</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="lieu_sinistre" name="lieu_sinistre" placeholder="Lieu exact du sinistre" value="{{lieu_sinistre.0}}" disabled>
+                                    <label for="lieu_sinistre">Lieu exact du sinistre</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="periode_du" name="periode_du" placeholder="Période garantie accordée du" value="{{periode_du}}" disabled>
+                                    <label for="periode_du">Période garantie accordée du</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="periode_au" name="periode_au" placeholder="Période garantie accordée au" value="{{periode_au}}" disabled>
+                                    <label for="periode_au">Période garantie accordée au</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <input type="number" min="10000000" max="90000000" class="form-control border-0" id="name" name="name" placeholder="Your Name" value="{{numero_police}}" disabled>
+                                    <label for="name">Numéro de police concerné</label>
+                                </div>
+                            </div>
+
+                            {% comment %} <div class="col-md-6">
+                                <span>Y'a t-il eu intervention de la police ou de la gendarmerie ?</span><br>
+                                <input type="text" min="10000000" max="90000000" class="form-control border-0" id="intervention" name="intervention" placeholder="Your Name" value="{{intervention}}" required>
+                                    <label for="intervention">Numéro de police concerné</label>
+                            </div> {% endcomment %}
+
+                            <div class="col-md-6">
+                                <span>Y'a t-il eu intervention de la police ou de la gendarmerie ?</span><br>
+
+                                {% if intervention == 'Oui' %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="intervention" type="radio" id="oui" value="Oui" checked>
+                                    <label class="form-check-label" for="oui">Oui</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="intervention" type="radio" id="non" value="Non">
+                                    <label class="form-check-label" for="non">Non</label>
+                                  </div>
+                                {% endif %}
+                                {% if intervention == 'Non' %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="intervention" type="radio" id="oui" value="Oui" >
+                                    <label class="form-check-label" for="oui">Oui</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="intervention" type="radio" id="non" value="Non" checked>
+                                    <label class="form-check-label" for="non">Non</label>
+                                  </div>
+                                {% endif %}
+                                    
+                                
+                            </div>
+
+
+                            <!-- INFO ASSURE -->
+                        <section>
+
+                            <h3 class="mb-4">Informations sur l'assuré</h3>
+                            
+
+                            <fieldset class="rounded-3 p-3 mb-2">
+                            <legend class="px-3">Assuré</legend>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="nom_a" name="nom_a" placeholder="Nom et Prénoms" value="{{nom_a}}" disabled>
+                                            <label for="nom_a">Nom et Prénoms</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="adresse_a" name="adresse_a" value="{{adresse_a}}" disabled placeholder="Adresse">
+                                            <label for="adresse_a">Adresse</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="phone_a" name="phone_a" placeholder="Télephone" value="{{phone_a}}" disabled>
+                                            <label for="phone_a">Télephone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control border-0" id="email_a" name="email_a" placeholder="Email" value="{{email_a}}" disabled>
+                                            <label for="email_a">Email</label>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </fieldset>
+
+                            <fieldset class="rounded-3 p-3 mb-2">
+                                <legend class="px-3">Véhicule</legend>
+                                    <div class="row g-3">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="marque_a" name="marque_a" placeholder="Marque du véhicule" value="{{marque_a}}" disabled>
+                                                <label for="marque_a">Marque du véhicule</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="imma_a" name="imma_a" placeholder="Immatriculation" value="{{imma_a}}" disabled>
+                                                <label for="imma_a">Immatriculation</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="date" class="form-control border-0" id="visite_du_a" name="visite_du_a" placeholder="Visite technique du"  value="{{visite_du_a}}" disabled>
+                                                <label for="visite_du_a">Visite technique du</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="date" class="form-control border-0" id="visite_au_a" name="visite_au_a" placeholder="Visite technique au" value="{{visite_au_a}}" disabled>
+                                                <label for="visite_au_a">Visite technique au</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="usage_a" name="usage_a" value="{{usage_a}}" disabled placeholder="Usage">
+                                                <label for="usage_a">Usage</label>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>    
+                            </fieldset>
+
+                            <fieldset class="rounded-3 p-3 mb-4">
+                                <legend class="px-3">Conducteur</legend>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="conducteur_a" name="conducteur_a" placeholder="Nom et Prénoms" value="{{conducteur_a}}" disabled>
+                                                <label for="conducteur_a">Nom et Prénoms</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="adresse_conducteur_a" name="adresse_conducteur_a" value="{{adresse_conducteur_a}}" disabled placeholder="Adresse">
+                                                <label for="adresse_conducteur_a">Adresse</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="phone_conducteur_a" name="phone_conducteur_a" value="{{phone_conducteur_a}}" disabled placeholder="Télephone">
+                                                <label for="phone_conducteur_a">Télephone</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="profession_conducteur_a" name="profession_conducteur_a" value="{{profession_conducteur_a}}" disabled placeholder="Profession">
+                                                <label for="profession_conducteur_a">Profession</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="numero_permis" name="numero_permis" placeholder="Numéro de permis" value="{{numero_permis}}" disabled required>
+                                                <label for="numero_permis">Numéro de permis</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="date" class="form-control border-0" id="date_delivrance_a" name="date_delivrance_a" placeholder="Date de délivrance" value="{{date_delivrance_a}}" disabled required>
+                                                <label for="date_delivrance_a">Date de délivrance</label>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="lieu_delivrance_a" name="lieu_delivrance_a" placeholder="Lieu de délivrance" value="{{lieu_delivrance_a}}" disabled required>
+                                                <label for="lieu_delivrance_a">Lieu de délivrance</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="categorie_a" name="categorie_a" placeholder="Catégorie du permis" value="{{categorie_a}}" disabled>
+                                                <label for="categorie_a">Catégorie du permis</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="number" class="form-control border-0" id="dure_a" name="dure_a" placeholder="Durée de validité (en année)" value="{{dure_a}}" disabled>
+                                                <label for="dure_a">Durée de validité (en année)</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <span>Constat Amiable ?</span><br>
+                                            {% if constat_a == 'Oui' %}
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_a" type="radio" id="oui_a" value="Oui" checked>
+                                                <label class="form-check-label" for="oui_a">Oui</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_a" type="radio" id="non_a" value="Non">
+                                                <label class="form-check-label" for="non_a">Non</label>
+                                            </div>
+                                              {% endif %}
+                                              {% if constat_a == 'Non' %}
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_a" type="radio" id="oui_a" value="Oui">
+                                                <label class="form-check-label" for="oui_a">Oui</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_a" type="radio" id="non_a" value="Non" checked>
+                                                <label class="form-check-label" for="non_a">Non</label>
+                                            </div>
+                                              {% endif %}
+                                            </div>
+
+                                        <div class="col-md-3">
+                                            <span>Est-il salarié de l'assuré ?</span><br>
+
+                                            
+                                            {% if salarie_a == 'Oui' %}
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_a" type="radio" id="oui_as" value="Oui" checked>
+                                                <label class="form-check-label" for="oui_as">Oui</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_a" type="radio" id="non_as" value="Non">
+                                                <label class="form-check-label" for="non_as">Non</label>
+                                              </div>
+                                                
+                                            {% endif %}
+
+                                            {% if salarie_a == 'Non' %}
+                                                
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_a" type="radio" id="oui_as" value="Oui">
+                                                <label class="form-check-label" for="oui_as">Oui</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_a" type="radio" id="non_as" value="Non" checked>
+                                                <label class="form-check-label" for="non_as">Non</label>
+                                              </div>
+                                            {% endif %}
+
+                                            </div>
+                                        
+                                    </div>    
+                            </fieldset>
+                        </section>
+                            <!-- INFO ASSURE -->
+
+
+
+                            <!-- INFO partie adverse -->
+                        <section class="mb-4">
+                            <h3 class="mb-4">Informations sur la partie adverse</h3>
+                        
+
+                            <fieldset class="rounded-3 p-3 mb-2">
+                            <legend class="px-3">Adversaire</legend>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="nom_b" name="nom_b" placeholder="Nom et Prénoms" value="{{nom_b}}" disabled>
+                                            <label for="nom_b">Nom et Prénoms</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="adresse_b" name="adresse_b" placeholder="Adresse" value="{{adresse_b}}" disabled>
+                                            <label for="adresse_b">Adresse</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="phone_b" name="phone_b" placeholder="Télephone" value="{{phone_b}}" disabled>
+                                            <label for="phone_b">Télephone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control border-0" id="email_b" name="email_b" placeholder="Email" value="{{email_b}}" disabled>
+                                            <label for="email_b">Email</label>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </fieldset>
+
+                            <fieldset class="rounded-3 p-3 mb-2">
+                                <legend class="px-3">Véhicule</legend>
+                                    <div class="row g-3">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="marque_b" name="marque_b" placeholder="Marque du véhicule" value="{{marque_b}}" disabled>
+                                                <label for="marque_b">Marque du véhicule</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="imma_b" name="imma_b" placeholder="Immatriculation" value="{{imma_b}}" disabled>
+                                                <label for="imma_b">Immatriculation</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="visite_du_b" name="visite_du_b" placeholder="Visite technique du" value="{{visite_du_b}}" disabled>
+                                                <label for="visite_du_b">Visite technique du</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="visite_au_b" name="visite_au_b" placeholder="Visite technique au" value="{{visite_au_b}}" disabled>
+                                                <label for="visite_au_b">Visite technique au</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="usage_b" name="usage_b" placeholder="Usage" value="{{usage_b}}" disabled>
+                                                <label for="usage_b">Usage</label>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>    
+                            </fieldset>
+
+                            <fieldset class="rounded-3 p-3">
+                                <legend class="px-3">Conducteur</legend>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="conducteur_b" name="conducteur_b" placeholder="Nom et Prénoms" value="{{conducteur_b}}" disabled>
+                                                <label for="conducteur_b">Nom et Prénoms</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="adresse_conducteur_b" name="adresse_conducteur_b" placeholder="Adresse" value="{{adresse_b}}" disabled>
+                                                <label for="adresse_conducteur_b">Adresse</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="phone_conducteur_b" name="phone_conducteur_b" placeholder="Télephone" value="{{phone_conducteur_b}}" disabled>
+                                                <label for="phone_conducteur_b">Télephone</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="profession_conducteur_b" name="profession_conducteur_b" placeholder="Profession" value="{{profession_conducteur_b}}" disabled>
+                                                <label for="profession_conducteur_b">Profession</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="numero_permis_b" name="numero_permis_b" placeholder="Numéro de permis" value="{{numero_permis_b}}" disabled>
+                                                <label for="numero_permis_b">Numéro de permis</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="date" class="form-control border-0" id="date_delivrance_b" name="date_delivrance_b" placeholder="Date de délivrance" value="{{date_delivrance_b}}" disabled>
+                                                <label for="date_delivrance_b">Date de délivrance</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="lieu_delivrance_b" name="lieu_delivrance_b" placeholder="Lieu de délivrance" value="{{lieu_delivrance_b}}" disabled>
+                                                <label for="lieu_delivrance_b">Lieu de délivrance</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="categorie_b" name="categorie_b" placeholder="Catégorie du permis" value="{{categorie_b}}" disabled>
+                                                <label for="categorie_b">Catégorie du permis</label>
+                                            </div>    
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="number" class="form-control border-0" id="dure_b" name="dure_b" placeholder="Durée de validité (en année)" value="{{dure_b}}" disabled>
+                                                <label for="dure_b">Durée de validité (en année)</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <span>Constat Amiable ?</span><br>        
+                                            
+                                            {% if constat_b == 'Oui' %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_b" type="radio" id="oui_b" value="Oui" checked>
+                                                <label class="form-check-label" for="oui_b">Oui</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_b" type="radio" id="non_b" value="Non">
+                                                <label class="form-check-label" for="non_b">Non</label>
+                                                </div>
+                                            {% endif %}
+                                            {% if constat_b == 'Non' %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_b" type="radio" id="oui_b" value="Oui">
+                                                <label class="form-check-label" for="oui_b">Oui</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="constat_b" type="radio" id="non_b" value="Non" checked>
+                                                <label class="form-check-label" for="non_b">Non</label>
+                                                </div>
+                                            {% endif %}                                        
+                                                
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <span>Est-il salarié de l'assuré ?</span><br>  
+                                            
+                                            {% if salarie_b == 'Oui' %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_b" type="radio" id="oui_bs" value="Oui" checked>
+                                                <label class="form-check-label" for="oui_bs">Oui</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_b" type="radio" id="non_bs" value="Non">
+                                                <label class="form-check-label" for="non_bs">Non</label>
+                                                </div>
+                                            {% endif %}
+                                                                                          
+                                            {% if salarie_b == 'Non' %}
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_b" type="radio" id="oui_bs" value="Oui">
+                                                <label class="form-check-label" for="oui_bs">Oui</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="salarie_b" type="radio" id="non_bs" value="Non" checked>
+                                                <label class="form-check-label" for="non_bs">Non</label>
+                                                </div>
+                                            {% endif %}   
+                                        </div>
+                                        
+                                    </div>    
+                            </fieldset>
+
+                        </section>
+                        <!-- INFO PARTIE ADVERSE -->
+
+                        <section>
+                            <h3 class="mb-4">Circonstances détaillées de l'accident</h3>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control border-0" placeholder="Leave a message here" id="circonstance" name="circonstance" style="height: 250px" disabled>{{circonstance}}</textarea>
+                                    <label for="circonstance">Circonstances</label>
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <section>
+                            <h3 class="mb-4">Dommages</h3>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control border-0" placeholder="Leave a message here" id="dommages" name="dommages" style="height: 250px" disabled>{{dommages}}</textarea>
+                                    <label for="dommages">Dommages</label>
+                                </div>
+                            </div>
+
+                        </section> 
+                        
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->   
+
+        
+          <!-- JavaScript Libraries -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+          <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+          <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+          <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+          
+  
+          <!-- Template Javascript -->
+          <script src="{% static 'js/main.js' %}"></script>
+      </body>
+  
+  </html>
