@@ -82,10 +82,10 @@
                     {% endfor %}
                     {% endif %}
 
-                    <p class="mb-0">Déclarez votre sinistre avec la possibilité de télécharger des documents et de vous faire contacter par un gestionnaire spécialisé.</p>
-                    <p class="mb-4">Veuillez remplir le formulaire ci-dessous !</p>
+                    <p class="mb-0">Déclarez votre sinistre avec la possibilité de vous faire contacter par un gestionnaire spécialisé.</p>
+                    <p class="mb-4">Veuillez remplir le formulaire ci-dessous et vérifiez l'exactitude des Informations saisies avant de les valider !</p>
 
-                    <form method="post" action="">
+                    <form method="post" action=""> 
 
                         {% csrf_token %}
 
@@ -93,41 +93,42 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="datetime-local" class="form-control border-0" id="date_sinistre" name="date_sinistre" placeholder="Date et heure du sinistre" required>
-                                    <label for="date_sinistre">Date et heure du sinistre</label>
+                                    <label for="date_sinistre" class="required">Date et heure du sinistre</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control border-0" id="lieu_sinistre" name="lieu_sinistre" placeholder="Lieu exact du sinistre" required>
-                                    <label for="lieu_sinistre">Lieu exact du sinistre</label>
+                                    <label for="lieu_sinistre" class="required">Lieu exact du sinistre</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="date" class="form-control border-0" id="periode_du" name="periode_du" placeholder="Période garantie accordée du" required>
-                                    <label for="periode_du">Période garantie accordée du</label>
+                                    <label for="periode_du" class="required">Période garantie accordée du</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="date" class="form-control border-0" id="periode_au" name="periode_au" placeholder="Période garantie accordée au" required>
-                                    <label for="periode_au">Période garantie accordée au</label>
+                                    <label for="periode_au" class="required">Période garantie accordée au</label>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-4">
                                 <div class="form-floating">
                                     <input type="number" min="10000000" max="90000000" class="form-control border-0" id="name" name="name" placeholder="Your Name" required>
-                                    <label for="name">Numéro de police concerné</label>
+                                    <label for="name" class="required">Numéro de police concerné</label>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <span>Y'a t-il eu intervention de la police ou de la gendarmerie ?</span><br>                                            <div class="form-check form-check-inline">
+                                <span class="required">Y'a t-il eu intervention de la police ou de la gendarmerie ?</span><br>
+                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="intervention" type="radio" id="oui" value="Oui">
                                     <label class="form-check-label" for="oui">Oui</label>
                                   </div>
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="intervention" type="radio" id="non" value="Non">
+                                    <input class="form-check-input" name="intervention" type="radio" id="non" value="Non" checked>
                                     <label class="form-check-label" for="non">Non</label>
                                   </div>
                             </div>
@@ -145,24 +146,24 @@
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="nom_a" name="nom_a" placeholder="Nom et Prénoms" required>
-                                            <label for="nom_a">Nom et Prénoms</label>
+                                            <label for="nom_a" class="required">Nom et Prénoms</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="adresse_a" name="adresse_a" placeholder="Adresse" required>
+                                            <input type="text" class="form-control border-0" id="adresse_a" name="adresse_a" placeholder="Adresse">
                                             <label for="adresse_a">Adresse</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="phone_a" name="phone_a" placeholder="Télephone" required>
-                                            <label for="phone_a">Télephone</label>
+                                            <label for="phone_a" class="required">Télephone</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email_a" name="email_a" placeholder="Email" required>
+                                            <input type="email" class="form-control border-0" id="email_a" name="email_a" placeholder="Email">
                                             <label for="email_a">Email</label>
                                         </div>
                                     </div>
@@ -176,30 +177,30 @@
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="marque_a" name="marque_a" placeholder="Marque du véhicule" required>
-                                                <label for="marque_a">Marque du véhicule</label>
+                                                <label for="marque_a" class="required">Marque du véhicule</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="imma_a" name="imma_a" placeholder="Immatriculation" required>
-                                                <label for="imma_a">Immatriculation</label>
+                                                <label for="imma_a" class="required">Immatriculation</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="date" class="form-control border-0" id="visite_du_a" name="visite_du_a" placeholder="Visite technique du" required>
-                                                <label for="visite_du_a">Visite technique du</label>
+                                                <label for="visite_du_a" class="required">Visite technique du</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="date" class="form-control border-0" id="visite_au_a" name="visite_au_a" placeholder="Visite technique au" required>
-                                                <label for="visite_au_a">Visite technique au</label>
+                                                <label for="visite_au_a" class="required">Visite technique au</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="usage_a" name="usage_a placeholder="Usage" required>
+                                                <input type="text" class="form-control border-0" id="usage_a" name="usage_a" placeholder="Usage">
                                                 <label for="usage_a">Usage</label>
                                             </div>
                                         </div>
@@ -213,44 +214,44 @@
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="conducteur_a" name="conducteur_a" placeholder="Nom et Prénoms" required>
-                                                <label for="conducteur_a">Nom et Prénoms</label>
+                                                <label for="conducteur_a" class="required">Nom et Prénoms</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="adresse_conducteur_a" name="adresse_conducteur_a" placeholder="Adresse" required>
+                                                <input type="text" class="form-control border-0" id="adresse_conducteur_a" name="adresse_conducteur_a" placeholder="Adresse">
                                                 <label for="adresse_conducteur_a">Adresse</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="phone_conducteur_a" name="phone_conducteur_a" placeholder="Télephone" required>
+                                                <input type="text" class="form-control border-0" id="phone_conducteur_a" name="phone_conducteur_a" placeholder="Télephone">
                                                 <label for="phone_conducteur_a">Télephone</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="profession_conducteur_a" name="profession_conducteur_a" placeholder="Profession" required>
+                                                <input type="text" class="form-control border-0" id="profession_conducteur_a" name="profession_conducteur_a" placeholder="Profession">
                                                 <label for="profession_conducteur_a">Profession</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="numero_permis" name="numero_permis" placeholder="Numéro de permis" required>
-                                                <label for="numero_permis">Numéro de permis</label>
+                                                <label for="numero_permis" class="required">Numéro de permis</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="date" class="form-control border-0" id="date_delivrance_a" name="date_delivrance_a" placeholder="Date de délivrance" required>
-                                                <label for="date_delivrance_a">Date de délivrance</label>
+                                                <label for="date_delivrance_a" class="required">Date de délivrance</label>
                                             </div>
                                         </div>
                                       
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="lieu_delivrance_a" name="lieu_delivrance_a" placeholder="Lieu de délivrance" required>
-                                                <label for="lieu_delivrance_a">Lieu de délivrance</label>
+                                                <label for="lieu_delivrance_a" class="required">Lieu de délivrance</label>
                                             </div>
                                         </div>
 
@@ -267,35 +268,35 @@
                                                     <option value="BCDE">BCDE</option>
                                                     <option value="BDE">BDE</option>
                                                 </select>
-                                                <label for="lieu_delivrance_a">Catégorie du permis</label>
+                                                <label for="lieu_delivrance_a" class="required">Catégorie du permis</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-floating">
                                                 <input type="number" class="form-control border-0" id="dure_a" name="dure_a" placeholder="Durée de validité (en année)" required>
-                                                <label for="dure_a">Durée de validité (en année)</label>
+                                                <label for="dure_a" class="required">Durée de validité (en année)</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
-                                            <span>Constat Amiable ?</span><br>                                            <div class="form-check form-check-inline">
+                                            <span class="required">Constat Amiable ?</span><br>                                            <div class="form-check form-check-inline">
                                                 <input class="form-check-input" name="constat_a" type="radio" id="oui_a" value="Oui">
                                                 <label class="form-check-label" for="oui_a">Oui</label>
                                               </div>
                                               <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="constat_a" type="radio" id="non_a" value="Non">
+                                                <input class="form-check-input" name="constat_a" type="radio" id="non_a" value="Non" checked>
                                                 <label class="form-check-label" for="non_a">Non</label>
                                               </div>
                                         </div>
 
                                         <div class="col-md-3">
-                                            <span>Est-il salarié de l'assuré ?</span><br>                                            <div class="form-check form-check-inline">
+                                            <span class="required">Est-il salarié de l'assuré ?</span><br>                                            <div class="form-check form-check-inline">
                                                 <input class="form-check-input" name="salarie_a" type="radio" id="oui_as" value="Oui">
                                                 <label class="form-check-label" for="oui_as">Oui</label>
                                               </div>
                                               <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="salarie_a" type="radio" id="non_as" value="Non">
+                                                <input class="form-check-input" name="salarie_a" type="radio" id="non_as" value="Non" checked>
                                                 <label class="form-check-label" for="non_as">Non</label>
                                               </div>
                                         </div>
@@ -317,25 +318,25 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="nom_b" name="nom_b" placeholder="Nom et Prénoms" required>
+                                            <input type="text" class="form-control border-0" id="nom_b" name="nom_b" placeholder="Nom et Prénoms">
                                             <label for="nom_b">Nom et Prénoms</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="adresse_b" name="adresse_b" placeholder="Adresse" required>
+                                            <input type="text" class="form-control border-0" id="adresse_b" name="adresse_b" placeholder="Adresse">
                                             <label for="adresse_b">Adresse</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="phone_b" name="phone_b" placeholder="Télephone" required>
+                                            <input type="text" class="form-control border-0" id="phone_b" name="phone_b" placeholder="Télephone">
                                             <label for="phone_b">Télephone</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email_b" name="email_b" placeholder="Email" required>
+                                            <input type="email" class="form-control border-0" id="email_b" name="email_b" placeholder="Email">
                                             <label for="email_b">Email</label>
                                         </div>
                                     </div>
@@ -348,31 +349,31 @@
                                         
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="marque_b" name="marque_b" placeholder="Marque du véhicule" required>
+                                                <input type="text" class="form-control border-0" id="marque_b" name="marque_b" placeholder="Marque du véhicule">
                                                 <label for="marque_b">Marque du véhicule</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="imma_b" name="imma_b" placeholder="Immatriculation" required>
+                                                <input type="text" class="form-control border-0" id="imma_b" name="imma_b" placeholder="Immatriculation">
                                                 <label for="imma_b">Immatriculation</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="date" class="form-control border-0" id="visite_du_b" name="visite_du_b" placeholder="Visite technique du" required>
+                                                <input type="date" class="form-control border-0" id="visite_du_b" name="visite_du_b" placeholder="Visite technique du">
                                                 <label for="visite_du_b">Visite technique du</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="date" class="form-control border-0" id="visite_au_b" name="visite_au_b" placeholder="Visite technique au" required>
+                                                <input type="date" class="form-control border-0" id="visite_au_b" name="visite_au_b" placeholder="Visite technique au">
                                                 <label for="visite_au_b">Visite technique au</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="usage_b" name="usage_b" placeholder="Usage" required>
+                                                <input type="text" class="form-control border-0" id="usage_b" name="usage_b" placeholder="Usage">
                                                 <label for="usage_b">Usage</label>
                                             </div>
                                         </div>
@@ -385,51 +386,51 @@
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="conducteur_b" name="conducteur_b" placeholder="Nom et Prénoms" required>
+                                                <input type="text" class="form-control border-0" id="conducteur_b" name="conducteur_b" placeholder="Nom et Prénoms">
                                                 <label for="conducteur_b">Nom et Prénoms</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="adresse_conducteur_b" name="adresse_conducteur_b" placeholder="Adresse" required>
+                                                <input type="text" class="form-control border-0" id="adresse_conducteur_b" name="adresse_conducteur_b" placeholder="Adresse">
                                                 <label for="adresse_conducteur_b">Adresse</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="phone_conducteur_b" name="phone_conducteur_b" placeholder="Télephone" required>
+                                                <input type="text" class="form-control border-0" id="phone_conducteur_b" name="phone_conducteur_b" placeholder="Télephone">
                                                 <label for="phone_conducteur_b">Télephone</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="profession_conducteur_b" name="profession_conducteur_b" placeholder="Profession" required>
+                                                <input type="text" class="form-control border-0" id="profession_conducteur_b" name="profession_conducteur_b" placeholder="Profession">
                                                 <label for="profession_conducteur_b">Profession</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="numero_permis_b" name="numero_permis_b" placeholder="Numéro de permis" required>
+                                                <input type="text" class="form-control border-0" id="numero_permis_b" name="numero_permis_b" placeholder="Numéro de permis">
                                                 <label for="numero_permis_b">Numéro de permis</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="date" class="form-control border-0" id="date_delivrance_b" name="date_delivrance_b" placeholder="Date de délivrance" required>
+                                                <input type="date" class="form-control border-0" id="date_delivrance_b" name="date_delivrance_b" placeholder="Date de délivrance">
                                                 <label for="date_delivrance_b">Date de délivrance</label>
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="lieu_delivrance_b" name="lieu_delivrance_b" placeholder="Lieu de délivrance" required>
+                                                <input type="text" class="form-control border-0" id="lieu_delivrance_b" name="lieu_delivrance_b" placeholder="Lieu de délivrance">
                                                 <label for="lieu_delivrance_b">Lieu de délivrance</label>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <select class="form-control border-0" name="categorie_b" id="categorie_b" required>
+                                                <select class="form-control border-0" name="categorie_b" id="categorie_b">
                                                     <option value="A">A</option>
                                                     <option value="B">B</option>
                                                     <option value="C">C</option>
@@ -446,7 +447,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="number" class="form-control border-0" id="dure_b" name="dure_b" placeholder="Durée de validité (en année)" required>
+                                                <input type="number" class="form-control border-0" id="dure_b" name="dure_b" placeholder="Durée de validité (en année)">
                                                 <label for="dure_b">Durée de validité (en année)</label>
                                             </div>
                                         </div>
@@ -458,7 +459,7 @@
                                                 <label class="form-check-label" for="oui_b">Oui</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="constat_b" type="radio" id="non_b" value="Non">
+                                                <input class="form-check-input" name="constat_b" type="radio" id="non_b" value="Non" checked>
                                                 <label class="form-check-label" for="non_b">Non</label>
                                                 </div>
                                         </div>
@@ -470,7 +471,7 @@
                                                 <label class="form-check-label" for="oui_bs">Oui</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="salarie_b" type="radio" id="non_bs" value="Non">
+                                                <input class="form-check-input" name="salarie_b" type="radio" id="non_bs" value="Non" checked>
                                                 <label class="form-check-label" for="non_bs">Non</label>
                                                 </div>
                                         </div>
@@ -483,17 +484,34 @@
 
                         <section>
                             <h3 class="mb-4">Circonstances détaillées de l'accident</h3>
-                            <p class="mb-0">N'ommettez pas de préciser le lieu de l'accident, les directions suivies par les véhicules,</p>
-                            <p class="mb-4">l'ordre des chocs et les points de chocs sur les véhicules.</p>
+                            <p class="mb-0">N'ommettez pas de préciser <strong>le lieu de l'accident, les directions suivies par les véhicules,</strong></p>
+                            <p class="mb-4"><strong>l'ordre des chocs et les points de chocs sur les véhicules.</strong></p>
 
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control border-0" placeholder="Leave a message here" id="circonstance" name="circonstance" style="height: 200px" required></textarea>
-                                    <label for="circonstance">Circonstances</label>
+                                    <label for="circonstance" class="required">Circonstances</label>
                                 </div>
                             </div>
 
                         </section>
+
+                        <section>
+                            <h3 class="mb-4">Dommages</h3>
+                            <p class="mb-0">N'ommettez pas de préciser <strong>la nature du dommage (matériel ou corporel)</strong>.</p>
+                            <p class="mb-0">Pour les <strong>Dommages matériels</strong>, veuillez préciser <strong>le type de choc (choc lattérale droit, lattérale gauche, avant gauche, avant droit, ...), les matériels endommagés (Pare-brise, feu, ...)</strong>.</p>
+                            <p class="mb-0">Pour les <strong>Dommages Corporels</strong>, veuillez préciser <strong>le nombre de blessés, le nombre de décès, l'intensité des blessures (léger, très léger, grave, très grave), le statut et l'âge des personnes concernées</strong>.</p>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control border-0" placeholder="Leave a message here" id="dommages" name="dommages" style="height: 200px" required></textarea>
+                                    <label for="dommages" class="required">Dommages</label>
+                                </div>
+                            </div>
+
+                        </section> 
+
+                        {% comment %} {{ sinistre_form.as_p }} {% endcomment %}
 
                         
 
@@ -503,20 +521,6 @@
                         </div>
                     </form>
                 </div>
-
-              <!--  <div class="col-12">
-                    <div class="rounded">
-                        {% comment %} <iframe class="rounded w-100" 
-                        style="height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> {% endcomment %}
-
-                        <iframe class="rounded w-100" 
-                        style="height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127110.79577805122!2d-4.074285054687907!3d5.384565464068948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19573d2cd45bb%3A0x89cf94865aa422e7!2sSAAR%20ASSURANCES!5e0!3m2!1sfr!2sci!4v1716312762005!5m2!1sfr!2sci" 
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        {% comment %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127110.79577805122!2d-4.074285054687907!3d5.384565464068948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc19573d2cd45bb%3A0x89cf94865aa422e7!2sSAAR%20ASSURANCES!5e0!3m2!1sfr!2sci!4v1716312762005!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> {% endcomment %}
-                    </div>
-                </div> -->
-
 
             </div>
         </div>

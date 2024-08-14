@@ -1375,4 +1375,10 @@ fieldset, legend {
     all: revert;
  }
 
+
+.required::after {
+content: '   *';
+color: red;
+}
+
 /*** copyright end ***/

@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 0;
+    color: #333;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+h1 {
+    justify-content: center;
+    color: red;
+}
+
+/* p {
+    max-width: 100px;
+    overflow-wrap: break-word;
+} */
+
+.section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    /* color: #2980b9; */
+    color: red;
+}
+
+.section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.section ul li {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.section ul li strong {
+    display: inline-block;
+    /* width: 300px; */
+    font-weight: bold;
+}
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .section {
+        /* page-break-inside: avoid; */
+        overflow-wrap: break-word;
+    }
+
+    .section ul li strong {
+        display: inline-block;
+        /* width: 300px; */
+        color: black;
+        font-weight: 900;
+       
+    }
+
+    .bg-logo {
+    background: url(../img/logo-saar.png) no-repeat fixed center;
+    background-size: 50%;
+    /* background-position: center center;
+    background-attachment: fixed; */
+    padding: 150px 0 50px 0;
+    
+}
+
+
+    /* .section h2 {
+        font-size: 1em;
+    } */
+
+    /* .section p {
+        max-width: 100px;
+        overflow-wrap: break-word;
+    } */
+}
+
+
+

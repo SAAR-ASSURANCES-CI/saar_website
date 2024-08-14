@@ -18,44 +18,46 @@
     <!-- Header End -->
 
       <!-- Services Start -->
-      <div class="container-fluid bg-white service py-5">
-        <div class="container py-5">
+      <div  class="mx-5 py-5">
+        {% comment %} <div class="container py-5"> {% endcomment %}
 
             {% comment %} <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">Garanties</h5>
                 <h1 class="mb-0">Nos Garanties</h1>
             </div> {% endcomment %}
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
+            <div class="mx-5 mb-5">
                 {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
                 <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu}}</P>
             </div>
 
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
-                <h1 class="mb-0" style="color: red;">NOS GARANTIES</h1><br/> 
+            <div class="mx-5 mb-5">
+                <h1 class="mb-2" style="color: red;">NOS GARANTIES</h1><br/> 
                 {% comment %} <P class="mb-4" style="font-size: 1.25em; color: black;">aszdzaaaaaaaaaaaad</P> {% endcomment %}
                 <ul style="font-size: 1.25em; color: black; text-align: justify;">
-                    <li ><strong>Incendie et évènement assimilé </strong></li>
-                    <li><strong>Dégâts des eaux </strong></li>
-                    <li><strong>Vol</strong></li>
-                    <li><strong>Bris de glace</strong></li>
-                    <li><strong>Biens Assurables</strong></li>
-                    <li><strong>Bâtiments</strong></li>
-                    <li><strong>Mobilier personnel</strong></li>
+                    <li class="mb-4"><strong>Incendie et évènement assimilé </strong></li>
+                    <li class="mb-4"><strong>Dégâts des eaux </strong></li>
+                    <li class="mb-4"><strong>Vol</strong></li>
+                    <li class="mb-4"><strong>Bris de glace</strong></li>
+                    <li class="mb-4"><strong>Biens Assurables</strong></li>
+                    <li class="mb-4"><strong>Bâtiments</strong></li>
+                    <li class="mb-4"><strong>Mobilier personnel</strong></li>
                 </ul>
             </div>
 
-            <div class="mx-auto mb-5" style="max-width: 900px;">
-                <h1 class="mb-0" style="color: red;">COMMENT SOUSCRIRE?</h1><br/> 
-                <ul style="font-size: 1.25em; color: black; text-align: justify;">
+            <div class="mx-5 mb-5">
+                <h1 class="mb-2" style="color: red;">COMMENT SOUSCRIRE?</h1><br/> 
+                {% comment %} <ul style="font-size: 1.25em; color: black; text-align: justify;">
                     <li><strong></strong>Vous devez remplir un questionnaire en donnant les informations sur votre logement, son contenu, votre profil (si vous êtes propriétaires ou locataire)...</li>
-                </ul>
+                </ul> {% endcomment %}
+                <P class="mb-4" style="font-size: 1.25em; color: black; text-align: justify;">Vous devez remplir un questionnaire en donnant les informations sur votre logement, son contenu, votre profil (si vous êtes propriétaires ou locataire)...</P>
+
             </div>
 
 
 
-        </div>
+        {% comment %} </div> {% endcomment %}
     </div>
     <!-- Services End -->
 
