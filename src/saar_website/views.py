@@ -248,8 +248,8 @@ def reclamation(request):
         email_b = request.POST['email_b']
         marque_b = request.POST['marque_b']
         imma_b = request.POST['imma_b']
-        visite_du_b = request.POST['visite_du_b']
-        visite_au_b = request.POST['visite_au_b']
+        visite_du_b = request.POST['visite_du_b'] if request.POST['visite_du_b'] else None
+        visite_au_b = request.POST['visite_au_b'] if request.POST['visite_au_b'] else None
         usage_b = request.POST['usage_b']
 
         conducteur_b = request.POST['conducteur_b']
@@ -260,7 +260,7 @@ def reclamation(request):
         date_delivrance_b = request.POST['date_delivrance_b']
         lieu_delivrance_b = request.POST['lieu_delivrance_b']
         categorie_b = request.POST['categorie_b']
-        dure_b = request.POST['dure_b']
+        dure_b = request.POST['dure_b'] if request.POST['dure_b'] else None
         constat_b = request.POST['constat_b']
         salarie_b = request.POST['salarie_b']
 
