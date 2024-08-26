@@ -82,7 +82,12 @@ def carousel(request, numero):
         if carousel.id==3:
             produit = Produit.objects.get(pk=9)
             context['produit'] = produit
-            return render(request, f"saar_website/produits/produit-9.html", context=context) 
+            return render(request, f"saar_website/produits/produit-9.html", context=context)
+
+        if carousel.id==4:
+            # produit = Produit.objects.get(pk=9)
+            # context['produit'] = produit
+            return render(request, f"saar_website/carousel/carousel_4.html", context=context) 
 
         # return render(request, f"saar_website/carousel/carousel_{numero}.html", context=context)
 

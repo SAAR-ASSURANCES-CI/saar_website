@@ -142,7 +142,7 @@
                     
                     <!-- Button trigger for the collapsible chat -->
 
-                 <a id="chatToggle" class="btn btn-info btn-lg btn-block btn-md-square back-to" role="button" >
+                 <a id="chatToggle" class="btn btn-lg btn-block btn-md-square back-to" role="button">
                       <i class="fas fa-comment-dots" style="color: white;"></i>  
                       <span class="tooltip-text">Posez-moi une question</span>  
                   </a>
@@ -199,13 +199,13 @@
           
                       </div>
 
-                      <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+                      <div id='test-cont' class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
                      
                           <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8; margin-right: 5px;" ></i>
 
                        
                           <textarea class="form-control" id="exampleFormControlInput3" rows="2" placeholder="Posez moi votre question... "></textarea>
-                        <a class="ms-3 link-info"><i class="fas fa-paper-plane" style="font-size: 180%;"></i></a>
+                        <a class="ms-3 link-info" style="z-index: 9999; color: var(--bs-primary);"><i class="fas fa-paper-plane" style="font-size: 180%;"></i></a>
                         
                       </div>
                     </div>
@@ -236,17 +236,29 @@
             <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
         </div>
 
+      
+
+        <a id='back-to-at' href="{% url 'contact' %}" class="btn btn-primary btn-lg btn-block btn-md-square back-to-at" role="button" >
+          <i class="fas fa-phone" style="color: white;"></i>  
+          <span class="tooltip-text">Besoin d'aide ! Contactez-nous.</span>  
+        </a>
+
         <script>
             document.getElementById("chatToggle").addEventListener("click", function() {
               var chatSection = document.getElementById("chatSection");
+
+              var back_to_at = document.getElementById("back-to-at");
               var icon = this.querySelector('i');
           
               if (chatSection.style.display === "none" || chatSection.style.display === "") {
                 chatSection.style.display = "block";
+                back_to_at.style.display = "none";
+
                 icon.classList.remove("fa-chevron-down");
                 icon.classList.add("fa-chevron-up");
               } else {
                 chatSection.style.display = "none";
+                back_to_at.style.display = "flex";
                 icon.classList.remove("fa-chevron-up");
                 icon.classList.add("fa-chevron-down");
               }
@@ -254,7 +266,9 @@
 
             document.getElementById("closeChat").addEventListener("click", function() {
               var chatSection = document.getElementById("chatSection");
+              var back_to_at = document.getElementById("back-to-at");
               chatSection.style.display = "none";
+              back_to_at.style.display = "flex";
               var icon = document.getElementById("chatToggle").querySelector('i');
               icon.classList.remove("fa-chevron-up");
               icon.classList.add("fa-chevron-down");
@@ -352,8 +366,24 @@
                   console.error('Error:', error);
               });
             });
+
+            // Fonction pour afficher la réponse mot par mot
+function displayResponseWordByWord(text, element) {
+    const words = text.split(' ');
+    let index = 0;
+
+    function displayNextWord() {
+        if (index < words.length) {
+            element.innerHTML += words[index] + ' ';
+            index++;
+            setTimeout(displayNextWord, 100); // Délai de 100 ms entre chaque mot
+        }
+    }
+
+    displayNextWord();
+}
           
-          </script>
+      </script>
 
           <!-- JavaScript Libraries -->
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

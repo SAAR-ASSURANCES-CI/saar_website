@@ -115,9 +115,9 @@
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div> {% endcomment %}
-                        <a href="{% url 'contact' %}" class="nav-item nav-link {% if active_contact %}
+                        {% comment %} <a href="{% url 'contact' %}" class="nav-item nav-link {% if active_contact %}
                         active
-                        {% endif %} text-center">Contact</a>
+                        {% endif %} text-center">Contact</a> {% endcomment %}
                     </div>
                     {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Faire un devis</a> {% endcomment %}
                 </div>
@@ -132,6 +132,7 @@
                         <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
                         <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
                         <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
 

@@ -44,8 +44,8 @@
 
 .back-to-at {
     position: fixed;
-    right: 50px;
-    bottom: 90px;
+    right: 30px;
+    bottom: 40px;
     display: flex;
     /* width: 200px;
     height: 50px; */
@@ -53,6 +53,11 @@
     justify-content: center;
     /* transition: 0.5s;
     z-index: 99; */
+    z-index: initial;
+}
+
+#test-cont {
+    z-index: 9999;
 }
 
 /*** Button Start ***/
@@ -540,6 +545,15 @@
     padding: 150px 0 50px 0;
 }
 
+.bg-breadcrumb-AVI {
+    background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)), url(../../../media/img/virtual-assistant.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 150px 0 50px 0;
+}
+
 .bg-breadcrumb-2 {
     background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)), url(../img/man-sinistre.jpg);
     background-position: center center;
@@ -585,10 +599,15 @@
 /*** Services Start ***/
 .service .service-content-inner {
     transition: 0.5s;
+    max-height: 40vh;
+    height: 30vh;
 }
 .service .service-content-inner:hover {
     position: relative;
-    background: var(--bs-primary) !important;
+    /* background: var(--bs-primary) !important; */
+
+    background: #D6B033 !important;
+
 }
 
 .service .service-content-inner .service-content h5,
@@ -1511,6 +1530,7 @@ color: red;
     right: 0;
     z-index: 9999;
     background-color: white;
+    
 }
 /* Limitation de la hauteur et de l'overflow pour le corps du chat */
 #chat4 .card-body {
@@ -1543,7 +1563,7 @@ color: red;
 
 .tooltip-text {
     visibility: hidden;
-    width: 200px;
+    width: 250px;
     background-color: #B4B4B8;
     color: #fff;
     text-align: center;
@@ -1602,6 +1622,18 @@ color: red;
     cursor: pointer;
 } */
 
+#chatToggle {
+    background-color: var(--bs-primary) !important;
+
+}
+
+#chatToggle:hover {
+    box-shadow: inset 0 0 0 0 #fc0e0e;
+    color: #D6B033 !important;
+}
+
+
+
 
 
 /*.card-footer textarea {
@@ -1612,3 +1644,22 @@ color: red;
 } */
 
 /*** copyright end ***/
+.chat-notification {
+    display: none; /* La notification est cachée par défaut */
+    position: absolute; /* Position absolue pour ajuster dynamiquement */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: initial;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(10px); /* Effet de décalage vers le bas */
+}
+
+.chat-notification.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Remonte à sa position normale */
+}

@@ -125,7 +125,6 @@
 //     });
 
 
-
 $(window).scroll(function () {
     // Vérifier si le chat est ouvert
     if ($('#chatSection').is(':visible')) {
