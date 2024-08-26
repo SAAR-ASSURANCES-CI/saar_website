@@ -9,7 +9,7 @@
             {% block titre %}
              Accueil | Saar CI   
             {% endblock titre %}
-                
+                 
         </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
@@ -138,34 +138,33 @@
               <div class="row d-flex justify-content-center">
 
                 
-                <div>   
+                <div >   
                     
                     <!-- Button trigger for the collapsible chat -->
 
-                 <a id="chatToggle" class="btn btn-info btn-lg btn-block btn-md-square back-to" role="button">
-                    {% comment %} <div class="d-flex justify-content-between align-items-center">
-                      <span>Collapsible Chat App</span> {% endcomment %}
-                      {% comment %} <i class="fa fa-chevron-down"></i> {% endcomment %}
+                 <a id="chatToggle" class="btn btn-info btn-lg btn-block btn-md-square back-to" role="button" >
                       <i class="fas fa-comment-dots" style="color: white;"></i>  
-                      <span class="tooltip-text">Posez-moi une question</span>
-                      {% comment %} <i class="far fa-comments"></i>                   {% endcomment %}
-                      {% comment %} </div> {% endcomment %}
+                      <span class="tooltip-text">Posez-moi une question</span>  
                   </a>
               
                   <!-- Collapsed content (initially hidden) -->
-                  <div id="chatSection" class="mt-3" style="display: none;">
+                  <div id="chatSection" class="mt-3" style="display: none; margin-right: 20px;">
+                    
                     <div class="card" style="position: relative;" id="chat4">
                       <!-- Entête du Chat -->
                       <!-- Entête du Chat avec espace entre l'icône et le texte -->
                         <div class="card-header d-flex justify-content-start align-items-center">
                           <i class="fas fa-comment-dots" style="font-size: 150%; margin-right: 4px;"></i>  
                           <h4 class="ms-2 my-0">SAARBot</h4>
+
+                          <button id="closeChat" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 200%%; cursor: pointer;">
+                            &times; <!-- Icône de fermeture -->
+                          </button>
                         </div>
-                      <div class="card-body" style="position: relative; height: 400px; overflow-y: auto;">
+                      <div class="card-body" id="chat-body" style="position: relative; overflow-y: auto;">
                         <!-- Chat content -->
                         <div class="d-flex flex-row justify-content-start mb-4">
-                            {% comment %} <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                            alt="avatar 1" style="width: 45px; height: 100%;"> {% endcomment %}
+                         
                             <i class="fas fa-user-tie" style="font-size: 45px; color: #D6B033;" ></i>
                           <div>
                             <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">Salut ! <br> Bienvenue à SAAR Assurances Côte d'Ivoire.</p>
@@ -174,33 +173,40 @@
                         </div>
           
                         <div class="divider d-flex align-items-center mb-4">
-                          {% comment %} <p class="text-center mx-3 mb-0" style="color: #a2aab7;">Today</p> {% endcomment %}
                         </div>
+
+                        {% comment %} <div class="spinner-grow bg-primary" id="loading-spinner" style="display: none; text-align: center;" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div> {% endcomment %}
+
+                        {% comment %} <div id="loading-spinner" style="display: none; text-align: center;">
+                          <div class="spinner-border text-primary" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </div> {% endcomment %}
+                      
           
-                        <div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                        {% comment %} <div class="d-flex flex-row justify-content-end mb-4 pt-1">
                           <div>
                             <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">Hiii, I'm good.</p>
                             <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">How are you doing?</p>
                             <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">Long time no see! Tomorrow office. will be free on sunday. ong time no see! Tomorrow office. will be free on sunda ong time no see! Tomorrow office. will be free on sundaong time no see! Tomorrow office. will be free on sunda</p>
                           </div>
-                            {% comment %} <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
-                            alt="avatar 1" style="width: 45px; height: 100%;"> {% endcomment %}
                             <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8;" ></i>
-                        </div>
+                        </div> {% endcomment %}
           
                         <!-- Other chat messages here... -->
           
                       </div>
 
                       <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
-                        {% comment %} <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
-                          alt="avatar 3" style="width: 40px; height: 100%;"> {% endcomment %}
+                     
                           <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8; margin-right: 5px;" ></i>
-                        <textarea class="form-control" id="exampleFormControlInput3" rows="2" placeholder="Posez moi votre question... "></textarea>
-                        {% comment %} <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Type message"> {% endcomment %}
-                        {% comment %} <a class="ms-1 text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
-                        <a class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a> {% endcomment %}
-                        <a class="ms-3 link-info" href="#!"><i class="fas fa-paper-plane" style="font-size: 180%;"></i></a>
+
+                       
+                          <textarea class="form-control" id="exampleFormControlInput3" rows="2" placeholder="Posez moi votre question... "></textarea>
+                        <a class="ms-3 link-info"><i class="fas fa-paper-plane" style="font-size: 180%;"></i></a>
+                        
                       </div>
                     </div>
                   </div>
@@ -209,6 +215,7 @@
               </div>
             </div>
           </section>
+        
           
        
 
@@ -225,7 +232,7 @@
         {% comment %} </div> {% endcomment %}
             
         <!-- Back to Top -->
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-center">
             <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
         </div>
 
@@ -244,6 +251,108 @@
                 icon.classList.add("fa-chevron-down");
               }
             });
+
+            document.getElementById("closeChat").addEventListener("click", function() {
+              var chatSection = document.getElementById("chatSection");
+              chatSection.style.display = "none";
+              var icon = document.getElementById("chatToggle").querySelector('i');
+              icon.classList.remove("fa-chevron-up");
+              icon.classList.add("fa-chevron-down");
+          });
+
+
+            document.querySelector('.fa-paper-plane').addEventListener('click', function() {
+
+              // Afficher la réponse de l'API dans l'interface de chat
+              var chatBody = document.querySelector('#chat-body');
+
+              var userMessage = document.querySelector('#exampleFormControlInput3').value;
+
+
+              var userMessageElement = `<div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                <div>
+                    <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">${userMessage}</p>
+                </div>
+                <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8;"></i>
+            </div>`;
+            chatBody.innerHTML += userMessageElement;
+
+              
+                 // Faire défiler le chat vers le bas pour voir le dernier message
+                 chatBody.scrollTop = chatBody.scrollHeight;
+
+                // Insérer le spinner après le message de l'utilisateur
+                var spinnerElement = `<div class="spinner-grow bg-primary" id="loading-spinner" style="display: none; text-align: center;" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>`;
+
+                chatBody.innerHTML += spinnerElement;
+
+                // Faire défiler le chat vers le bas pour voir le dernier message
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+
+              // Afficher l'animation de chargement
+                var loadingSpinner = document.querySelector('#loading-spinner');
+                loadingSpinner.style.display = 'block';
+
+                // Récupérer le message de l'utilisateur
+              //  var userMessage = document.querySelector('#exampleFormControlInput3').value;
+          
+                // Créer une requête POST à l'API Flask
+                fetch('http://127.0.0.1:5000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: userMessage }),
+
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                  // Retirer le spinner une fois la réponse reçue
+                  var spinner = document.querySelector('#loading-spinner');
+                  spinner.remove();
+
+                  // Masquer l'animation de chargement
+                  loadingSpinner.style.display = 'none';
+
+                  
+
+                    // Afficher la réponse de l'API dans l'interface de chat
+                   // var chatBody = document.querySelector('#chat-body');
+          
+                    // Ajouter le message de l'utilisateur
+                  /*  var userMessageElement = `<div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                                                  <div>
+                                                    <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">${userMessage}</p>
+                                              </div>
+                                              <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8;" ></i>`;
+                    chatBody.innerHTML += userMessageElement;*/
+          
+                    // Ajouter la réponse du bot
+                    var botMessageElement = `<div class="d-flex flex-row justify-content-start mb-4">
+                                                <i class="fas fa-user-tie" style="font-size: 45px; color: #D6B033;" ></i>
+                                                 <div>
+                                                    <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">${data.response}</p>
+                                                 </div>
+                                             </div>`;
+                    chatBody.innerHTML += botMessageElement;
+          
+                    // Effacer le champ de saisie
+                    document.querySelector('#exampleFormControlInput3').value = '';
+          
+                    // Faire défiler le chat vers le bas pour voir le dernier message
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                })
+                .catch(error => {
+                  // Masquer l'animation de chargement en cas d'erreur
+                  loadingSpinner.style.display = 'none';
+                  console.error('Error:', error);
+              });
+            });
+          
           </script>
 
           <!-- JavaScript Libraries -->

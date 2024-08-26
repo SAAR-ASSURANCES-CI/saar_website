@@ -17,8 +17,8 @@
 
 .back-to-top {
     position: fixed;
-    right: 30px;
-    bottom: 30px;
+    /* right: 30px; */
+    bottom: 90px;
     display: flex;
     width: 45px;
     height: 45px;
@@ -27,6 +27,7 @@
     transition: 0.5s;
     z-index: 99;
 }
+
 
 .back-to {
     position: fixed;
@@ -191,16 +192,21 @@
     font-weight: 400;
     outline: none;
     transition: .5s;
+    z-index: 1000
 }
 
 .sticky-top.navbar-light .navbar-nav .nav-link {
     padding: 20px 15px;
     color: var(--bs-dark) !important;
+    z-index: 1000
+
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--bs-white) !important;
+    z-index: 1000;
+
 }
 
 .navbar-light .navbar-brand h1 {
@@ -242,6 +248,7 @@
         border-radius: 10px;
         transition: .5s;
         opacity: 0;
+        z-index: 1000;
     }
 }
 
@@ -259,6 +266,7 @@
     background: var(--bs-light);
     transition: .5s;
     opacity: 1;
+    z-index: 1000;
 }
 
 @media (max-width: 991.98px) {
@@ -275,22 +283,28 @@
         padding: 10px 20px;
         border: 1px solid var(--bs-primary);
         color: var(--bs-primary);
+        z-index: 1000;
     }
 
     .navbar-light .navbar-collapse {
         margin-top: 15px;
         border-top: 1px solid #DDDDDD;
+        z-index: 1000;
     }
 
     .navbar-light .navbar-nav .nav-link,
     .sticky-top.navbar-light .navbar-nav .nav-link {
         padding: 10px 0;
         color: var(--bs-dark) !important;
+        z-index: 1000
+
     }
 
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link.active  {
         color: var(--bs-primary) !important;
+        z-index: 1000
+
     }
 
     .navbar-light .navbar-brand img {
@@ -320,7 +334,6 @@
         height: 0;
         bottom: -1px;
         left: 0;
-        /* background: #B99470; */
         background: #D6B033;
         transition: .5s;
         z-index: -1;
@@ -334,6 +347,8 @@
 
     .navbar-light .navbar-nav .nav-link.nav-contact::before {
         display: none;
+        z-index: 1000;
+
     }
 }
 
@@ -355,6 +370,7 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 50px;
     background-size: 60% 60%;
+    z-index: initial;
 }
 
 .carousel-header .carousel-control-next .carousel-control-next-icon {
@@ -368,7 +384,7 @@
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 0;
     background-size: 60% 60%;
-    /* z-index: initial; */
+    z-index: initial;
 
 }
 
@@ -381,7 +397,6 @@
 .carousel-header .carousel-inner .carousel-item {
     position: relative;
     min-height: 100vh;
-   
 }
 
 .carousel-header .carousel-inner .carousel-item img {
@@ -389,6 +404,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: initial;
 }
 
 .carousel-header .carousel-inner .carousel-item .carousel-caption  {
@@ -404,6 +420,7 @@
     text-align: center;
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5));
     background-size: cover;
+    z-index: initial;
 }
 
 @media (max-width: 768px) {
@@ -411,10 +428,12 @@
     .carousel-header .carousel-inner .carousel-item .carousel-caption {
         height: 700px;
         margin-top: -100px;
+        z-index: initial;
     }
 
     .carousel-header {
         height: 700px !important;
+        z-index: initial;
     }
 
     .carousel-header .carousel-control-prev .carousel-control-prev-icon,
@@ -624,13 +643,18 @@
 
 .destination .tab-class .nav-item {
     padding: 0 0 20px 0;
+    z-index: initial;
 }
 .destination .tab-class .nav-item a.active {
     background: var(--bs-primary) !important;
+    z-index: initial;
+
 }
 
 .destination .tab-class .nav-item a.active span {
     color: var(--bs-white) !important;
+    z-index: initial;
+
 }
 
 .destination .tab-class .tab-content .destination-img:hover .search-icon {
@@ -778,13 +802,19 @@
 /*** Explore Tour Start ***/
 .ExploreTour .tab-class .nav-item {
     padding: 0 0 20px 0;
+    z-index: initial;
+
 }
 .ExploreTour .tab-class .nav-item a.active {
     background: var(--bs-primary) !important;
+    z-index: initial;
+
 }
 
 .ExploreTour .tab-class .nav-item a.active span {
     color: var(--bs-white) !important;
+    z-index: initial;
+
 }
 
 
@@ -1007,13 +1037,19 @@
 
 .gallery .tab-class .nav-item {
     padding: 0 0 20px 0;
+    z-index: initial;
+
 }
 .gallery .tab-class .nav-item a.active {
     background: var(--bs-primary) !important;
+    z-index: initial;
+
 }
 
 .gallery .tab-class .nav-item a.active span {
     color: var(--bs-white) !important;
+    z-index: initial;
+
 }
 
 /*** Gallery End ***/
@@ -1459,16 +1495,28 @@ color: red;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }*/
+.navbar {
+    z-index: 1000 /* Assure que le menu est derrière le chatbot */
+}
 
 
 #chatSection {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    height: 75%;
+    max-height: 70vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
     z-index: 9999;
+    background-color: white;
 }
 /* Limitation de la hauteur et de l'overflow pour le corps du chat */
 #chat4 .card-body {
-    height: 40vh; /* Hauteur en fonction de la taille de l'écran (40% de la hauteur de l'écran) */
+    height: 50vh; /* Hauteur en fonction de la taille de l'écran (40% de la hauteur de l'écran) */
     width: 90vw; /* Largeur en fonction de la taille de l'écran (90% de la largeur de l'écran) */
-    max-width: 500px; /* Largeur maximale pour les écrans plus grands */
+    max-width: 400px; /* Largeur maximale pour les écrans plus grands */
     overflow-y: auto; /* Ajout d'une barre de défilement si nécessaire */
     padding: 10px; /* Espace autour du contenu */
 }
@@ -1480,6 +1528,7 @@ color: red;
     font-size: 1em;
 }
 
+
 /* Styles supplémentaires pour l'apparence */
 #chat4 {
     width: 100%; /* Assure que la carte occupe toute la largeur du conteneur */
@@ -1489,6 +1538,7 @@ color: red;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto; /* Centrer la carte horizontalement */
 }
+
 
 
 .tooltip-text {
@@ -1515,18 +1565,30 @@ color: red;
     opacity: 1; /* Make the tooltip fully opaque */
 }
 
-/* Assurer que le chat s'adapte bien sur les petits écrans */
+/* .container-fluid {
+    z-index: 1000;
+} */
+
 @media (max-width: 768px) {
     #chat4 .card-body {
-        width: 95vw; /* Prend presque toute la largeur de l'écran sur les petits écrans */
-        height: 50vh; /* Ajuste la hauteur sur les petits écrans */
+        width: 100vw; /* Prend toute la largeur de l'écran sur les petits écrans */
+        height: 50vh; /* Prend toute la hauteur de l'écran sur les petits écrans */
+        overflow-y: auto;
+    }
+
+    #chatSection {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100vw;
+        height: 70vh;
+        right: 0;
+        bottom: 0;
     }
 
     #chat4 .card-body .p-2 {
         max-width: 90%; /* Ajuste la largeur des messages sur les petits écrans */
     }
 }
-
  /*#chatToggle {
     width: 350px; /* Largeur fixe du bouton de bascule */
     /* position: fixed;
