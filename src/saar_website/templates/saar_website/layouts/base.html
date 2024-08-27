@@ -24,7 +24,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
 
         <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        {% comment %} <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/> {% endcomment %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"/>
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
         <!-- Libraries Stylesheet -->
@@ -143,7 +145,7 @@
                     <!-- Button trigger for the collapsible chat -->
 
                  <a id="chatToggle" class="btn btn-lg btn-block btn-md-square back-to" role="button">
-                      <i class="fas fa-comment-dots" style="color: white;"></i>  
+                      <i class="fas fa-comment-dots fa-beat" style="color: white; --fa-beat-scale: 1.5;"></i>  
                       <span class="tooltip-text">Posez-moi une question</span>  
                   </a>
               
@@ -239,7 +241,7 @@
       
 
         <a id='back-to-at' href="{% url 'contact' %}" class="btn btn-primary btn-lg btn-block btn-md-square back-to-at" role="button" >
-          <i class="fas fa-phone" style="color: white;"></i>  
+          <i class="fas fa-phone fa-shake" style="color: white;"></i>  
           <span class="tooltip-text">Besoin d'aide ! Contactez-nous.</span>  
         </a>
 
@@ -254,13 +256,13 @@
                 chatSection.style.display = "block";
                 back_to_at.style.display = "none";
 
-                icon.classList.remove("fa-chevron-down");
-                icon.classList.add("fa-chevron-up");
+               /* icon.classList.remove("fa-chevron-down");
+                icon.classList.add("fa-chevron-up");*/
               } else {
                 chatSection.style.display = "none";
                 back_to_at.style.display = "flex";
-                icon.classList.remove("fa-chevron-up");
-                icon.classList.add("fa-chevron-down");
+               /* icon.classList.remove("fa-chevron-up");
+                icon.classList.add("fa-chevron-down");*/
               }
             });
 
@@ -270,8 +272,8 @@
               chatSection.style.display = "none";
               back_to_at.style.display = "flex";
               var icon = document.getElementById("chatToggle").querySelector('i');
-              icon.classList.remove("fa-chevron-up");
-              icon.classList.add("fa-chevron-down");
+              /*icon.classList.remove("fa-chevron-up");
+              icon.classList.add("fa-chevron-down");*/
           });
 
 
