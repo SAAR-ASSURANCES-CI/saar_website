@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from administration.models import Caroussel, Actualite, Produit, Sinistre
+from administration.models import Agence, AgentGeneral, Caroussel, Actualite, Produit, Sinistre
 
 from django.views.generic import ListView, DetailView
 
@@ -182,6 +182,17 @@ def contact(request):
 def agences(request):
 
     context = {}
+
+    agences_abj = Agence.objects.filter(zone="ABIDJAN")
+    agences_int = Agence.objects.filter(zone="INTERIEUR")
+
+    agent_generaux = AgentGeneral.objects.order_by('designation')
+
+    context['agences_abj'] = agences_abj
+    context['agences_int'] = agences_int
+
+    context['agent_generaux'] = agent_generaux
+
 
     context['active_agences'] = 'active_agences'
 

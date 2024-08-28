@@ -1,0 +1,104 @@
+#chatSection {
+    z-index: initial;
+}
+/* Limitation de la hauteur et de l'overflow pour le corps du chat */
+#chat4 .card-body {
+    height: 40vh; /* Hauteur en fonction de la taille de l'écran (40% de la hauteur de l'écran) */
+    width: 90vw; /* Largeur en fonction de la taille de l'écran (90% de la largeur de l'écran) */
+    max-width: 500px; /* Largeur maximale pour les écrans plus grands */
+    overflow-y: auto; /* Ajout d'une barre de défilement si nécessaire */
+    padding: 10px; /* Espace autour du contenu */
+}
+
+/* Largeur maximale pour les messages */
+#chat4 .card-body .p-2 {
+    max-width: 100%; /* Largeur maximale des messages en pourcentage du conteneur parent */
+    word-wrap: break-word; /* Casse les mots trop longs pour éviter le débordement */
+    font-size: 1em;
+}
+
+/* Styles supplémentaires pour l'apparence */
+#chat4 {
+    width: 100%; /* Assure que la carte occupe toute la largeur du conteneur */
+    max-width: 500px; /* Largeur maximale de la carte */
+    height: auto; /* Hauteur automatique en fonction du contenu */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Centrer la carte horizontalement */
+}
+
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #B4B4B8;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    right: 100%; /* Place le tooltip à gauche du bouton */
+    top: 50%; /* Aligne verticalement au centre du bouton */
+    transform: translateY(-50%); /* Centre verticalement le tooltip par rapport au bouton */
+    margin-right: 10px; /* Espace entre le tooltip et le bouton */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8em;
+    z-index: 9999;
+}
+
+.btn:hover .tooltip-text {
+    visibility: visible; /* Show the tooltip */
+    opacity: 1; /* Make the tooltip fully opaque */
+}
+
+.container-fluid {
+    z-index: initial;
+}
+
+@media (max-width: 768px) {
+    #chat4 {
+        max-width: 95vw; /* Prend presque toute la largeur de l'écran sur les petits écrans */
+        height: 50vh; /* Ajuste la hauteur sur les petits écrans */
+    }
+
+    #chat4 .card-body {
+        max-height: 50vh; /* Ajuste la hauteur sur les petits écrans */
+    }
+
+    #chat4 .card-body .p-2 {
+        max-width: 90%; /* Ajuste la largeur des messages sur les petits écrans */
+    }
+}
+
+@media (max-width: 576px) {
+    #chat4 {
+        max-width: 100%; /* Prend toute la largeur de l'écran sur les écrans très petits */
+        height: 60vh; /* Ajuste la hauteur */
+    }
+
+    #chat4 .card-body {
+        max-height: 60vh; /* Ajuste la hauteur du corps sur les très petits écrans */
+    }
+}
+ /*#chatToggle {
+    width: 350px; /* Largeur fixe du bouton de bascule */
+    /* position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+} */
+
+
+
+/*.card-footer textarea {
+    width: calc(100% - 60px); /* Adapte la largeur de la zone de texte à l'espace disponible */
+    /* margin-left: 10px;
+    border-radius: 15px;
+    resize: none;
+} */

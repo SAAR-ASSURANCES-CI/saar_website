@@ -1211,6 +1211,8 @@
 /*** Blog Start ***/
 .blog .blog-item .blog-img {
     position: relative;
+    max-width: 70vh;
+    max-height: 50vh;
 }
 
 .blog .blog-item .blog-img .blog-info {
@@ -1227,6 +1229,8 @@
     position: relative;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    max-width: 70vh;
+    max-height: 50vh;
 }
 
 .blog .blog-item .blog-img .blog-img-inner .blog-icon {
@@ -1268,6 +1272,8 @@
 
 .blog .blog-item .blog-img .blog-img-inner img {
     transition: 0.5s;
+    max-width: 70vh;
+    max-height: 50vh;
 }
 
 .blog .blog-item .blog-img:hover .blog-img-inner img {
