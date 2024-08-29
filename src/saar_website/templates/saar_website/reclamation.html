@@ -85,7 +85,7 @@
                     <p class="mb-0">Déclarez votre sinistre avec la possibilité de vous faire contacter par un gestionnaire spécialisé.</p>
                     <p class="mb-4">Veuillez remplir le formulaire ci-dessous et vérifiez l'exactitude des Informations saisies avant de les valider !</p>
 
-                    <form method="post" action=""> 
+                    <form method="post" action="{% url 'reclamation' %}"> 
 
                         {% csrf_token %}
 
@@ -163,8 +163,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email_a" name="email_a" placeholder="Email">
-                                            <label for="email_a">Email</label>
+                                            <input type="email" class="form-control border-0" id="email_a" name="email_a" placeholder="Email" required>
+                                            <label for="email_a" class="required">Email</label>
                                         </div>
                                     </div>
                                 </div>    
@@ -361,7 +361,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="date" class="form-control border-0" id="visite_du_b" name="visite_du_b" placeholder="Visite technique du">
+                                                <input type="date" for="visite_du_b" class="form-control border-0" id="visite_du_b" name="visite_du_b" placeholder="Visite technique du">
                                                 <label for="visite_du_b">Visite technique du</label>
                                             </div>
                                         </div>

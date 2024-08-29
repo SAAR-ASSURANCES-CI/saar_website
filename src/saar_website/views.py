@@ -160,17 +160,21 @@ def contact(request):
         context_template = {'name': name, 'from_email': from_email, 'message':message}
         html_content = render_to_string('saar_website/email_template.html', context=context_template)
 
-        # email = EmailMessage(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=['saarci.assurance@gmail.com'])
-
-        email = EmailMultiAlternatives(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=[from_email])
+        email = EmailMultiAlternatives(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=['saarci.assurance@gmail.com'])
         email.attach_alternative(html_content, "text/html")
-
-
         email.send()
+
+        # Load the HTML template
+        message_user = "Votre requête a bien été reçu, un de nos conseiller vous contacteras dans un bref délai."
+        context_user_template = {'name': name, 'from_email': from_email, 'message_user':message_user}
+        html_user_content = render_to_string('saar_website/email_user_template.html', context=context_user_template)
+        email_to_user = EmailMultiAlternatives(subject="Accusé de réception - SAAR CI", from_email=settings.DEFAULT_FROM_EMAIL, to=[from_email])
+        email_to_user.attach_alternative(html_user_content, "text/html")
+        email_to_user.send()
 
         # send_mail(subject=f'{subject}', message=f'{message} {name} {from_email}', from_email=settings.DEFAULT_FROM_EMAIL, recipient_list=[settings.EMAIL_HOST_USER])
 
-        message = f"Votre message a bien été envoyé, un de nos conseiller vous contacteras dans un bref délai."
+        message = f"Votre message a bien été reçu. Un mail de confirmation vous a été envoyé. Merci de faire confiance à SAAR Assurances Côte d'Ivoire."
         messages.success(request, message)
 
         return redirect('contact')
@@ -264,8 +268,19 @@ def reclamation(request):
         email_b = request.POST['email_b']
         marque_b = request.POST['marque_b']
         imma_b = request.POST['imma_b']
-        visite_du_b = request.POST['visite_du_b'] if request.POST['visite_du_b'] else None
-        visite_au_b = request.POST['visite_au_b'] if request.POST['visite_au_b'] else None
+
+        visite_du_b = request.POST.get('visite_du_b', '')
+        if visite_du_b in ('', None, ' '):
+            visite_du_b = None
+        else:
+            visite_du_b = datetime.strptime(visite_du_b, '%Y-%m-%d').date()
+
+        visite_au_b = request.POST.get('visite_au_b', '')
+        if visite_au_b in ('', None, ' '):
+            visite_au_b = None
+        else:
+            visite_au_b = datetime.strptime(visite_du_b, '%Y-%m-%d').date()
+
         usage_b = request.POST['usage_b']
 
         conducteur_b = request.POST['conducteur_b']
@@ -274,6 +289,13 @@ def reclamation(request):
         profession_conducteur_b = request.POST['profession_conducteur_b']
         numero_permis_b = request.POST['numero_permis_b']
         date_delivrance_b = request.POST['date_delivrance_b']
+
+        if date_delivrance_b in ('', None, ' '):
+            date_delivrance_b = None    
+        else:
+            date_delivrance_b = datetime.strptime(date_delivrance_b, '%Y-%m-%d').date()    
+
+
         lieu_delivrance_b = request.POST['lieu_delivrance_b']
         categorie_b = request.POST['categorie_b']
         dure_b = request.POST['dure_b'] if request.POST['dure_b'] else None
@@ -372,8 +394,8 @@ def reclamation(request):
             context_template['email_b'] = email_b
             context_template['marque_b'] = marque_b
             context_template['imma_b'] = imma_b
-            context_template['visite_du_b'] = pd.to_datetime(visite_du_b)
-            context_template['visite_au_b'] = pd.to_datetime(visite_au_b)
+            context_template['visite_du_b'] = visite_du_b
+            context_template['visite_au_b'] = visite_au_b
             context_template['usage_b'] = usage_b
             context_template['conducteur_b'] = conducteur_b
             context_template['adresse_conducteur_b'] = adresse_conducteur_b
@@ -401,6 +423,15 @@ def reclamation(request):
             email.attach('declaration_sinistre.pdf', pdf_file, 'application/pdf')
             
             email.send()
+
+
+              # Load the HTML template
+            message_user = "Votre réclamation a bien été reçu, un de nos conseiller vous contacteras dans un bref délai. Merci de nous faire confiance."
+            context_user_template = {'name': nom_a, 'email': email_a, 'message_user':message_user}
+            html_user_content = render_to_string('saar_website/email_user_template.html', context=context_user_template)
+            email_to_user = EmailMultiAlternatives(subject="Accusé de réception - SAAR CI", from_email=settings.DEFAULT_FROM_EMAIL, to=[email_a])
+            email_to_user.attach_alternative(html_user_content, "text/html")
+            email_to_user.send()
 
             message = f"Votre réclamation a bien été enregistré et transmis au service sinistre, un de nos gestionnaire sinistre vous contactera dans un bref délai pour finaliser votre procédure."
             messages.success(request, message)
