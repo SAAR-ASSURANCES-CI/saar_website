@@ -116,17 +116,41 @@
 
     
    // Back to top button
-   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-        $('.back-to-top').fadeIn('slow');
+//    $(window).scroll(function () {
+//     if ($(this).scrollTop() > 300) {
+//         $('.back-to-top').fadeIn('slow');
+//     } else {
+//         $('.back-to-top').fadeOut('slow');
+//     }
+//     });
+
+
+$(window).scroll(function () {
+    // Vérifier si le chat est ouvert
+    if ($('#chatSection').is(':visible')) {
+        // Si le chat est ouvert, masquer le bouton back-to-top
+        // $('.back-to-top').fadeOut('slow');
+        $('.back-to-top').hide();
+        // $('.back-to-top').style.display = 'none';
+        $('.back-to-top').css('z-index', 'initial');
     } else {
-        $('.back-to-top').fadeOut('slow');
+        // Si le chat n'est pas ouvert, appliquer la logique de défilement normale
+        if ($(this).scrollTop() > 300) {
+            $('.back-to-top').fadeIn('slow');
+        } else {
+            $('.back-to-top').fadeOut('slow');
+        }
     }
-    });
+});
+
+
     $('.back-to-top').click(function () {
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     }); 
+
+
+   
 
 })(jQuery);
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Caroussel, Actualite, Produit, Sinistre
+from .models import Caroussel, Actualite, Produit, Sinistre, Agence, AgentGeneral
 
 
 class CarouselAdmin(admin.ModelAdmin):
@@ -11,7 +11,10 @@ class ActualiteAdmin(admin.ModelAdmin):
 
 
 class ProduitAdmin(admin.ModelAdmin):
-    list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator') 
+    list_display = ('id','titre', 'contenu', 'created_at', 'updated_at', 'creator')
+
+class AgentGeneralAdmin(admin.ModelAdmin):
+    list_display = ('id','designation', 'localite', 'contact', 'created_at', 'updated_at', 'creator')      
 
 
 class SinistreAdmin(admin.ModelAdmin):
@@ -59,7 +62,10 @@ class SinistreAdmin(admin.ModelAdmin):
             'constat_b',
             'salarie_b',
             'circonstance',
-            'dommages',)         
+            'dommages',) 
+
+class AgenceAdmin(admin.ModelAdmin):
+    list_display = ('id','titre', 'situation', 'contact', 'localisation', 'zone', 'created_at', 'updated_at', 'creator')            
 
 
 # Register your models here.
@@ -74,3 +80,7 @@ admin.site.register(Actualite, ActualiteAdmin)
 admin.site.register(Produit, ProduitAdmin)
 
 admin.site.register(Sinistre, SinistreAdmin)
+
+admin.site.register(Agence, AgenceAdmin)
+
+admin.site.register(AgentGeneral, AgentGeneralAdmin)

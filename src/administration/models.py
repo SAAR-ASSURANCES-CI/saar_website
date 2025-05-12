@@ -63,6 +63,7 @@ class Produit(models.Model):
 
     def __str__(self):
         return self.path.url
+      
     
 
 
@@ -199,6 +200,41 @@ class Sinistre(models.Model):
         return f"Sinistre du {self.date_sinistre} - {self.lieu_sinistre}"
 
     
+class Agence(models.Model):
+    path = models.ImageField(upload_to='img/')
+    titre = models.CharField(max_length=100, null=False, blank=False)
+    situation = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
+    localisation = models.URLField(max_length=200)
+
+    ZONE_CHOICES = [
+        ('ABIDJAN', 'ABIDJAN'),
+        ('INTERIEUR', 'INTERIEUR'),
+    ]
+    zone = models.CharField(max_length=50, choices=ZONE_CHOICES, verbose_name="Quel est la zone de l'agence ?", default='ABIDJAN')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.titre  
+    
+
+class AgentGeneral(models.Model):
+    designation = models.CharField(max_length=100)
+    localite = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.designation
+
 
 
 

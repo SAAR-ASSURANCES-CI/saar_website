@@ -28,284 +28,107 @@
             </div>
             <div class="row g-4 justify-content-left">
 
+                {% for agence in agences_abj %}
+
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-item">
                         <div class="blog-img">
                             <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
+                                <img class="img-fluid w-100 rounded-top" src="{{ agence.path.url }}" alt="Image">
                                 <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    <a href="{{ agence.localisation }}" target="_blank" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Plateau</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
+                            <a href="#"  class="h4">{{ agence.titre }}</a>
+                            <p class="my-3">{{ agence.situation }}</p>
+                            <p class="my-3">{{ agence.contact }}</p>
+                            <a href="{{ agence.localisation }}" target="_blank" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
                                 
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Cocody Rivera</a>
-                            <p class="my-3">Rivera 3, Abidjan</p>
-                            <p class="my-3">Tél : +225 07 89 53 12 28</p>
-                            <a href="https://maps.app.goo.gl/4BRpzo7fZQcPLxW79" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Cocody Vallon</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Bietry</a>
-                            <p class="my-3">Non loin de l'église Notre Dame d'Afrique de Bietry, Abidjan</p>
-                            <p class="my-3">Tél : +225 07 87 05 76 33</p>                            
-                            <a href="https://maps.app.goo.gl/CD4t4f7qA58KSSQb9" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Yopougon</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Abobo</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/agence_takaful.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="https://maps.app.goo.gl/uA5m7Xp7RbxZrira7" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Takaful Treichville</a>
-                            <p class="my-3">Carrefour ex cinéma entente, Treichville, Abidjan</p>
-                            <p class="my-3">Tèl : +225 07 57 82 55 47</p>
-                            <a href="https://maps.app.goo.gl/uA5m7Xp7RbxZrira7" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                {% comment %} <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-3.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                            <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">
-                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>
-                                <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>
-                                <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <p class="mb-3">Posted By: Royal Hamblin </p>
-                            <a href="#" class="h4">Adventures Trip</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div> {% endcomment %}
             </div>
         </div>
     </div>
 
-    <div class="container-fluid blog py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">A L'INERIEUR</h5>
-                <h4 class="mb-4">Nous disposons de 6 agences à l'intérieur</h4>
-               
-            </div>
-            <div class="row g-4 justify-content-center">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Bouaké</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
+        <!-- Blog Start -->
+        <div class="container-fluid blog py-0">
+            <div class="container py-0">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">A L'INERIEUR</h5>
+                    <h4 class="mb-4">Nous disposons de 6 agences à l'intérieur</h4>
                 </div>
-                                
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                <div class="row g-4 justify-content-left">
+    
+                    {% for agence in agences_int %}
+    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <div class="blog-img-inner">
+                                    <img class="img-fluid w-100 rounded-top" src="{{ agence.path.url }}" alt="Image">
+                                    <div class="blog-icon">
+                                        <a href="{{ agence.localisation }}" target="_blank" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Yamoussoukro</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
+                            <div class="blog-content border border-top-0 rounded-bottom p-4">
+                                <a href="#"  class="h4">{{ agence.titre }}</a>
+                                <p class="my-3">{{ agence.situation }}</p>
+                                <p class="my-3">{{ agence.contact }}</p>
+                                <a href="{{ agence.localisation }}" target="_blank" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
+                                    
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">NOS AGENTS GENERAUX</h5>
+                    {% comment %} <h4 class="mb-4">Nous disposons de 6 agences à l'intérieur</h4> {% endcomment %}
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Abengourou</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
+                <table class="table table-striped">
+                    <thead>
+                      <tr class="bg-primary" style="color: white; font-size: calc(1rem + 0.3vw);">
+                        {% comment %} <th scope="col">#</th> {% endcomment %}
+                        <th scope="col">DESIGNATION</th>
+                        <th scope="col">LOCALITE</th>
+                        <th scope="col">CONTACT</th>
+                      </tr>
+                    </thead>
+                    <tbody>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Korhogo</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct Daloa</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <div class="blog-img-inner">
-                                <img class="img-fluid w-100 rounded-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
-                                <div class="blog-icon">
-                                    <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content border border-top-0 rounded-bottom p-4">
-                            <a href="#" class="h4">Bureau Direct San-Pedro</a>
-                            <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>
-                            <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Itinéraire</a>
-                        </div>
-                    </div>
-                </div>
+                        
+                        {% for agent in agent_generaux %}
+                        <tr style="color: var(--bs-primary); font-size: calc(1rem + 0.3vw);">
+                            {% comment %} <th scope="row">1</th> {% endcomment %}
+                            <td>{{agent.designation}}</td>
+                            <td>{{agent.localite}}</td>
+                            <td>{{agent.contact}}</td>
+                          </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
 
             </div>
         </div>
-    </div>
-    <!-- Blog End -->
+
+
+
+ 
 
 {% endblock content %}
