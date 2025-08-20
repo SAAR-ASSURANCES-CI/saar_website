@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from administration.models import Agence, AgentGeneral, Caroussel, Actualite, Produit, Sinistre
+from administration.models import Agence, AgentGeneral, Caroussel, Actualite, Produit, Sinistre, Temoignage
 
 from django.views.generic import ListView, DetailView
 
@@ -45,12 +45,14 @@ def index(request):
     carousels = Caroussel.objects.all()
     actualites = Actualite.objects.all()
     produits = Produit.objects.all()
+    temoignages = Temoignage.objects.all()
 
     
 
     context['carousels'] = carousels
     context['actualites'] = actualites
     context['produits'] = produits
+    context['temoignages'] = temoignages
 
     context['products_keys'] = products_keys
 
@@ -64,6 +66,8 @@ def carousel(request, numero):
     try:
         context = {}
         carousel = Caroussel.objects.get(pk=numero)
+
+        context['produits'] = produits
 
         context['carousel'] = carousel
         context['products_keys'] = products_keys
@@ -103,6 +107,7 @@ def produit(request, numero):
         produit = Produit.objects.get(pk=numero)
 
         context['produit'] = produit
+        context['produits'] = produits
         context['products_keys'] = products_keys
         context[f'active_produit{numero}'] = f'active_produit{numero}'
 
@@ -127,6 +132,9 @@ def about(request):
 
     context['active_about'] = 'active_about'
 
+    context['produits'] = produits
+
+
     context['products_keys'] = products_keys
 
     return render(request, "saar_website/about.html", context=context)
@@ -137,6 +145,11 @@ def about_grp(request):
     context = {}
 
     context['products_keys'] = products_keys
+    
+    context['produits'] = produits
+
+    context['active_about_grp'] = 'active_about_grp'
+
 
     return render(request, "saar_website/about_grp.html", context=context)
 
@@ -144,6 +157,8 @@ def about_grp(request):
 def contact(request):
 
     context = {}
+
+    context['produits'] = produits
 
     context['active_contact'] = 'active_contact'
 
@@ -192,6 +207,8 @@ def agences(request):
 
     agent_generaux = AgentGeneral.objects.order_by('designation')
 
+    context['produits'] = produits
+
     context['agences_abj'] = agences_abj
     context['agences_int'] = agences_int
 
@@ -217,6 +234,8 @@ def reclamation(request):
 
 
     context['products_keys'] = products_keys
+
+    context['produits'] = produits
 
     if request.method == 'POST':
 
@@ -462,6 +481,10 @@ def valeurs(request):
     # context['active_agences'] = 'active_agences'
 
     context['products_keys'] = products_keys
+
+    context['produits'] = produits
+
+    context['active_valeurs'] = 'active_valeurs'
 
     return render(request, "saar_website/valeurs.html", context=context)
 

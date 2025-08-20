@@ -13,6 +13,13 @@
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> {% endcomment %}
                     </div>
                 </div>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center" style="height: 45px;">
+                        <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Espace Client</small></a>
+                        </div>
+                    </div>
+                </div>
                 <!-- <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
                         <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
@@ -39,13 +46,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="{% url 'index' %}" class="navbar-brand p-0">
-                    {% comment %} <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Saar Côte d'Ivoire</h1> {% endcomment %}
-                    {% comment %} <div class="d-flex justify-content-center"> {% endcomment %}
-                <h1 class="m-0" style="text-align: end; font-size: 1.6em;"><img src="{% static 'img/logo-saar.jpeg' %}" style="height: 500px;" alt="Logo"> Assurances </h1>
-                <h1 class="m-0" style="text-align: end; font-size: 1.6em;"> Côte d'Ivoire </h1>
-                    {% comment %} </div> {% endcomment %}
-                    
-
+                <h1 class="m-0"><img src="{% static 'img/logo-saar.png' %}"  alt="Logo"></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -53,11 +54,93 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{% url 'index' %}" class="nav-item nav-link 
-                        {% if active_index or active_about or active_agences %}
+                        {% if active_index %}
                         active
                         {% endif %} text-center">Accueil</a>
 
-                        <a href="{% url 'produit' numero=products_keys.0 %}" class="nav-item nav-link 
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle 
+                            {% if active_about or active_about_grp %}
+                           active {% endif %} text-center" data-bs-toggle="dropdown">A Propos</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="{% url 'about_grp' %}" class="dropdown-item text-start {% if active_about_grp %} active {% endif %}">Le Groupe SAAR</a>
+                                <a href="{% url 'about' %}" class="dropdown-item text-start {% if active_about %} active {% endif %}">SAAR Côte d'Ivoire</a>
+                                <a href="{% url 'valeurs' %}" class="dropdown-item text-start {% if active_valeurs %} active {% endif %}">Nos Valeurs</a>    
+                            </div>
+                        </div>
+
+
+                        {% comment %} <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle 
+                            {% if produit %}
+                            {% if produit.pk in products_keys and produit.pk != 9 %} active {% endif %}
+                            {% endif %} text-center" data-bs-toggle="dropdown">Nos Produits</a>
+                            <div class="dropdown-menu m-0">
+                                {% for prod in produits %}
+                                {% if prod.pk != 9 %}
+                                <a href="{% url 'produit' numero=prod.pk %}" class="dropdown-item text-start{% if produit %}
+                                {% if prod.pk == produit.pk %} active {% endif %}
+                                {% endif %}">
+                                {{ prod.titre }}
+                                </a>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>    {% endcomment %}
+
+
+
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle 
+                                {% if produit %}
+                                {% if produit.pk in products_keys %} active {% endif %}
+                                {% endif %} text-center" 
+                                data-bs-toggle="dropdown">
+                                Nos Produits
+                            </a>
+                            
+                            <ul class="dropdown-menu m-0">
+                                <!-- Assurances Non-Vie -->
+                                <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Assurances Non-Vie</a>
+                                <ul class="dropdown-menu">
+                                    {% for prod in produits %}
+                                    {% if prod.pk != 9 %}
+                                    <li>
+                                        <a href="{% url 'produit' numero=prod.pk %}" 
+                                        class="dropdown-item text-start
+                                        {% if produit and prod.pk == produit.pk %} active {% endif %}">
+                                        {{ prod.titre }}
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                </li>
+
+                                <!-- Assurances Vie -->
+                                <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Assurances Vie</a>
+                                <ul class="dropdown-menu">
+                                    
+                                    <li>
+                                        <a href="#" class="dropdown-item text-start">AS Millenium</a>
+                                        <a href="#" class="dropdown-item text-start">SAAR NANSOU</a>
+
+                                    </li>
+                                
+                                </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+                      
+
+                        {% comment %} <a href="{% url 'produit' numero=products_keys.0 %}" class="nav-item nav-link 
                         {% if produit %}
                             {% if products_keys.0 == produit.pk %} active {% endif %}
                         {% endif %} text-center">Assurance Automobile</a>
@@ -94,15 +177,26 @@
 
                         <a href="{% url 'produit' numero=products_keys.6 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.6 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Caution</a>
+                        {% endif %} text-center">Assurance Caution</a> {% endcomment %}
                        
                         <a href="{% url 'produit' numero=products_keys.8 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.8 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Takaful</a>
+                        {% endif %} text-center">Assurances Takaful</a>
 
-                        <a href="{% url 'produit' numero=products_keys.7 %}" class="nav-item nav-link {% if produit %}
+                         <a href="{% url 'agences' %}" class="nav-item nav-link text-center{% if active_agences %} active {% endif %}">Trouver une agence</a>
+
+                                                  
+                         <a href="{% url 'contact' %}" class="nav-item nav-link text-center {% if active_contact %} active {% endif %}">Contacts</a>
+
+
+                        {% comment %} <a href="{% url 'produit' numero=products_keys.7 %}" class="nav-item nav-link {% if produit %}
                         {% if products_keys.7 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Risques Divers</a>
+                        {% endif %} text-center">Risques Divers</a> {% endcomment %}
+
+
+
+
+
                         {% comment %} <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
@@ -119,7 +213,7 @@
                         active
                         {% endif %} text-center">Contact</a> {% endcomment %}
                     </div>
-                    {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Faire un devis</a> {% endcomment %}
+                    <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a>
                 </div>
             </nav>
 

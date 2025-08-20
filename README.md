@@ -23,3 +23,6 @@ Elements impactés par la modif des couleurs :
 
 
 https://www.shutterstock.com/fr/search/assurance-voiture-africain
+
+
+https://stock.adobe.com/search?k=pattern+background

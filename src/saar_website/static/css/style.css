@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 /*** Spinner Start ***/
 /*** Spinner ***/
 #spinner {
@@ -18,7 +18,8 @@
 .back-to-top {
     position: fixed;
     /* right: 30px; */
-    bottom: 90px;
+    left: 30px;
+    bottom: 40px;
     display: flex;
     width: 45px;
     height: 45px;
@@ -192,7 +193,7 @@
 .navbar-light .navbar-nav .nav-link {
     font-family: 'Roboto', sans-serif;
     position: relative;
-    padding: 35px 15px;
+    padding: 35px 15px; 
     color: var(--bs-white) !important;
     font-size: 17px;
     font-weight: 400;
@@ -226,7 +227,7 @@
 }
 
 .navbar-light .navbar-brand img {
-    max-height: 60px;
+    max-height: 90px;
     transition: .5s;
 }
 
@@ -565,8 +566,8 @@
 }
 
 .bg-breadcrumb .breadcrumb-item a {
-    color: var(--bs-secondary) !important;
-    /* color: #B99470 !important; */
+    /* color: var(--bs-secondary) !important; */
+    color: #D6B033 !important;
 }
 
 .bg-breadcrumb-JB .breadcrumb-item a {
@@ -1076,7 +1077,9 @@
 
 /*** Tour Booking Start ***/
 .booking {
-    background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(/img/tour-booking-bg.jpg);
+    /* background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(/img/tour-booking-bg.jpg); */
+    background: linear-gradient(rgba(19, 53, 123, .6), rgba(19, 53, 123, .6)), url(../img/man-sinistre.jpg);
+
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1682,3 +1685,127 @@ color: red;
     opacity: 1;
     transform: translateY(0); /* Remonte à sa position normale */
 }
+
+/* .essai {
+    max-height: 20vh;
+} */
+
+
+.blog-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* occupe toute la hauteur du parent */
+}
+
+/* Force la zone image à une hauteur fixe */
+.blog-img-inner img {
+    height: 200px; /* ou auto + max-height pour responsive */
+    object-fit: cover; /* coupe l'image proprement */
+    width: 100%;
+}
+
+/* Contenu uniformisé */
+.blog-item .blog-content {
+    flex: 1; /* prend l'espace restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; /* même hauteur pour tous */
+}
+
+/* Texte limité dans le contenu */
+.blog-item .blog-content p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* limite à 4 lignes */
+    -webkit-box-orient: vertical;
+}
+
+
+
+
+ /* ACTUALITES */
+
+ /* Conteneur packages-item en flex pour même hauteur */
+.packages-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* occupe toute la hauteur disponible */
+}
+
+/* Image responsive avec découpe propre */
+.packages-img img {
+    width: 100%;
+    height: 200px;       /* fixe la hauteur, ajuste selon besoin */
+    object-fit: cover;   /* garde le ratio sans déformation */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Contenu uniforme */
+.packages-content {
+    flex: 1; /* prend l'espace restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* même hauteur pour tous les blocs */
+}
+
+/* Texte limité */
+.packages-content p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* limite à 4 lignes */
+    -webkit-box-orient: vertical;
+}
+
+/* Responsive : ajustement pour petit écran */
+@media (max-width: 768px) {
+    .packages-img img {
+        height: 150px;
+    }
+    .packages-content {
+        min-height: 180px;
+    }
+}
+
+
+
+body {
+    /* background-image: url("../img/ca_peu_3.jpg"); */
+    /* background-image: url("../img/SARR-bonjour.jpg"); */
+    background-image: url("../img/akwaba_statut.jpeg");
+    /* background-image: url("../img/akwaba.jpg"); */
+    /* background-image: url("../img/ca_peut.jpg"); */
+
+
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  position: absolute;
+  top: 0;           /* alignement au niveau du lien parent */
+  left: 100%;       /* à droite du parent */
+  margin-top: -0.25rem; /* petit ajustement vertical (à tester) */
+  display: none !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block !important;
+}
+

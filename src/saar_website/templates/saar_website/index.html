@@ -6,7 +6,7 @@
 
 
          <!-- Blog Start -->
-         <div class="container-fluid blog py-5">
+         <div class="container-fluid blog py-3">
             <div class="container py-5">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                     <h5 class="section-title px-3">Nos produits</h5>
@@ -19,6 +19,8 @@
                     
                     {% for produit in produits %}
 
+                    {% if produit.pk != 9 %}
+
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-item">
                             <div class="blog-img">
@@ -30,28 +32,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog-content border border-top-0 rounded-bottom p-4">
+                            <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                 <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
-                                <p class="my-3" style="text-align: justify;">{{ produit.contenu | safe | truncatechars:200 }}</p>
+                                <p class="my-3" style="text-align: justify;">{{produit.contenu|truncatechars:200}}</p>
                                 <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
                             </div>
                         </div>
                     </div>
 
+                    {% endif %}
+
                     {% endfor %}
-
                 </div>
-
-    
             </div>
         </div>
         <!-- Blog End -->
 
 
           <!-- Packages Start -->
-          <div class="container-fluid packages py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+          <div class="container-fluid packages py-3">
+            <div class="container py-0">
+                <div class="mx-auto text-center mb-5">
                     <h5 class="section-title px-3">Actualités</h5>
                     <h1 class="mb-0">Nos dernières activités</h1>
                 </div>
@@ -59,18 +60,20 @@
 
                     
                    {% for actualite in actualites %}
-                    <div class="packages-item">
+                    <div class="packages-item d-flex align-items-stretch">
                         <div class="packages-img">
 
-                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top test_img" alt="Image">
+                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top" alt="Image">
 
                         </div>
-                        <div class="packages-content bg-light" style="width: 415px; height:350px;">
+                        <div class="packages-content bg-light rounded-bottom p-3">
                             <div class="p-4 pb-0">
                                 <h5 class="mb-0">{{actualite.titre}}</h5>
                                 <small class="text-uppercase">Publié le {{actualite.date_publication|date:"d F Y"}}</small>
                                
-                                <p class="mb-4" style="text-align: justify;">{{actualite.contenu}}</p>
+                                <p class="mb-4" style="text-align: justify;">{{actualite.contenu|safe|truncatechars:200}}</p>
+                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+
                             </div>
                         
                         </div>
@@ -84,97 +87,31 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-fluid testimonial py-5">
+        <div class="container-fluid testimonial py-3">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">Témoignages</h5>
                 <h1 class="mb-0">Ce que disent nos clients !!!</h1>
             </div>
             <div class="testimonial-carousel owl-carousel">
+
+                {% for temoignage in temoignages %}
                 <div class="testimonial-item text-center rounded pb-4">
                     <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">La meilleure depuis des années, je suis en partenariat avec eux, ils sont aussi à Abidjan sud Bietry en face de l'église catholique Notre Dame d'Afrique
+                        <p class="text-center mb-5">
+                            {{temoignage.contenu|safe|truncatechars:300}}
                         </p>
                     </div>
                     <div class="testimonial-img p-1">
-                        {% comment %} <img src="{% static 'img/testimonial-1.jpg' %}" class="img-fluid rounded-circle" alt="Image"> {% endcomment %}
                         <i class="fa fa-user-circle" style="font-size: 90px;"></i>
                     </div>
                     <div style="margin-top: -35px;">
-                        <h5 class="mb-0">Christ Alim</h5>
-                        <p class="mb-0">Abidjan, Côte d'Ivoire</p>
-                        {% comment %} <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div> {% endcomment %}
+                        <h5 class="mb-0">{{temoignage.name}}</h5>
+                        <p class="mb-0">{{temoignage.localisation}}</p>
                     </div>
                 </div>
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Je viens de prendre mon assurance à l’instant très rapide et fiable
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        {% comment %} <img src="{% static 'img/testimonial-2.jpg' %}" class="img-fluid rounded-circle" alt="Image"> {% endcomment %}
-                        <i class="fa fa-user-circle" style="font-size: 90px;"></i>
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">Igor Passport</h5>
-                        <p class="mb-0">Abidjan, Côte d'Ivoire</p>
-                        {% comment %} <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div> {% endcomment %}
-                    </div>
-                </div>
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Wahou quelle innovation pour joker bailleur, vous êtes les meilleurs
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        {% comment %} <img src="{% static 'img/testimonial-3.jpg' %}" class="img-fluid rounded-circle" alt="Image"> {% endcomment %}
-                        <i class="fa fa-user-circle" style="font-size: 90px;"></i>
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">Sidiki Guikas Kouyate</h5>
-                        <p class="mb-0">Abidjan, Côte d'Ivoire</p>
-                        {% comment %} <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div> {% endcomment %}
-                    </div>
-                </div>
-                <div class="testimonial-item text-center rounded pb-4">
-                    <div class="testimonial-comment bg-light rounded p-4">
-                        <p class="text-center mb-5">Je dis un grand merci à Saar Assurance Vie. Car toutes mes préocupations ont été résolu en un temps record. Mille et une fois merci pour votre réception
-                        </p>
-                    </div>
-                    <div class="testimonial-img p-1">
-                        {% comment %} <img src="{% static 'img/testimonial-4.jpg' %}" class="img-fluid rounded-circle" alt="Image"> {% endcomment %}
-                        <i class="fa fa-user-circle" style="font-size: 90px;"></i>
-                    </div>
-                    <div style="margin-top: -35px;">
-                        <h5 class="mb-0">Lea Monet</h5>
-                        <p class="mb-0">Abidjan, Côte d'Ivoire</p>
-                        {% comment %} <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                            <i class="fas fa-star text-primary"></i>
-                        </div> {% endcomment %}
-                    </div>
-                </div>
+                {% endfor %}
+                
             </div>
         </div>
     </div>
@@ -185,12 +122,9 @@
   <div class="container-fluid booking py-5">
 
     
-    <div class="container py-5">
+    <div class="container py-3">
 
         <h1 class="text-white text-center mb-5">Déclarez votre sinistre</h1>
-        {% comment %} <br> {% endcomment %}
-
-
 
         <div class="row g-5">
             <div class="col-lg-6">
@@ -226,14 +160,14 @@
             </div>
         </div>
     </div>
-</div> 
+</div>  
 <!-- Tour Booking End -->
 
 
 
 
      <!-- Subscribe Start -->
-      {% comment %} <div class="container-fluid subscribe py-5">
+    {% comment %} <div class="container-fluid subscribe py-5">
         <div class="container text-center py-5">
             <div class="mx-auto text-center" style="max-width: 900px;">
                 <h1 class="text-white mb-4">Déclarer votre sinistre</h1>

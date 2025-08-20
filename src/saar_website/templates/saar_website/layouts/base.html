@@ -39,6 +39,8 @@
 
         <!-- Template Stylesheet -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+        
     </head>
 
     <body>
@@ -160,7 +162,7 @@
         {% comment %} </div> {% endcomment %}
             
         <!-- Back to Top -->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-start">
             <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
         </div>
 
@@ -310,6 +312,50 @@ function displayResponseWordByWord(text, element) {
 
     displayNextWord();
 }
+
+
+     document.querySelectorAll('.dropdown-submenu > a').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Fermer tous les autres sous-menus
+        document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(function(menu){
+          menu.style.display = "none";
+        });
+
+        // Ouvrir celui cliqué
+        let submenu = this.nextElementSibling;
+        if(submenu && submenu.style.display !== "block"){
+          submenu.style.display = "block";
+        }
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(function(menu) {
+    menu.style.display = "none"; // ferme tous les sous-menus
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  // cibler tous les sous-menus
+  document.querySelectorAll(".dropdown-submenu").forEach(function(item) {
+    let link = item.querySelector(".dropdown-toggle");
+    let submenu = item.querySelector(".dropdown-menu");
+
+    // quand on survole le lien
+    link.addEventListener("mouseenter", function() {
+      // récupérer la position du lien
+      let linkRect = link.getBoundingClientRect();
+
+      // ajuster la position verticale du sous-menu
+      submenu.style.top = link.offsetTop + "px";
+    });
+  });
+});
+
+
           
       </script>
 

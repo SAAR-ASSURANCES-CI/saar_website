@@ -40,21 +40,17 @@ class Caroussel(models.Model):
 
 # ACTUALITES
 class Actualite(models.Model):
-    titre = models.CharField(max_length=150, blank=True, default="")
-    contenu = models.TextField(blank=True, default="")
+    titre = models.CharField(max_length=150)
+    contenu = models.TextField(max_length=500)
     date_publication = models.DateField()
     path = models.ImageField(upload_to='img/')
 
     def __str__(self):
-        return self.path.url
+        return self.titre
     
 
-
-#  # PRODUITS
-class Produit(models.Model):
-    titre = models.CharField(max_length=100)
-    contenu = models.TextField(blank=True, default="")
-    path = models.ImageField(upload_to='img/')
+class Categorie(models.Model):
+    libelle = models.CharField(max_length=100)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, null=True)
@@ -62,7 +58,24 @@ class Produit(models.Model):
     creator = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
-        return self.path.url
+        return self.libelle
+
+
+#  # PRODUITS
+class Produit(models.Model):
+    titre = models.CharField(max_length=100)
+    contenu = models.TextField(max_length=500)
+    path = models.ImageField(upload_to='img/')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    categorie = models.ForeignKey(Categorie, on_delete=models.PROTECT, default=1)
+
+    def __str__(self):
+        return self.titre
       
     
 
@@ -234,6 +247,18 @@ class AgentGeneral(models.Model):
 
     def __str__(self):
         return self.designation
+    
+
+
+# TEMOIGNAGES
+class Temoignage(models.Model):
+    contenu = models.TextField(max_length=500)
+    name = models.CharField(max_length=150)
+    localisation = models.CharField(max_length=150)
+    date_publication = models.DateField()
+
+    def __str__(self):
+        return self.name
 
 
 
