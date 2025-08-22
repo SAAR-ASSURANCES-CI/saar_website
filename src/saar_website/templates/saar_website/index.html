@@ -6,44 +6,89 @@
 
 
          <!-- Blog Start -->
-         <div class="container-fluid blog py-3">
+         <div class="container-fluid blog destination py-3">
             <div class="container py-5">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                     <h5 class="section-title px-3">Nos produits</h5>
-                    <h1 class="mb-4">Découvrez nos offres</h1>
-                    {% comment %} <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti deserunt tenetur sapiente atque. Magni non explicabo beatae sit, vel reiciendis consectetur numquam id similique sunt error obcaecati ducimus officia maiores.
-                    </p> {% endcomment %}
+                    <h1 class="mb-4">Découvrez nos offres</h1>            
                 </div>
-                {% comment %} <div class="row g-4 mb-3 justify-content-center"> {% endcomment %}
-                <div class="row g-4 mb-3">
-                    
-                    {% for produit in produits %}
 
-                    {% if produit.pk != 9 %}
+                <div class="tab-class text-center">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                                <span class="text-dark" style="width: 180px;">Assurances Non-Vie</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                                <span class="text-dark" style="width: 180px;">Assurances Vie</span>
+                            </a>
+                        </li>
+                    </ul>
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <div class="blog-img-inner">
-                                    {% comment %} <img class="img-fluid w-100 rounded-top" src="{% static 'img/assurance_auto.jpg' %}" alt="Image"> {% endcomment %}
-                                    <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
-                                    <div class="blog-icon">
-                                        <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                    <div class="tab-content">
+
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4 mb-3" id="tab-1">
+                                
+                                {% for produit in produits_nonvie %}
+
+                                {% if produit.pk in ids_selectionnes %}
+
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="blog-item">
+                                        <div class="blog-img">
+                                            <div class="blog-img-inner">
+                                                {% comment %} <img class="img-fluid w-100 rounded-top" src="{% static 'img/assurance_auto.jpg' %}" alt="Image"> {% endcomment %}
+                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                                <div class="blog-icon">
+                                                    <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
+                                            <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
+                                            <p class="my-3" style="text-align: justify;">{{produit.contenu|truncatechars:200}}</p>
+                                            <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
-                                <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
-                                <p class="my-3" style="text-align: justify;">{{produit.contenu|truncatechars:200}}</p>
-                                <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
+
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="row g-4 mb-3" id="tab-2">
+                                
+                                {% for produit in produits_vie %}
+
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="blog-item">
+                                        <div class="blog-img">
+                                            <div class="blog-img-inner">
+                                                {% comment %} <img class="img-fluid w-100 rounded-top" src="{% static 'img/assurance_auto.jpg' %}" alt="Image"> {% endcomment %}
+                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                                <div class="blog-icon">
+                                                    <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
+                                            <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
+                                            <p class="my-3" style="text-align: justify;">{{produit.contenu|truncatechars:200}}</p>
+                                            <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
                     </div>
-
-                    {% endif %}
-
-                    {% endfor %}
                 </div>
+
             </div>
         </div>
         <!-- Blog End -->

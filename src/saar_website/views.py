@@ -29,6 +29,11 @@ from datetime import datetime
 
 produits = Produit.objects.all()
 
+produits_nonvie = Produit.objects.filter(categorie_id=1)
+produits_vie = Produit.objects.filter(categorie_id=2)
+produits_takaful = Produit.objects.filter(categorie_id=3).first()
+
+
 products_keys = []
 
 for prod in produits:
@@ -47,16 +52,24 @@ def index(request):
     produits = Produit.objects.all()
     temoignages = Temoignage.objects.all()
 
+    ids_selectionnes = [15, 14, 10, 1, 2, 4]
     
 
     context['carousels'] = carousels
     context['actualites'] = actualites
     context['produits'] = produits
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
+
+
     context['temoignages'] = temoignages
 
     context['products_keys'] = products_keys
 
     context['active_index'] = 'active_index'
+
+    context['ids_selectionnes'] = ids_selectionnes
 
     return render(request, "saar_website/index.html", context=context)
 
@@ -68,6 +81,10 @@ def carousel(request, numero):
         carousel = Caroussel.objects.get(pk=numero)
 
         context['produits'] = produits
+
+        context['produits_nonvie'] = produits_nonvie
+        context['produits_vie'] = produits_vie
+        context['produits_takaful'] = produits_takaful
 
         context['carousel'] = carousel
         context['products_keys'] = products_keys
@@ -108,6 +125,11 @@ def produit(request, numero):
 
         context['produit'] = produit
         context['produits'] = produits
+
+        context['produits_nonvie'] = produits_nonvie
+        context['produits_vie'] = produits_vie
+        context['produits_takaful'] = produits_takaful
+        
         context['products_keys'] = products_keys
         context[f'active_produit{numero}'] = f'active_produit{numero}'
 
@@ -134,6 +156,9 @@ def about(request):
 
     context['produits'] = produits
 
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
 
     context['products_keys'] = products_keys
 
@@ -148,6 +173,10 @@ def about_grp(request):
     
     context['produits'] = produits
 
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
+
     context['active_about_grp'] = 'active_about_grp'
 
 
@@ -159,6 +188,10 @@ def contact(request):
     context = {}
 
     context['produits'] = produits
+
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
 
     context['active_contact'] = 'active_contact'
 
@@ -209,6 +242,10 @@ def agences(request):
 
     context['produits'] = produits
 
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
+
     context['agences_abj'] = agences_abj
     context['agences_int'] = agences_int
 
@@ -236,6 +273,10 @@ def reclamation(request):
     context['products_keys'] = products_keys
 
     context['produits'] = produits
+
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
 
     if request.method == 'POST':
 
@@ -483,6 +524,10 @@ def valeurs(request):
     context['products_keys'] = products_keys
 
     context['produits'] = produits
+
+    context['produits_nonvie'] = produits_nonvie
+    context['produits_vie'] = produits_vie
+    context['produits_takaful'] = produits_takaful
 
     context['active_valeurs'] = 'active_valeurs'
 

@@ -93,8 +93,8 @@
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle 
-                                {% if produit %}
-                                {% if produit.pk in products_keys %} active {% endif %}
+                                {% if produit and produit.pk != produits_takaful.pk %}
+                                 active
                                 {% endif %} text-center" 
                                 data-bs-toggle="dropdown">
                                 Nos Produits
@@ -105,8 +105,7 @@
                                 <li class="dropdown-submenu">
                                 <a class="dropdown-item dropdown-toggle" href="#">Assurances Non-Vie</a>
                                 <ul class="dropdown-menu">
-                                    {% for prod in produits %}
-                                    {% if prod.pk != 9 %}
+                                    {% for prod in produits_nonvie %}
                                     <li>
                                         <a href="{% url 'produit' numero=prod.pk %}" 
                                         class="dropdown-item text-start
@@ -114,7 +113,6 @@
                                         {{ prod.titre }}
                                         </a>
                                     </li>
-                                    {% endif %}
                                     {% endfor %}
                                 </ul>
                                 </li>
@@ -124,21 +122,21 @@
                                 <a class="dropdown-item dropdown-toggle" href="#">Assurances Vie</a>
                                 <ul class="dropdown-menu">
                                     
+                                   {% for prod in produits_vie %}
                                     <li>
-                                        <a href="#" class="dropdown-item text-start">AS Millenium</a>
-                                        <a href="#" class="dropdown-item text-start">SAAR NANSOU</a>
-
+                                        <a href="{% url 'produit' numero=prod.pk %}" 
+                                        class="dropdown-item text-start
+                                        {% if produit and prod.pk == produit.pk %} active {% endif %}">
+                                        {{ prod.titre }}
+                                        </a>
                                     </li>
+                                    {% endfor %}
                                 
                                 </ul>
                                 </li>
+                                
                             </ul>
-                        </div>
-
-
-
-
-                      
+                        </div>            
 
                         {% comment %} <a href="{% url 'produit' numero=products_keys.0 %}" class="nav-item nav-link 
                         {% if produit %}
@@ -179,8 +177,9 @@
                         {% if products_keys.6 == produit.pk %} active {% endif %}
                         {% endif %} text-center">Assurance Caution</a> {% endcomment %}
                        
-                        <a href="{% url 'produit' numero=products_keys.8 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.8 == produit.pk %} active {% endif %}
+                        
+                        <a href="{% url 'produit' numero=produits_takaful.pk %}" class="nav-item nav-link {% if produit %}
+                        {% if produits_takaful.pk == produit.pk %} active {% endif %}
                         {% endif %} text-center">Assurances Takaful</a>
 
                          <a href="{% url 'agences' %}" class="nav-item nav-link text-center{% if active_agences %} active {% endif %}">Trouver une agence</a>
