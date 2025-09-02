@@ -1,0 +1,294 @@
+{% extends 'saar_website/layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+     <!-- Header Start -->
+     <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">{{produit.titre}}</h1>
+            <p class="text-light lead">{{produit.slogan}}</p>
+            <a href="#contact" class="cta-button">Demander un devis</a>
+        </div>
+    </div>
+    <!-- Header End -->
+
+     {% comment %} <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title text-white">{{produit.titre}}</h1>
+            <p class="hero-subtitle">{{produit.slogan}}</p>
+            <a href="#contact" class="cta-button">Demander un devis</a>
+        </div>
+    </div> {% endcomment %}
+
+
+    <div class="section">
+        <div class="container">
+            <div class="section-title">Votre tranquillité d'esprit, notre priorité</div>
+            <div class="section-subtitle">
+               {% if detail_produit %}
+                {{detail_produit.contenu}}
+               {% endif %}
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">Couverture Complète</div>
+                    <p>Protection contre les dommages de toute nature.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <div class="feature-title">Assistance 24h/7j</div>
+                    <p>Service d'assistance immédiate sur tout le territoire.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">Tarifs Compétitifs</div>
+                    <p>Des formules adaptées à votre budget avec le meilleur rapport qualité-prix du marché.</p>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+
+        <!-- Plans Section Formules d'Assurance-->
+{% if formules %}
+    <div class="section">
+        <div class="container">
+            <div class="plans-section">
+                <h2 class="section-title">Nos Formules d'Assurance</h2>
+                <p class="section-subtitle">Choisissez la formule qui correspond le mieux à vos besoins et à votre véhicule</p>
+               
+                <div class="plans-grid">
+                    {% for formule in formules %}
+                    <div class="plan-card">
+                        <h3 class="plan-title">{{formule.libelle}}</h3>
+                        {% comment %} <p class="plan-age">Tout âge de véhicule</p> {% endcomment %}
+                        <p>{{formule.description}}</p>
+                    </div>
+                 {% endfor %}
+                </div>
+               
+
+                <!-- Comparison Table -->
+                {% comment %} <div class="comparison-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Garanties</th>
+                                <th>Tierce Simple</th>
+                                <th>Tierce SAAR</th>
+                                <th>Tierce Confort</th>
+                                <th>Tous Risques</th>
+                                <th>Soutrali Auto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Responsabilité Civile</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Défense et Recours</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Avance sur Recours</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Dommage Corporel Conducteur</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Bris de Glace</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Vol et Accessoires</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Incendie</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Vandalisme</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                            <tr>
+                                <td>Dommages Tous Accidents</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="not-included">✗</td>
+                            </tr>
+                            <tr>
+                                <td>SAAR Assistance</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="not-included">✗</td>
+                                <td class="included">✓ Incluse</td>
+                                <td class="included">✓ Incluse</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> {% endcomment %}
+
+
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+
+ <!-- Garanties Details -->
+ {% if garanties %}
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Détail de nos Garanties</h2>
+            
+            <div class="accordion">
+
+                {% for garantie in garanties %}
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        {{garantie.libelle}}
+                    </div>
+                    <div class="accordion-content">
+                        <p>{{ garantie.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+    <!-- Souscription Info -->
+    <div class="section">
+        <div class="container">
+            <div class="info-section">
+                <h2 class="section-title" style="color: #2c3e50;">Informations Pratiques</h2>
+                
+                <div class="features-grid" style="margin-top: 40px;">
+
+                    {% if detail_produit.qui %}
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-title">Qui peut souscrire ?</div>
+                        <p>{{detail_produit.qui}}</p>
+                    </div>
+                    {% endif %}
+                    
+                     {% if detail_produit.pourquoi %}
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-title">pourquoi souscrire ?</div>
+                        <p>{{detail_produit.pourquoi}}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if detail_produit.comment %}
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-title">Comment souscrire ?</div>
+                        <p>{{detail_produit.comment}}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if detail_produit.que_faire %}
+                    <div class="feature-card">
+                        <div class="feature-icon">🚨</div>
+                        <div class="feature-title">En cas de sinistre</div>
+                        <p>{{detail_produit.que_faire}}</p>
+                    </div>
+                    {% endif %}
+
+                     {% if detail_produit.autre %}
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-title">Autres Informations ?</div>
+                        <p>{{detail_produit.autre}}</p>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <div class="container">
+            {% comment %} <h2 class="section-title" style="color: white;">Contactez-nous</h2> {% endcomment %}
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Nos experts sont à votre disposition pour vous conseiller</p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3 class="text-white">Assistance 24h/7j</h3>
+                    <p><strong>07 11 25 29 01</strong></p>
+                    <p><strong>07 47 84 08 97</strong></p>
+                    <p><strong>07 11 25 28 61</strong></p>
+                </div>
+                
+                {% comment %} <div class="contact-card">
+                    <div class="contact-icon">🏢</div>
+                    <h3>Nos Bureaux</h3>
+                    <p>Rendez-vous dans l'agence SAAR Assurances la plus proche de chez vous</p>
+                </div> {% endcomment %}
+                
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3 class="text-white">Devis Gratuit</h3>
+                    <p>Demandez votre devis personnalisé en ligne ou par téléphone</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="#" class="cta-button">Demander un devis gratuit</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

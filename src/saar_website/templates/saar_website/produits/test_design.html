@@ -1,0 +1,71 @@
+{% extends 'saar_website/layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+     <!-- Header Start -->
+     <div class="container-fluid bg-breadcrumb-TA">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">{{produit.titre}}</h1>
+           <!--  <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
+                <li class="breadcrumb-item active text-white">{{produit.titre}}</li>
+            </ol>   --> 
+        </div>
+    </div>
+    <!-- Header End -->
+
+      <!-- Services Start -->
+      <div class="mx-5 py-5">
+
+        {% comment %} <div class="mx-auto mb-5" style="max-width: 900px;"> {% endcomment %}
+        <div class="mx-5 mb-5">
+
+            {% comment %} <h1 class="mb-0" style="color: red;">A PROPOS</h1> {% endcomment %}
+            <P style="font-size: 1.25em; color: black; text-align: justify;">{{produit.contenu | safe}}</P>
+            <P style="font-size: 1.25em; color: black; text-align: justify;"> <strong>SAAR TAKAFUL</strong> est basée sur les principes de la finance islamique, d'où l'interdiction de  <strong>trois</strong> éléments et l'obligation de <strong>deux</strong> éléments :</P>
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>Gharar :</strong> Interdiction de toutes les activités qui ont un élément d'incertitude exagéré, d'ambiguitéou ou de déception.</li>
+                <li class="mb-4"><strong>Maysir :</strong> Interdiction de toute forme d'arrangement où le droit des contractants dépend d'un évènement aléatoire.</li>
+                <li class="mb-5"><strong>Al Riba :</strong> Interdiction de paiement et de perception de l'intérêt.</li>
+
+                <li class="mb-4"><strong></strong> Obligation d'adosser tous nos investissements à des actifs tangibles.</li>
+                <li class="mb-4"><strong></strong> Obligation de respect du partage des pertes et des profits.</li>
+
+            </ul>
+        </div>
+
+        <div class="mx-5 mb-5">
+            <h1 class="mb-4" style="color: red;">NOS PRODUITS</h1> 
+            <ul style="font-size: 1.25em; color: black; text-align: justify;">
+                <li class="mb-4"><strong>TAKAFUL AUTO</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL INCENDIE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL VOYAGE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL SANTE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL CHANTIER</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL HABITATION</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL INDIVIDUEL ACCIDENT</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL RESPONSABILITE CIVILE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL MULTIRISQUE ENTREPRISE</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL TRANSPORT</strong>.</li>
+                <li class="mb-4"><strong>TAKAFUL RESPONSABILITE DECENNALE</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="mx-5 mb-5">
+            <h1 class="mb-2" style="color: red;">QUI PEUT SOUSCRIRE ?</h1>
+            <p style="font-size: 1.25em; color: black; text-align: justify;">Toute personne physique ou morale exerçant une activité <strong>Halal</strong> (Licite).</p>
+        </div>
+
+        <div class="mx-5 mb-5">
+            <h1 class="mb-2" style="color: red;">QUE FAIRE EN CAS DE SINISTRE ?</h1>
+            <p style="font-size: 1.25em; color: black; text-align: justify;">Contactez immédiatement la compagnie par un des numéros suivants : <strong>(+225) 07 11 25 29 01, 07 47 84 08 97,</strong> ou <strong>07 11 25 28 61</strong>. </p>
+        </div>
+
+    </div>
+    <!-- Services End -->
+
+
+{% endblock content %}

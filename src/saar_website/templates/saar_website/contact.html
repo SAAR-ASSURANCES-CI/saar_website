@@ -18,10 +18,10 @@
     <!-- Header End -->
 
     <!-- Contact Start -->
-    <div class="container-fluid contact py-5">
+    <div class="container-fluid">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Contactez Nous</h5>
+                {% comment %} <h5 class="section-title px-3">Contactez Nous</h5> {% endcomment %}
                 <h1 class="mb-0">Contact Pour Toutes Préoccupations</h1>
             </div>
             <div class="row g-5 align-items-center">
@@ -68,7 +68,7 @@
                     {% endif %}
 
                     {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
-                    <form method="post" action="">
+                    <form method="post" action="{% url 'contact' %}">
 
                         {% csrf_token %}
 

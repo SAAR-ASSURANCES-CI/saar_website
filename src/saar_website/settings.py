@@ -30,14 +30,21 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'saarci.assurance@gmail.com'
 EMAIL_HOST_PASSWORD = 'opkt koyt lgqu rjeb'
-# EMAIL_PORT = 465
-# EMAIL_USE_SSL = True
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Equipe Saar CI <noreply@saarci.com>'
 
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.office365.com"
+# EMAIL_HOST_USER = "ekouakou@saar-assurances.com"   # ou ton mail pro ex: noreply@saarci.com
+# EMAIL_HOST_PASSWORD = "Saarci2023!"      # ou mot de passe applicatif
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
 
-ALLOWED_HOSTS = ['127.0.0.1','192.168.4.52']
+# DEFAULT_FROM_EMAIL = "Equipe Saar CI <noreply@saarci.com>"
+
+
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition

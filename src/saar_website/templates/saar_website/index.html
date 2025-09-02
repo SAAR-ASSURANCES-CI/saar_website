@@ -32,15 +32,12 @@
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row g-4 mb-3" id="tab-1">
                                 
-                                {% for produit in produits_nonvie %}
-
-                                {% if produit.pk in ids_selectionnes %}
+                                {% for produit in produits_nonvie_visibles %}
 
                                 <div class="col-lg-4 col-md-6">
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             <div class="blog-img-inner">
-                                                {% comment %} <img class="img-fluid w-100 rounded-top" src="{% static 'img/assurance_auto.jpg' %}" alt="Image"> {% endcomment %}
                                                 <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
                                                 <div class="blog-icon">
                                                     <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
@@ -50,11 +47,12 @@
                                         <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                             <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
                                             <p class="my-3" style="text-align: justify;">{{produit.contenu|truncatechars:200}}</p>
-                                            <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                            {% comment %} <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a> {% endcomment %}
+                                            <a href="{% url 'produit_detail' slug=produit.slug %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+
                                         </div>
                                     </div>
                                 </div>
-                                {% endif %}
                                 {% endfor %}
                             </div>
                         </div>
@@ -62,13 +60,12 @@
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4 mb-3" id="tab-2">
                                 
-                                {% for produit in produits_vie %}
+                                {% for produit in produits_vie_visibles %}
 
                                 <div class="col-lg-4 col-md-6">
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             <div class="blog-img-inner">
-                                                {% comment %} <img class="img-fluid w-100 rounded-top" src="{% static 'img/assurance_auto.jpg' %}" alt="Image"> {% endcomment %}
                                                 <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
                                                 <div class="blog-icon">
                                                     <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
@@ -78,7 +75,8 @@
                                         <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                             <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
                                             <p class="my-3" style="text-align: justify;">{{produit.contenu|truncatechars:200}}</p>
-                                            <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                            {% comment %} <a href="{% url 'produit' numero=produit.pk %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a> {% endcomment %}
+                                            <a href="{% url 'produit_detail' slug=produit.slug %}" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>                                        
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +196,7 @@
                     <p class="text-white mb-5">Déclarez votre sinistre en ligne de manière efficace et rapide avec la possibilité de vous faire contacter par un gestionnaire sinistre en vue du traitement de votre réclammation.
                     </p>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{% url 'reclamation' %}">Déclarer votre sinistre</a>
+                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" target="_blank" href="https://sinistres.saarassurancesci.com/declaration/formulaire">Déclarer votre sinistre</a>
                     </div>
                 </div>
                 

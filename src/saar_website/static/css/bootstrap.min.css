@@ -39,17 +39,21 @@
 }
 body {
     margin:0;
-    font-family:"Roboto" !important;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     font-size:1rem;
-    font-weight:400;
-    line-height:1.5;
+    /* font-weight:400; */
+    line-height:1.6;
     /* color:#757575; */
     color: #333;
-    background-color:#fff;
+    /* background-color:#fff; */
+
+    background-color: #f8f9fa;
+
 
     -webkit-text-size-adjust:100%;
     -webkit-tap-highlight-color:rgba(0,0,0,0)
 }
+
 hr {
     margin:1rem 0;
     color:inherit;
@@ -3065,7 +3069,8 @@ textarea.form-control-lg {
 .dropdown-item.active,.dropdown-item:active {
     color:#fff;
     text-decoration:none;
-    background-color:#D6B033
+    /* background-color:#D6B033 */
+    background-color:#dd3333 !important;
 }
 .dropdown-item.disabled,.dropdown-item:disabled {
     color:#adb5bd;
