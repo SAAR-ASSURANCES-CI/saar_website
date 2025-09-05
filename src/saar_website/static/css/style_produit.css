@@ -330,7 +330,7 @@
     margin: 30px 0;
 }
 
-.accordion {
+/* .accordion {
     margin: 30px 0;
 }
 
@@ -349,13 +349,15 @@
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
-}
+} */
 
-.accordion-header:hover {
-    background: #c0392b;
-}
+/* .accordion-header:hover { */
+    /* background: #c0392b; */
+    /* background: #fc0e0e; */
 
-.accordion-content {
+/* } */
+
+/* .accordion-content {
     padding: 25px;
     display: none;
 }
@@ -363,4 +365,179 @@
 .accordion-content.active {
     display: block;
 }
-   
+    */
+
+
+
+
+    /* CSS amélioré pour l'accordéon des garanties SAAR - Solution 2 adaptée */
+
+.accordion {
+    margin: 30px 0;
+}
+
+.accordion-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Effet hover très visible pour indiquer l'interactivité */
+.accordion-item:hover {
+    border-color: #D6B033; /* Couleur or SAAR */
+    box-shadow: 0 12px 35px rgba(214, 176, 51, 0.25);
+    transform: translateY(-3px);
+}
+
+.accordion-header {
+    background: #dd3333;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Flèche indicatrice animée */
+.accordion-header::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    transition: transform 0.3s ease;
+}
+
+/* Rotation de la flèche quand ouvert */
+.accordion-item.active .accordion-header::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Badge "Cliquez pour voir" visible au hover */
+.accordion-header::before {
+    content: 'Cliquez pour voir les détails';
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.accordion-header:hover::before {
+    opacity: 1;
+}
+
+.accordion-header:hover {
+    background: #fc0e0e; /* Rouge SAAR au hover */
+}
+
+/* Styles pour mobile - masquer le texte du badge sur petits écrans */
+@media (max-width: 768px) {
+    .accordion-header::before {
+        content: 'Cliquez';
+        right: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .accordion-header::before {
+        display: none; /* Masquer complètement sur très petits écrans */
+    }
+}
+
+.accordion-content {
+    padding: 25px;
+    display: none;
+    border-top: 3px solid #D6B033; /* Bordure or SAAR */
+    background: #f8f9fa;
+    animation: slideDown 0.3s ease;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+/* Animation d'ouverture fluide */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Amélioration de la typography dans le contenu */
+.accordion-content p {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+/* États focus pour l'accessibilité */
+.accordion-header:focus {
+    outline: 3px solid #D6B033;
+    outline-offset: 2px;
+}
+
+/* Pulse animation subtile pour attirer l'attention */
+.accordion-item:first-child {
+    animation: subtlePulse 3s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+    0%, 100% { 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+    }
+    50% { 
+        box-shadow: 0 8px 20px rgba(214, 176, 51, 0.15); 
+    }
+}
+
+/* Style pour le texte de la garantie active */
+.accordion-item.active .accordion-header {
+    background: #13357b; /* Bleu SAAR pour l'état actif */
+}
+
+/* Amélioration pour les utilisateurs qui préfèrent moins d'animations */
+@media (prefers-reduced-motion: reduce) {
+    .accordion-item,
+    .accordion-header,
+    .accordion-header::after,
+    .accordion-header::before {
+        transition: none;
+    }
+    
+    .accordion-item:first-child {
+        animation: none;
+    }
+    
+    .accordion-content {
+        animation: none;
+    }
+}

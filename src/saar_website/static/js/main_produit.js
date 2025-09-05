@@ -50,3 +50,12 @@ document.querySelectorAll('.feature-card, .plan-card').forEach(card => {
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
 });
+
+function toggleAccordion(header) {
+    const item = header.parentElement;
+    const content = item.querySelector('.accordion-content');
+    
+    // Toggle de la classe active pour l'animation de la flèche
+    item.classList.toggle('active');
+    content.classList.toggle('active');
+}

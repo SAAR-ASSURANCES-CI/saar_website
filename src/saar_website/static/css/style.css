@@ -441,18 +441,19 @@ small, .small {
     min-height: 100vh;
 }
 
-.carousel-header .carousel-inner .carousel-item img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+/* .carousel-header .carousel-inner .carousel-item img { */
+    /* position: absolute;
+    width: 100%; */
+    /* height: 100%; */
+    /* max-height: 550px;
     object-fit: cover;
     z-index: initial;
-}
+} */
 
 .carousel-header .carousel-inner .carousel-item .carousel-caption  {
     position: absolute;
     width: 100%;
-    height: 100%;
+    max-height: 550px;
     top: 0;
     left: 0;
     padding-top: 60px;
@@ -460,13 +461,37 @@ small, .small {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.2));
+    /* background: linear-gradient(rgba(0, 0, 0, .15), rgba(0, 0, 0, 0.15)); */
+    background: linear-gradient(rgba(19, 53, 123, 0.15), rgba(19, 53, 123, 0.15)), url(../img/accueil_1.png);
     background-size: cover;
     z-index: initial;
     font-family: var(--font-primary);
+} 
+
+
+
+
+
+/* Style alternatif plus moderne (optionnel) */
+.carousel-header.modern-style .carousel-inner .carousel-item .carousel-caption {
+    background: linear-gradient(
+        45deg,
+        rgba(19, 53, 123, 0.1) 0%,
+        rgba(214, 176, 51, 0.1) 100%
+    );
+    backdrop-filter: blur(5px);
 }
 
-.carousel-caption h1 {
+.carousel-header.modern-style .carousel-caption .p-3 {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(214, 176, 51, 0.3);
+    box-shadow: 
+        0 10px 30px rgba(214, 176, 51, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+
+/* .carousel-caption h1 {
     font-weight: 700;
     letter-spacing: -0.02em;
 }
@@ -474,18 +499,18 @@ small, .small {
 .carousel-caption p {
     font-weight: 400;
     font-size: 1.1rem;
-}
+} */
 
 @media (max-width: 768px) {
     .carousel-header .carousel-inner .carousel-item img,
     .carousel-header .carousel-inner .carousel-item .carousel-caption {
-        height: 700px;
+        height: 400px;
         margin-top: -100px;
         z-index: initial;
     }
 
     .carousel-header {
-        height: 700px !important;
+        height: 400px !important;
         z-index: initial;
     }
 
@@ -498,6 +523,23 @@ small, .small {
         margin-top: -100px;
         transition: 0.5s;
     }
+}
+
+@media (max-width: 480px) {
+    .carousel-header .carousel-inner .carousel-item img,
+    .carousel-header .carousel-inner .carousel-item .carousel-caption {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+.carousel-item img.img-fluid {
+    width: 85%;
+    height: auto;
+    max-height: 550px;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
 }
 /*** Carousel Hero Header End ***/
 

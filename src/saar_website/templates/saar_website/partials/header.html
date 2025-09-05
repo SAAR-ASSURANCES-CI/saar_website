@@ -31,7 +31,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="{% url 'index' %}" class="navbar-brand p-0">
-                <h1 class="m-0"><img src="{% static 'img/logo-saar.png' %}"  alt="Logo"></h1>
+                <h1 class="m-0"><img src="{% static 'img/LOGO2_Plan.png' %}"  alt="Logo"></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -123,7 +123,9 @@
                          <a href="{% url 'contact' %}" class="nav-item nav-link text-center {% if active_contact %} active {% endif %}">Contacts</a>
 
                     </div>
-                    <a href="https://sinistres.saarassurancesci.com/" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a>
+                    {% comment %} <a href="https://sinistres.saarassurancesci.com/" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a> {% endcomment %}
+                    <a href="{% url 'test' %}" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a>
+
                 </div>
             </nav>
 
@@ -143,7 +145,7 @@
 
                         {% comment %} Recommandation DG {% endcomment %}
                         <div class="carousel-item {% if active_index %}active{% endif %}">
-                            <img src="{% static 'img/presentation.jpg' %}" class="img-fluid" alt="Image">
+                            {% comment %} <img src="{% static 'img/accueil_1.png' %}" class="img-fluid" alt="Image"> {% endcomment %}
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
                                     <div class="d-flex align-items-center justify-content-center">

@@ -156,7 +156,7 @@ def produit_detail(request, slug):
     context = {}
     produit = get_object_or_404(Produit, slug=slug)
 
-    print(produit.pk)
+    # print(produit.pk)
 
     detail_produit = DetailProduit.objects.filter(produit_id=produit.pk).first()
     formules = Formule.objects.filter(produit_id=produit.pk)

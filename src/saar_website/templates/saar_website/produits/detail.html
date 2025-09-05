@@ -28,7 +28,7 @@
             <div class="section-title">Votre tranquillité d'esprit, notre priorité</div>
             <div class="section-subtitle">
                {% if detail_produit %}
-                {{detail_produit.contenu}}
+                {{detail_produit.contenu|safe}}
                {% endif %}
             </div>
 
@@ -67,7 +67,7 @@
                     <div class="plan-card">
                         <h3 class="plan-title">{{formule.libelle}}</h3>
                         {% comment %} <p class="plan-age">Tout âge de véhicule</p> {% endcomment %}
-                        <p>{{formule.description}}</p>
+                        <p>{{formule.description|safe}}</p>
                     </div>
                  {% endfor %}
                 </div>
@@ -193,7 +193,7 @@
                         {{garantie.libelle}}
                     </div>
                     <div class="accordion-content">
-                        <p>{{ garantie.description }}</p>
+                        <p>{{ garantie.description|safe }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -216,7 +216,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">👥</div>
                         <div class="feature-title">Qui peut souscrire ?</div>
-                        <p>{{detail_produit.qui}}</p>
+                        <p>{{detail_produit.qui|safe}}</p>
                     </div>
                     {% endif %}
                     
@@ -224,7 +224,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">👥</div>
                         <div class="feature-title">pourquoi souscrire ?</div>
-                        <p>{{detail_produit.pourquoi}}</p>
+                        <p>{{detail_produit.pourquoi|safe}}</p>
                     </div>
                     {% endif %}
 
@@ -232,7 +232,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">📝</div>
                         <div class="feature-title">Comment souscrire ?</div>
-                        <p>{{detail_produit.comment}}</p>
+                        <p>{{detail_produit.comment|safe}}</p>
                     </div>
                     {% endif %}
 
@@ -240,7 +240,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">🚨</div>
                         <div class="feature-title">En cas de sinistre</div>
-                        <p>{{detail_produit.que_faire}}</p>
+                        <p>{{detail_produit.que_faire|safe}}</p>
                     </div>
                     {% endif %}
 
@@ -248,7 +248,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">📝</div>
                         <div class="feature-title">Autres Informations ?</div>
-                        <p>{{detail_produit.autre}}</p>
+                        <p>{{detail_produit.autre|safe}}</p>
                     </div>
                     {% endif %}
 
