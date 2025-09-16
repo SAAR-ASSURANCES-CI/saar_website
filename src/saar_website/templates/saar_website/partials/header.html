@@ -2,7 +2,7 @@
         {% load static %}
         
         <!-- Topbar Start -->
-        <div class="container-fluid bg-primary px-5 d-none d-lg-block">
+        <div class="container-fluid bg-entete px-5 d-none d-lg-block">
             <div class="row gx-0">
                 <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
@@ -13,22 +13,14 @@
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> {% endcomment %}
                     </div>
                 </div>
-                <!-- <div class="col-lg-4 text-center text-lg-end">
+
+                <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a href="#"><small class="me-3 text-light"><i class="fa fa-user me-2"></i>Register</small></a>
-                        <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Login</small></a>
-                        <div class="dropdown">
-                            <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><small><i class="fa fa-home me-2"></i> My Dashboard</small></a>
-                            <div class="dropdown-menu rounded">
-                                <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
-                                <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
-                            </div>
+                        <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Espace Client</small></a>
                         </div>
                     </div>
-                </div> -->
+                </div>
+               
             </div>
         </div>
         <!-- Topbar End -->
@@ -39,13 +31,7 @@
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="{% url 'index' %}" class="navbar-brand p-0">
-                    {% comment %} <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Saar Côte d'Ivoire</h1> {% endcomment %}
-                    {% comment %} <div class="d-flex justify-content-center"> {% endcomment %}
-                <h1 class="m-0" style="text-align: end; font-size: 1.6em;"><img src="{% static 'img/logo-saar.jpeg' %}" style="height: 500px;" alt="Logo"> Assurances </h1>
-                <h1 class="m-0" style="text-align: end; font-size: 1.6em;"> Côte d'Ivoire </h1>
-                    {% comment %} </div> {% endcomment %}
-                    
-
+                <h1 class="m-0"><img src="{% static 'img/LOGO2_Plan.png' %}"  alt="Logo"></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -53,73 +39,93 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{% url 'index' %}" class="nav-item nav-link 
-                        {% if active_index or active_about or active_agences %}
+                        {% if active_index %}
                         active
                         {% endif %} text-center">Accueil</a>
 
-                        <a href="{% url 'produit' numero=products_keys.0 %}" class="nav-item nav-link 
-                        {% if produit %}
-                            {% if products_keys.0 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Automobile</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle 
+                            {% if active_about or active_about_grp %}
+                           active {% endif %} text-center" data-bs-toggle="dropdown">A Propos</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="{% url 'about_grp' %}" class="dropdown-item text-start {% if active_about_grp %} active {% endif %}">Le Groupe SAAR</a>
+                                <a href="{% url 'about' %}" class="dropdown-item text-start {% if active_about %} active {% endif %}">SAAR Côte d'Ivoire</a>
+                                <a href="{% url 'valeurs' %}" class="dropdown-item text-start {% if active_valeurs %} active {% endif %}">Nos Valeurs</a>    
+                            </div>
+                        </div>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle 
-                            {% if produit %}
-                            {% if products_keys.1 == produit.pk or products_keys.2 == produit.pk or products_keys.3 == produit.pk %} active {% endif %}
-                            {% endif %} text-center" data-bs-toggle="dropdown">Assurance de Personnes</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="{% url 'produit' numero=products_keys.1 %}" class="dropdown-item {% if produit %}
-                                {% if products_keys.1 == produit.pk %} active {% endif %}
-                                {% endif %} text-center">Assurance Santé</a>
+                                {% if produit and produit.pk != produits_takaful.pk %}
+                                 active
+                                {% endif %} text-center" 
+                                data-bs-toggle="dropdown">
+                                Nos Produits
+                            </a>
+                            
+                            <ul class="dropdown-menu m-0">
+                                <!-- Assurances Non-Vie -->
+                                <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle {% if produit in produits_nonvie %} active {% endif %}" href="#">Assurances Non-Vie</a>
+                                <ul class="dropdown-menu">
+                                    {% for prod in produits_nonvie %}
+                                    <li>
+                                        {% comment %} <a href="{% url 'produit' numero=prod.pk %}" 
+                                        class="dropdown-item text-start
+                                        {% if produit and prod.pk == produit.pk %} active {% endif %}">
+                                        {{ prod.titre }}
+                                        </a> {% endcomment %}
 
-                                <a href="{% url 'produit' numero=products_keys.2 %}" class="dropdown-item {% if produit %}
-                                {% if products_keys.2 == produit.pk %} active {% endif %}
-                                {% endif %} text-center">Assurance Individuelle Accidents</a>
-                                <a href="{% url 'produit' numero=products_keys.3 %}" class="dropdown-item {% if produit %}
-                                {% if products_keys.3 == produit.pk %} active {% endif %}
-                                {% endif %} text-center">Assurance Voyage</a>
-                            </div>
-                        </div>
-                        <a href="{% url 'produit' numero=products_keys.4 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.4 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Habitation</a>
+                                        <a href="{% url 'produit_detail' slug=prod.slug %}" 
+                                        class="dropdown-item text-start
+                                        {% if produit and prod.pk == produit.pk %} active {% endif %}">
+                                        {{ prod.titre }}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                </li>
 
-                        <a href="{% url 'produit' numero=products_keys.9 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.9 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Loyers Impayés</a>
+                                <!-- Assurances Vie -->
+                                <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle {% if produit in produits_vie %} active {% endif %}" href="#">Assurances Vie</a>
+                                <ul class="dropdown-menu">
+                                    
+                                   {% for prod in produits_vie %}
+                                    <li>
+                                        {% comment %} <a href="{% url 'produit' numero=prod.pk %}" 
+                                        class="dropdown-item text-start
+                                        {% if produit and prod.pk == produit.pk %} active {% endif %}">
+                                        {{ prod.titre }}
+                                        </a> {% endcomment %}
 
-                        <a href="{% url 'produit' numero=products_keys.5 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.5 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Transport</a>
-
-                        <a href="{% url 'produit' numero=products_keys.6 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.6 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Caution</a>
+                                          <a href="{% url 'produit_detail' slug=prod.slug %}" 
+                                        class="dropdown-item text-start
+                                        {% if produit and prod.pk == produit.pk %} active {% endif %}">
+                                        {{ prod.titre }}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                
+                                </ul>
+                                </li>
+                                
+                            </ul>
+                        </div>            
                        
-                        <a href="{% url 'produit' numero=products_keys.8 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.8 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurance Takaful</a>
+                        <a href="{% url 'produit' numero=produits_takaful.pk %}" class="nav-item nav-link {% if produit %}
+                        {% if produits_takaful.pk == produit.pk %} active {% endif %}
+                        {% endif %} text-center">Assurances Takaful</a>
 
-                        <a href="{% url 'produit' numero=products_keys.7 %}" class="nav-item nav-link {% if produit %}
-                        {% if products_keys.7 == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Risques Divers</a>
-                        {% comment %} <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="destination.html" class="dropdown-item">Destination</a>
-                                <a href="tour.html" class="dropdown-item">Explore Tour</a>
-                                <a href="booking.html" class="dropdown-item">Travel Booking</a>
-                                <a href="gallery.html" class="dropdown-item">Our Gallery</a>
-                                <a href="guides.html" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div> {% endcomment %}
-                        {% comment %} <a href="{% url 'contact' %}" class="nav-item nav-link {% if active_contact %}
-                        active
-                        {% endif %} text-center">Contact</a> {% endcomment %}
+                         <a href="{% url 'agences' %}" class="nav-item nav-link text-center{% if active_agences %} active {% endif %}">Trouver une agence</a>
+
+                                                  
+                         <a href="{% url 'contact' %}" class="nav-item nav-link text-center {% if active_contact %} active {% endif %}">Contacts</a>
+
                     </div>
-                    {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Faire un devis</a> {% endcomment %}
+                    <a href="https://sinistres.saarassurancesci.com/" target="blank" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a>
+                    {% comment %} <a href="{% url 'test' %}" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a> {% endcomment %}
+
                 </div>
             </nav>
 
@@ -130,43 +136,51 @@
                 <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-                        <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                        {% comment %} <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
                         <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
-                        <li data-bs-target="#carouselId" data-bs-slide-to="3"></li>
+                        <li data-bs-target="#carouselId" data-bs-slide-to="3"></li> {% endcomment %}
                     </ol>
                     <div class="carousel-inner" role="listbox">
 
-                      
-                        
-                        {% for carousel in carousels %}  
-                         <div class="carousel-item {% if forloop.first %} active {% endif %}">
 
-                            {% comment %} <img src="{% static 'img/carousel-2.jpg' %}" class="img-fluid" alt="Image"> {% endcomment %}
-                            <img src="{{ carousel.path.url }}" class="img-fluid" alt="Image">
+                        {% comment %} Recommandation DG {% endcomment %}
+                        <div class="carousel-item {% if active_index %}active{% endif %}">
+                            {% comment %} <img src="{% static 'img/accueil_1.png' %}" class="img-fluid" alt="Image"> {% endcomment %}
                             <div class="carousel-caption">
                                 <div class="p-3" style="max-width: 900px;">
-                                     {% comment %} <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Explore The World</h4> {% endcomment %}
-                                    <h1 class="display-2 text-capitalize text-primary mb-4">{{carousel.titre|default_if_none:""}}</h1>
-                                    <p class="mb-5 fs-5" style="font-size: 1.25em;">{{carousel.contenu|default_if_none:""}}</p> 
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{% url 'carousel' numero=carousel.pk %}">En savoir plus</a>
-                                        {% comment %} <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{{carousel.get_absolute_url}}">En savoir plus</a> {% endcomment %}
+                                        {% comment %} <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{{ carousel.lien }}">En savoir plus</a> {% endcomment %}
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        {% endfor %}
+                      
+                        
+                        {% comment %} Ce qui existait avant {% endcomment %}
+                        {% comment %} {% for carousel in carousels %}  
+                         <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                            <img src="{{ carousel.path.url }}" class="img-fluid" alt="Image">
+                            <div class="carousel-caption">
+                                <div class="p-3" style="max-width: 900px;">
+                                    <h1 class="display-2 text-capitalize text-primary mb-4">{{carousel.titre|default_if_none:""}}</h1>
+                                    <p class="mb-5 fs-5" style="font-size: 1.25em;">{{carousel.contenu|default_if_none:""}}</p> 
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="{{ carousel.lien }}">En savoir plus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} {% endcomment %}
               
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    {% comment %} <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon btn bg-primary" aria-hidden="false"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
                         <span class="carousel-control-next-icon btn bg-primary" aria-hidden="false"></span>
                         <span class="visually-hidden">Next</span>
-                    </button>
+                    </button> {% endcomment %}
                 </div>
             </div>
             <!-- Carousel End -->

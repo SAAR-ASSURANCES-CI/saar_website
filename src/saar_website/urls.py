@@ -22,16 +22,21 @@ from django.conf.urls.static import static
 
 #from .views import index, carousel, CarouselListView, CarouselDetailView
 
-from .views import about, agences, contact, index, carousel, produit, about_grp, reclamation, valeurs
+from .views import about, agences, contact, index, produit, about_grp, produit_detail, reclamation, valeurs, carousel_chatbot, test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', index, name='index'),
 
-    path('carousels/<str:numero>/', carousel, name='carousel'),
+    # path('carousels/<str:numero>/', carousel, name='carousel'),
+
+    path('carousels/chatbot/', carousel_chatbot, name='carousel_chatbot'),
 
     path('produits/<str:numero>/', produit, name='produit'),
+
+    path("produit-view/<slug:slug>/", produit_detail, name="produit_detail"),
+
 
     path('about/', about, name='about'),
 
@@ -45,6 +50,8 @@ urlpatterns = [
     path('valeurs/', valeurs, name='valeurs'),
 
     path('reclamation/', reclamation, name='reclamation'),
+
+    path('test_page/', test, name='test'),
 
     # path('', CarouselListView.as_view(), name="carousel_detail"),
     # path('carousel/<slug:slug>', CarouselDetailView.as_view() , name="carousel_detail"),

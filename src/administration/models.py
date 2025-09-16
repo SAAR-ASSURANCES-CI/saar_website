@@ -1,4 +1,5 @@
 from datetime import datetime
+import itertools
 from typing import Iterable
 from django.db import models
 
@@ -17,13 +18,17 @@ class Caroussel(models.Model):
     contenu = models.TextField(blank=True, default="")
     path = models.ImageField(upload_to='img/')
 
+    lien = models.URLField(max_length=300, default="http://127.0.0.1:8000/", verbose_name="Lien associé")
+
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, null=True)
 
     creator = models.CharField(max_length=100, blank=True)
 
+
     def __str__(self):
-        return self.path.url
+        return self.titre
 
 ################################################################################
     #slug = models.SlugField(max_length=200, unique=True, default="")
@@ -40,21 +45,17 @@ class Caroussel(models.Model):
 
 # ACTUALITES
 class Actualite(models.Model):
-    titre = models.CharField(max_length=150, blank=True, default="")
-    contenu = models.TextField(blank=True, default="")
+    titre = models.CharField(max_length=150)
+    contenu = models.TextField(max_length=500)
     date_publication = models.DateField()
     path = models.ImageField(upload_to='img/')
 
     def __str__(self):
-        return self.path.url
+        return self.titre
     
 
-
-#  # PRODUITS
-class Produit(models.Model):
-    titre = models.CharField(max_length=100)
-    contenu = models.TextField(blank=True, default="")
-    path = models.ImageField(upload_to='img/')
+class Categorie(models.Model):
+    libelle = models.CharField(max_length=100)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, null=True)
@@ -62,9 +63,104 @@ class Produit(models.Model):
     creator = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
-        return self.path.url
-      
+        return self.libelle
+
+
+#  # PRODUITS
+class Produit(models.Model):
+
+    slug = models.SlugField(unique=True, null=True, blank=True)  # nouveau champ
+
+    titre = models.CharField(max_length=100)
+
+    contenu = models.TextField(max_length=500)
+    path = models.ImageField(upload_to='img/')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    categorie = models.ForeignKey(Categorie, on_delete=models.PROTECT, default=1)
+
+    is_visible = models.BooleanField(default=False, verbose_name="Visible ?")
+
+    slogan = models.CharField(max_length=100, default='Protection complète pour votre véhicule avec SAAR Assurances')
+
+    def __str__(self):
+        return self.titre
     
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # slug de base
+            base_slug = slugify(self.titre)
+            slug = base_slug
+            # vérifie si déjà pris
+            for i in itertools.count(1):
+                if not Produit.objects.filter(slug=slug).exists():
+                    break
+                slug = f"{base_slug}-{i}"
+            self.slug = slug
+        super().save(*args, **kwargs)
+
+
+
+class DetailProduit(models.Model):
+
+    produit = models.ForeignKey(Produit, on_delete=models.PROTECT)
+
+    contenu = models.TextField(max_length=700, null=True, blank=True)
+    path = models.ImageField(upload_to='img/', null=True, blank=True)
+
+    # Qui peut souscrire
+    qui = models.TextField(max_length=1000, null=True, blank=True)
+    # Pourquoi souscrire
+    pourquoi = models.TextField(max_length=1000, null=True, blank=True)
+    # Comment souscrire
+    comment = models.TextField(max_length=1000, null=True, blank=True)
+    # Que faire en cas de Sinistre
+    que_faire = models.TextField(max_length=1000, null=True, blank=True)
+    # Autre info
+    autre = models.TextField(max_length=1000, null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.produit.titre
+    
+    
+
+class Formule(models.Model):
+    libelle = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000, null=True, blank=True)
+    produit = models.ForeignKey(Produit, on_delete=models.PROTECT)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.libelle    
+    
+
+class Garantie(models.Model):
+    libelle = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000, null=True, blank=True)
+
+    produit = models.ForeignKey(Produit, on_delete=models.PROTECT)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    creator = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.libelle    
 
 
 class Sinistre(models.Model):
@@ -234,6 +330,18 @@ class AgentGeneral(models.Model):
 
     def __str__(self):
         return self.designation
+    
+
+
+# TEMOIGNAGES
+class Temoignage(models.Model):
+    contenu = models.TextField(max_length=500)
+    name = models.CharField(max_length=150)
+    localisation = models.CharField(max_length=150)
+    date_publication = models.DateField()
+
+    def __str__(self):
+        return self.name
 
 
 

@@ -5,7 +5,7 @@
 {% block content %}
 
      <!-- Header Start -->
-     <div class="container-fluid bg-breadcrumb">
+     <div class="container-fluid bg-breadcrum">
         <div class="container text-center py-5" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">Contactez Nous</h1>
             <ol class="breadcrumb justify-content-center mb-0">
@@ -18,15 +18,15 @@
     <!-- Header End -->
 
     <!-- Contact Start -->
-    <div class="container-fluid contact bg-light py-5">
+    <div class="container-fluid">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Contactez Nous</h5>
+                {% comment %} <h5 class="section-title px-3">Contactez Nous</h5> {% endcomment %}
                 <h1 class="mb-0">Contact Pour Toutes Préoccupations</h1>
             </div>
             <div class="row g-5 align-items-center">
                 <div class="col-lg-4">
-                    <div class="bg-white rounded p-4">
+                    <div class="bg-white border rounded p-4">
                         <div class="text-center mb-4">
                             <i class="fa fa-map-marker-alt fa-3x text-primary"></i>
                             <h4 class="text-primary"><Address></Address></h4>
@@ -68,32 +68,32 @@
                     {% endif %}
 
                     {% comment %} <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> {% endcomment %}
-                    <form method="post" action="">
+                    <form method="post" action="{% url 'contact' %}">
 
                         {% csrf_token %}
 
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="name" name="name" placeholder="Your Name" required>
+                                    <input type="text" class="form-control border-1" id="name" name="name" placeholder="Your Name" required>
                                     <label for="name">Votre Nom</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control border-0" id="email" name="from_email" placeholder="Your Email" required>
+                                    <input type="email" class="form-control border-1" id="email" name="from_email" placeholder="Your Email" required>
                                     <label for="email">Votre Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="subject" name="subject" placeholder="Subject" required>
+                                    <input type="text" class="form-control border-1" id="subject" name="subject" placeholder="Subject" required>
                                     <label for="subject">Sujet</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 160px" required></textarea>
+                                    <textarea class="form-control border-1" placeholder="Leave a message here" id="message" name="message" style="height: 160px" required></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
