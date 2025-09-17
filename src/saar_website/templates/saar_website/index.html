@@ -6,8 +6,8 @@
 
 
          <!-- Blog Start -->
-         <div class="container-fluid blog destination py-3">
-            <div class="container py-5">
+         <div class="container-fluid blog destination">
+            <div class="container">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                     <h5 class="section-title px-3">Nos produits</h5>
                     <h1 class="mb-4">Découvrez nos offres</h1>            
@@ -38,11 +38,12 @@
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             <div class="blog-img-inner">
-                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="{{produit.titre}}" loading="lazy">
                                                 <div class="blog-icon">
                                                     <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                             <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
@@ -66,11 +67,12 @@
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             <div class="blog-img-inner">
-                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="{{produit.titre}}" loading="lazy">
                                                 <div class="blog-icon">
                                                     <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                             <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
@@ -106,7 +108,7 @@
                     <div class="packages-item d-flex align-items-stretch">
                         <div class="packages-img">
 
-                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top" alt="Image">
+                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top" alt="{{actualite.titre}}" loading="lazy">
 
                         </div>
                         <div class="packages-content bg-light rounded-bottom p-3">
@@ -227,6 +229,8 @@
 
 {% endblock content %}
     
+
+
 
 
 

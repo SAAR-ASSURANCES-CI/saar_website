@@ -6,7 +6,7 @@
 
       <!-- Header Start -->
       <div class="container-fluid bg-breadcrum">
-        <div class="container text-center py-5" style="max-width: 900px;">
+        <div class="container text-center" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">Nos Agences</h1>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="{% url 'index' %}">Accueil</a></li>
@@ -38,7 +38,9 @@
                                 <div class="blog-icon">
                                     <a href="{{ agence.localisation }}" target="_blank" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                 </div>
+
                             </div>
+
                         </div>
                         <div class="blog-content border border-top-0 rounded-bottom bg-light p-4">
                             <a href="#"  class="h4">{{ agence.titre }}</a>
@@ -74,7 +76,9 @@
                                     <div class="blog-icon">
                                         <a href="{{ agence.localisation }}" target="_blank" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                     </div>
+
                                 </div>
+
                             </div>
                             <div class="blog-content border border-top-0 rounded-bottom bg-light p-4">
                                 <a href="#"  class="h4">{{ agence.titre }}</a>
@@ -132,3 +136,4 @@
  
 
 {% endblock content %}
+
