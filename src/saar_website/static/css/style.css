@@ -1038,7 +1038,7 @@ small, .small {
 .service .service-content-inner .service-content p,
 .service .service-content-inner .service-icon i {
     transition: 0.3s ease;
-    font-family: var(--font-primary);
+    font-family: var(--font-primary) !important;
 }
 
 .service .service-content-inner .service-content h5 {

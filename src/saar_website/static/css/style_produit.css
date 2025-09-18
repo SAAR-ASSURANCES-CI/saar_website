@@ -396,7 +396,8 @@
 }
 
 .accordion-header {
-    background: #dd3333;
+    /* background: #dd3333;#13357b */
+    background: #13357b;
     color: white;
     padding: 20px;
     cursor: pointer;
@@ -450,7 +451,7 @@
 }
 
 .accordion-header:hover {
-    background: #fc0e0e; /* Rouge SAAR au hover */
+    background: #dd3333; /* Rouge SAAR au hover */
 }
 
 /* Styles pour mobile - masquer le texte du badge sur petits écrans */
