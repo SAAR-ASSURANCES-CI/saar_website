@@ -16,7 +16,7 @@
 
                 <div class="col-lg-4 text-center text-lg-end">
                     <div class="d-inline-flex align-items-center" style="height: 45px;">
-                        <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Espace Client</small></a>
+                        {% comment %} <a href="#"><small class="me-3 text-light"><i class="fa fa-sign-in-alt me-2"></i>Espace Client</small></a> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                                         </a> {% endcomment %}
 
                                         <a href="{% url 'produit_detail' slug=prod.slug %}" 
-                                        class="dropdown-item text-start
+                                        class="dropdown-item text-center
                                         {% if produit and prod.pk == produit.pk %} active {% endif %}">
                                         {{ prod.titre }}
                                         </a>
@@ -100,7 +100,7 @@
                                         </a> {% endcomment %}
 
                                           <a href="{% url 'produit_detail' slug=prod.slug %}" 
-                                        class="dropdown-item text-start
+                                        class="dropdown-item text-center
                                         {% if produit and prod.pk == produit.pk %} active {% endif %}">
                                         {{ prod.titre }}
                                         </a>
@@ -117,7 +117,7 @@
                         {% if produits_takaful.pk == produit.pk %} active {% endif %}
                         {% endif %} text-center">Assurances Takaful</a>
 
-                         <a href="{% url 'agences' %}" class="nav-item nav-link text-center{% if active_agences %} active {% endif %}">Trouver une agence</a>
+                         <a href="{% url 'agences' %}" class="nav-item nav-link text-center {% if active_agences %} active {% endif %}">Trouver une agence</a>
 
                                                   
                          <a href="{% url 'contact' %}" class="nav-item nav-link text-center {% if active_contact %} active {% endif %}">Contacts</a>
@@ -130,12 +130,15 @@
             </nav>
 
             
-
+           {% if active_index %}
             <!-- Carousel Start -->
             <div class="carousel-header">
                 <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+
+
+                        
                         {% comment %} <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
                         <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
                         <li data-bs-target="#carouselId" data-bs-slide-to="3"></li> {% endcomment %}
@@ -184,6 +187,8 @@
                 </div>
             </div>
             <!-- Carousel End -->
+            {% endif %}
+
         </div>
         {% comment %} <div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
             <div class="container">
