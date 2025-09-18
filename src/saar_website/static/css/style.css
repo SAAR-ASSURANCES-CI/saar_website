@@ -1025,8 +1025,8 @@ small, .small {
 /*** Services Start ***/
 .service .service-content-inner {
     transition: 0.3s ease;
-    max-height: 40vh;
-    height: 30vh;
+    max-height: 60vh;
+    min-height: 45vh;
 }
 
 .service .service-content-inner:hover {
@@ -1052,7 +1052,7 @@ small, .small {
 .service .service-content-inner:hover .service-content h5,
 .service .service-content-inner:hover .service-content p,
 .service .service-content-inner:hover .service-icon i {
-    color: var(--bs-white) !important;
+    color: var(--bs-white);
 }
 /*** Service End ***/
 
@@ -2334,8 +2334,8 @@ fieldset, legend {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
     -webkit-box-orient: vertical;
     font-family: var(--font-primary);
     font-weight: 400;

@@ -53,6 +53,7 @@ urlpatterns = [
 
     path('test_page/', test, name='test'),
 
+
     # path('', CarouselListView.as_view(), name="carousel_detail"),
     # path('carousel/<slug:slug>', CarouselDetailView.as_view() , name="carousel_detail"),
 

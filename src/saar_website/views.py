@@ -48,7 +48,7 @@ def index(request):
     # Carousel
 
     carousels = Caroussel.objects.all()
-    actualites = Actualite.objects.all()
+    actualites = Actualite.objects.order_by('-date_publication')
     produits = Produit.objects.all()
     temoignages = Temoignage.objects.all()
 
@@ -114,7 +114,7 @@ def carousel_chatbot(request):
     context['products_keys'] = products_keys
     context['active_carousel'] = 'active_carousel'
 
-    return render(request, "saar_website/carousel/carousel_4.html", context=context)
+    return render(request, "saar_website/chatbot.html", context=context)
 
 
 
@@ -278,6 +278,9 @@ def agences(request):
     agences_abj = Agence.objects.filter(zone="ABIDJAN")
     agences_int = Agence.objects.filter(zone="INTERIEUR")
 
+    nbre_agences_abj = Agence.objects.filter(zone="ABIDJAN").count()
+    nbre_agences_int = Agence.objects.filter(zone="INTERIEUR").count()
+
     agent_generaux = AgentGeneral.objects.order_by('designation')
 
     context['produits'] = produits
@@ -288,6 +291,9 @@ def agences(request):
 
     context['agences_abj'] = agences_abj
     context['agences_int'] = agences_int
+
+    context['nbre_agences_abj'] = nbre_agences_abj
+    context['nbre_agences_int'] = nbre_agences_int
 
     context['agent_generaux'] = agent_generaux
 

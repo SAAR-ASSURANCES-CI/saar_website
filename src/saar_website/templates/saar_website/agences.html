@@ -5,11 +5,11 @@
 {% block content %}
 
       <!-- Header Start -->
-      <div class="container-fluid bg-breadcrum">
-        <div class="container text-center" style="max-width: 900px;">
+    <div class="container-fluid bg-breadcrum">
+        <div class="container text-center py-5" style="max-width: 900px;">
             <h3 class="text-white display-3 mb-4">Nos Agences</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="{% url 'index' %}">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white">Accueil</a></li>
                 {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
                 <li class="breadcrumb-item active text-white">Nos Agences</li>
             </ol>    
@@ -22,7 +22,7 @@
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">ABIDJAN</h5>
-                <h4 class="mb-4">Nous disposons de 7 agences à Abidjan</h4>
+                <h4 class="mb-4">Nous disposons de {{nbre_agences_abj}} agences à Abidjan</h4>
                 {% comment %} <p class="mb-0">Nous disposons de 7 agences à Abidjan dont :
                 </p> {% endcomment %}
             </div>
@@ -58,11 +58,11 @@
 
 
         <!-- Blog Start -->
-        <div class="container-fluid blog py-0">
+        <div class="container-fluid blog py-0 pb-5">
             <div class="container py-0">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                     <h5 class="section-title px-3">A L'INERIEUR</h5>
-                    <h4 class="mb-4">Nous disposons de 6 agences à l'intérieur</h4>
+                    <h4 class="mb-4">Nous disposons de {{nbre_agences_int}} agences à l'intérieur</h4>
                 </div>
                 <div class="row g-4 justify-content-left">
     
@@ -98,20 +98,18 @@
 
 
         <!-- Blog Start -->
-        <div class="container-fluid blog py-5">
+        {% comment %} <div class="container-fluid blog py-5">
             <div class="container py-5">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                     <h5 class="section-title px-3">NOS AGENTS GENERAUX</h5>
-                    {% comment %} <h4 class="mb-4">Nous disposons de 6 agences à l'intérieur</h4> {% endcomment %}
                 </div>
                 
                 <table class="table table-striped">
                     <thead>
                       <tr class="bg-primary" style="color: white; font-size: calc(1rem + 0.3vw);">
-                        {% comment %} <th scope="col">#</th> {% endcomment %}
                         <th scope="col">DESIGNATION</th>
                         <th scope="col">LOCALITE</th>
-                        <th scope="col">CONTACT</th>
+                        <th scope="col">ADRESSES</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -119,7 +117,6 @@
                         
                         {% for agent in agent_generaux %}
                         <tr style="color: var(--bs-primary); font-size: calc(1rem + 0.3vw);">
-                            {% comment %} <th scope="row">1</th> {% endcomment %}
                             <td>{{agent.designation}}</td>
                             <td>{{agent.localite}}</td>
                             <td>{{agent.contact}}</td>
@@ -129,7 +126,7 @@
                   </table>
 
             </div>
-        </div>
+        </div> {% endcomment %}
 
 
 

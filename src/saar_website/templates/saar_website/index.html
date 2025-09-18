@@ -116,8 +116,8 @@
                                 <h5 class="mb-0">{{actualite.titre}}</h5>
                                 <small class="text-uppercase">Publié le {{actualite.date_publication|date:"d F Y"}}</small>
                                
-                                <p class="mb-4" style="text-align: justify;">{{actualite.contenu|safe|truncatechars:200}}</p>
-                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                <p class="mb-4" style="text-align: justify;">{{actualite.contenu|safe|truncatechars:500}}</p>
+                                {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a> {% endcomment %}
 
                             </div>
                         
@@ -182,8 +182,8 @@
                     <div class="text-center mb-2">
                         <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
                         <h4 class="text-white">Mobile</h4>
-                        <p class="mb-0 text-white">+225 07 11 25 28 61</p>
-                        <p class="mb-0 text-white">+225 07 47 84 08 97</p>
+                        {% comment %} <p class="mb-0 text-white">+225 07 11 25 28 61</p>
+                        <p class="mb-0 text-white">+225 07 47 84 08 97</p> {% endcomment %}
                         <p class="mb-0 text-white">+225 27 22 50 81 50</p>
                     </div>
                 </div>
