@@ -6,8 +6,8 @@
 
 
          <!-- Blog Start -->
-         <div class="container-fluid blog destination py-3">
-            <div class="container py-5">
+         <div class="container-fluid blog destination">
+            <div class="container">
                 <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                     <h5 class="section-title px-3">Nos produits</h5>
                     <h1 class="mb-4">Découvrez nos offres</h1>            
@@ -38,11 +38,12 @@
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             <div class="blog-img-inner">
-                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="{{produit.titre}}" loading="lazy">
                                                 <div class="blog-icon">
                                                     <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                             <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
@@ -66,11 +67,12 @@
                                     <div class="blog-item">
                                         <div class="blog-img">
                                             <div class="blog-img-inner">
-                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="Image">
+                                                <img class="img-fluid w-100 rounded-top" src="{{produit.path.url}}" alt="{{produit.titre}}" loading="lazy">
                                                 <div class="blog-icon">
                                                     <a href="{% url 'produit' numero=produit.pk %}" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div class="blog-content border border-top-0 rounded-bottom p-4 bg-light">
                                             <a href="{% url 'produit' numero=produit.pk %}" class="h4">{{produit.titre}}</a>
@@ -97,7 +99,7 @@
             <div class="container py-0">
                 <div class="mx-auto text-center mb-5">
                     <h5 class="section-title px-3">Actualités</h5>
-                    <h1 class="mb-0">Nos dernières activités</h1>
+                    <h1 class="mb-2">Nos dernières activités</h1>
                 </div>
                 <div class="packages-carousel owl-carousel">
 
@@ -106,7 +108,7 @@
                     <div class="packages-item d-flex align-items-stretch">
                         <div class="packages-img">
 
-                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top" alt="Image">
+                            <img src="{{actualite.path.url}}" class="img-fluid w-100 rounded-top" alt="{{actualite.titre}}" loading="lazy">
 
                         </div>
                         <div class="packages-content bg-light rounded-bottom p-3">
@@ -114,8 +116,8 @@
                                 <h5 class="mb-0">{{actualite.titre}}</h5>
                                 <small class="text-uppercase">Publié le {{actualite.date_publication|date:"d F Y"}}</small>
                                
-                                <p class="mb-4" style="text-align: justify;">{{actualite.contenu|safe|truncatechars:200}}</p>
-                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a>
+                                <p class="mb-4" style="text-align: justify;">{{actualite.contenu|safe|truncatechars:500}}</p>
+                                {% comment %} <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Lire plus</a> {% endcomment %}
 
                             </div>
                         
@@ -134,7 +136,7 @@
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
                 <h5 class="section-title px-3">Témoignages</h5>
-                <h1 class="mb-0">Ce que disent nos clients !!!</h1>
+                <h1 class="mb-2">Ce que disent nos clients !!!</h1>
             </div>
             <div class="testimonial-carousel owl-carousel">
 
@@ -180,8 +182,8 @@
                     <div class="text-center mb-2">
                         <i class="fa fa-phone-alt fa-3x text-primary mb-3"></i>
                         <h4 class="text-white">Mobile</h4>
-                        <p class="mb-0 text-white">+225 07 11 25 28 61</p>
-                        <p class="mb-0 text-white">+225 07 47 84 08 97</p>
+                        {% comment %} <p class="mb-0 text-white">+225 07 11 25 28 61</p>
+                        <p class="mb-0 text-white">+225 07 47 84 08 97</p> {% endcomment %}
                         <p class="mb-0 text-white">+225 27 22 50 81 50</p>
                     </div>
                 </div>
@@ -227,6 +229,8 @@
 
 {% endblock content %}
     
+
+
 
 
 

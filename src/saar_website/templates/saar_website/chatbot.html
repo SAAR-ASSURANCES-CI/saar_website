@@ -1,0 +1,147 @@
+{% extends 'saar_website/layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+     <!-- Header Start -->
+     <div class="container-fluid bg-breadcrumb-AVI">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">SAARCI Assistant</h1>
+           <!--  <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                {% comment %} <li class="breadcrumb-item"><a href="#">Pages</a></li> {% endcomment %}
+                <li class="breadcrumb-item active text-white">{{produit.titre}}</li>
+            </ol>   --> 
+        </div>
+    </div>
+    <!-- Header End -->
+
+        <!-- Services Start -->
+        <div class="container-fluid bg-light service py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-4" style="max-width: 900px;">
+                    {% comment %} <h5 class="section-title px-3">Searvices</h5> {% endcomment %}
+                    <h1 class="mb-0">Découvrez SAARCI Assistant - Votre Assistant Virtuel</h1>                
+                </div>
+
+                <P class="mb-5" style="font-size: 1.25em; color: black; text-align: justify;">Bienvenue sur la page de présentation de SAARCI Assistant, votre nouvel assistant virtuel conçu pour vous offrir une expérience de service client améliorée et accessible 24h/24. Chez <strong>SAAR Assurances Côte d'Ivoire</strong>, nous comprenons l'importance de répondre rapidement et efficacement à vos besoins. C'est pourquoi nous avons développé SAARCI Assistant, un chatbot intelligent qui vous accompagne tout au long de votre parcours avec nous.</P>
+                    
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Réponses Instantanées</h5>
+                                        <p class="mb-0"><strong>SAARCI Assistant</strong> est conçu pour fournir des réponses rapides à vos questions sur nos produits d'assurance, nos services, et bien plus encore. Plus besoin d'attendre, posez votre question et obtenez une réponse en quelques secondes.
+                                        </p>
+                                    </div>
+                                    <div class="p-4">
+                                        <i class="fa fa-bolt fa-4x text-primary"></i>
+                                        {% comment %} <i class="fa fa-globe fa-4x text-primary"></i> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Disponibilité 24h/24 et 7j/7</h5>
+                                        <p class="mb-0"><strong>SAARCI Assistant</strong> est toujours là pour vous assister. Vous pouvez accéder à ses services à tout moment, directement depuis notre site web.
+                                        </p>
+                                    </div>
+                                    <div class="p-4">
+                                        <i class="fas fa-history fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Assistance Personnalisée</h5>
+                                        <p class="mb-0"><strong>SAARCI Assistant</strong> est capable de s'adapter à vos besoins en vous offrant des réponses personnalisées en fonction de votre situation. Que vous ayez besoin d'aide pour souscrire à une nouvelle assurance, comprendre les garanties de votre contrat, ou suivre une réclamation, <strong>SAARCI Assistant</strong> est là pour vous guider.
+                                        </p>
+                                    </div>
+                                    <div class="p-4">
+                                        <i class="fas fa-user-tie fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Amélioration Continue</h5>
+                                        <p class="mb-0">Nous ne cessons d'améliorer <strong>SAARCI Assistant</strong> pour qu'il puisse répondre de manière encore plus efficace à vos besoins. Vos retours sont essentiels pour nous aider à perfectionner ce service.
+                                        </p>
+                                    </div>
+                                    <div class="p-4">
+                                        <i class="fa fa-cog fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                    <div class="p-4">
+                                        <i class="fas fa-lightbulb fa-4x text-primary"></i>
+                                    </div>
+                                    <div class="service-content">
+                                        <h5 class="mb-4">Pourquoi Utiliser SAARCI Assistant ?</h5>
+                                        <p class="mb-0"><strong>SAARCI Assistant</strong> simplifie vos interactions avec SAAR Assurances. Plus besoin de naviguer à travers des pages complexes ou de passer du temps au téléphone, notre assistant virtuel est là pour vous fournir l'information dont vous avez besoin, quand vous en avez besoin.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                    <div class="p-4">
+                                        <i class="fas fa-wrench fa-4x text-primary"></i>
+                                    </div>
+                                    <div class="service-content">
+                                        <h5 class="mb-4">Comment Accéder à SAARCI Assistant ?</h5>
+                                        <p class="mb-0"><strong>SAARCI Assistant</strong> est facilement accessible depuis n'importe quelle page de notre site web. Cliquez simplement sur le bouton de chat en bas, à droite de votre écran pour commencer. Vous pouvez poser vos questions ou demander de l'aide à tout moment.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                    <div class="p-4">
+                                        <i class="fas fa-handshake fa-4x text-primary"></i>
+                                    </div>
+                                    <div class="service-content">
+                                        <h5 class="mb-4">Nous Sommes à Votre Écoute</h5>
+                                        <p class="mb-0">Votre satisfaction est notre priorité. Si vous avez des suggestions pour améliorer <strong>SAARCI Assistant</strong>, n'hésitez pas à nous le faire savoir. Nous sommes déterminés à vous offrir le meilleur service possible.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %} <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
+                                    <div class="service-icon p-4">
+                                        <i class="fa fa-cog fa-4x text-primary"></i>
+                                    </div>
+                                    <div class="service-content">
+                                        <h5 class="mb-4">Event Management</h5>
+                                        <p class="mb-0">Dolor sit amet consectetur adipisicing elit. Non alias eum, suscipit expedita corrupti officiis debitis possimus nam laudantium beatae quidem dolore consequuntur voluptate rem reiciendis, omnis sequi harum earum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    {% comment %} <div class="col-12">
+                        <div class="text-center">
+                            <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="">Service More</a>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+
+{% endblock content %}
