@@ -15,8 +15,6 @@
     font-family: var(--font-primary);
 }
 
-/* CSS chargé et fonctionnel ✅ */
-
 body {
     font-family: var(--font-primary);
     font-weight: 400;
@@ -265,7 +263,7 @@ small, .small {
 }
 
 .navbar-light .navbar-brand img {
-    max-height: 90px;
+    max-height: 60px;
     transition: .5s;
 }
 
@@ -328,33 +326,312 @@ small, .small {
     }
 
     .navbar.navbar-expand-lg .navbar-toggler {
-        padding: 10px 20px;
-        border: 1px solid var(--saar-primary);
-        color: var(--saar-primary);
+        padding: 8px 12px;
+        border: 2px solid var(--saar-primary);
+        border-radius: 6px;
+        background-color: transparent;
         z-index: 1000;
+        transition: all 0.3s ease;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Forcer l'affichage de l'icône hamburger Bootstrap */
+    .navbar-toggler-icon {
+        background-image: none !important;
+        position: relative;
+        width: 1.5em !important;
+        height: 1.5em !important;
+        transition: all 0.3s ease;
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Solution de secours : icône hamburger en CSS pur */
+    .navbar-toggler-icon::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 2px;
+        background-color: var(--saar-primary);
+        box-shadow: 0 6px 0 var(--saar-primary), 0 -6px 0 var(--saar-primary);
+        transition: all 0.3s ease;
+    }
+    
+    /* Animation de l'icône hamburger vers X */
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+        background-color: var(--saar-primary);
+        box-shadow: none;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        width: 20px;
+        height: 2px;
+        background-color: var(--saar-primary);
+    }
+    
+    .navbar.navbar-expand-lg .navbar-toggler:hover,
+    .navbar.navbar-expand-lg .navbar-toggler:focus {
+        background-color: var(--saar-primary);
+        box-shadow: 0 2px 4px rgba(19, 53, 123, 0.2);
+    }
+    
+    .navbar.navbar-expand-lg .navbar-toggler:hover .navbar-toggler-icon::before,
+    .navbar.navbar-expand-lg .navbar-toggler:focus .navbar-toggler-icon::before {
+        background-color: white;
+        box-shadow: 0 6px 0 white, 0 -6px 0 white;
+    }
+    
+    .navbar.navbar-expand-lg .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(19, 53, 123, 0.25);
     }
 
     .navbar-light .navbar-collapse {
         margin-top: 15px;
         border-top: 1px solid #DDDDDD;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 15px;
         z-index: 1000;
+        position: relative;
+        width: 100%;
+        display: none !important;
+    }
+    
+    .navbar-light .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    /* Forcer le comportement Bootstrap sur mobile */
+    .navbar-expand-lg .navbar-collapse {
+        display: none !important;
+    }
+    
+    .navbar-expand-lg .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    /* S'assurer que le menu est en mode vertical sur mobile */
+    .navbar-light .navbar-collapse .navbar-nav {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    
+    /* Animation d'ouverture du menu */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Animation de fermeture du menu */
+    @keyframes slideUp {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+    
+    /* Animation de fermeture */
+    .navbar-light .navbar-collapse:not(.show) {
+        animation: slideUp 0.3s ease-out;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Forcer la fermeture du menu */
+    .navbar-collapse:not(.show) {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
     }
 
     .navbar-light .navbar-nav .nav-link,
     .sticky-top.navbar-light .navbar-nav .nav-link {
-        padding: 10px 0;
+        padding: 12px 15px;
         color: var(--bs-dark) !important;
+        border-radius: 6px;
+        margin: 2px 0;
+        transition: all 0.3s ease;
         z-index: 1000;
+        animation: fadeInUp 0.4s ease-out;
+        animation-fill-mode: both;
+    }
+    
+    /* Animation progressive des éléments du menu */
+    .navbar-light .navbar-nav .nav-item:nth-child(1) .nav-link { animation-delay: 0.1s; }
+    .navbar-light .navbar-nav .nav-item:nth-child(2) .nav-link { animation-delay: 0.2s; }
+    .navbar-light .navbar-nav .nav-item:nth-child(3) .nav-link { animation-delay: 0.3s; }
+    .navbar-light .navbar-nav .nav-item:nth-child(4) .nav-link { animation-delay: 0.4s; }
+    .navbar-light .navbar-nav .nav-item:nth-child(5) .nav-link { animation-delay: 0.5s; }
+    .navbar-light .navbar-nav .nav-item:nth-child(6) .nav-link { animation-delay: 0.6s; }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link.active  {
         color: var(--saar-primary) !important;
+        background-color: rgba(19, 53, 123, 0.1);
         z-index: 1000;
     }
 
     .navbar-light .navbar-brand img {
         max-height: 45px;
+    }
+    
+    /* Amélioration des dropdowns sur mobile */
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+        background-color: rgba(248, 249, 250, 0.95);
+        border: 1px solid #e9ecef;
+        border-radius: 6px;
+        box-shadow: none;
+    }
+    
+    .navbar-nav .dropdown-item {
+        padding: 10px 20px;
+        color: var(--bs-dark);
+        border-radius: 4px;
+        margin: 2px 0;
+    }
+    
+    .navbar-nav .dropdown-item:hover {
+        background-color: var(--saar-primary);
+        color: white;
+    }
+    
+    /* Styles pour les sous-menus sur mobile */
+    .dropdown-submenu .dropdown-menu {
+        position: static !important;
+        margin-left: 20px;
+        border-left: 2px solid var(--saar-primary);
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Bouton "Gérer votre sinistre" sur mobile */
+    .navbar .btn-primary {
+        width: 100%;
+        margin-top: 15px;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        animation: fadeInUp 0.4s ease-out 0.7s both;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Effet de brillance sur le bouton */
+    .navbar .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+    
+    .navbar .btn-primary:hover::before {
+        left: 100%;
+    }
+    
+    /* Amélioration de l'accessibilité tactile */
+    .navbar-toggler-icon {
+        width: 1.2em;
+        height: 1.2em;
+    }
+    
+    /* Espacement optimal pour les éléments de navigation */
+    .navbar-nav .nav-item {
+        margin: 3px 0;
+    }
+    
+    /* Amélioration de la visibilité des dropdowns */
+    .dropdown-toggle::after {
+        margin-left: 0.5em;
+        vertical-align: 0.15em;
+    }
+    
+    /* Styles spécifiques pour les sous-menus complexes */
+    .dropdown-submenu > .dropdown-toggle::after {
+        transform: rotate(-90deg);
+        margin-left: 0.3em;
+    }
+    
+    .dropdown-submenu.show > .dropdown-toggle::after {
+        transform: rotate(0deg);
+    }
+    
+    /* Animation pour les sous-menus */
+    .dropdown-submenu .dropdown-menu {
+        transition: all 0.3s ease;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    .dropdown-submenu.show .dropdown-menu {
+        opacity: 1;
+        max-height: 500px;
+    }
+    
+    /* Indicateur visuel pour les sous-menus */
+    .dropdown-submenu > .dropdown-toggle {
+        position: relative;
+    }
+    
+    .dropdown-submenu > .dropdown-toggle::before {
+        content: "▶";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8em;
+        color: var(--saar-primary);
+        transition: transform 0.3s ease;
+    }
+    
+    .dropdown-submenu.show > .dropdown-toggle::before {
+        transform: translateY(-50%) rotate(90deg);
     }
 }
 
@@ -455,7 +732,7 @@ small, .small {
 .carousel-header .carousel-inner .carousel-item .carousel-caption  {
     position: absolute;
     width: 100%;
-    max-height: 550px;
+    max-height: 800px;
     top: 0;
     left: 0;
     padding-top: 60px;
@@ -748,8 +1025,8 @@ small, .small {
 /*** Services Start ***/
 .service .service-content-inner {
     transition: 0.3s ease;
-    max-height: 40vh;
-    height: 30vh;
+    max-height: 60vh;
+    min-height: 45vh;
 }
 
 .service .service-content-inner:hover {
@@ -761,7 +1038,7 @@ small, .small {
 .service .service-content-inner .service-content p,
 .service .service-content-inner .service-icon i {
     transition: 0.3s ease;
-    font-family: var(--font-primary);
+    font-family: var(--font-primary) !important;
 }
 
 .service .service-content-inner .service-content h5 {
@@ -775,7 +1052,7 @@ small, .small {
 .service .service-content-inner:hover .service-content h5,
 .service .service-content-inner:hover .service-content p,
 .service .service-content-inner:hover .service-icon i {
-    color: var(--bs-white) !important;
+    color: var(--bs-white);
 }
 /*** Service End ***/
 
@@ -2057,8 +2334,8 @@ fieldset, legend {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
     -webkit-box-orient: vertical;
     font-family: var(--font-primary);
     font-weight: 400;
@@ -2100,129 +2377,29 @@ body {
     background-position: center;
 }
 
-/* Dropdown submenu styling - Desktop */
-@media (min-width: 992px) {
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu > .dropdown-menu {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        margin-top: -0.25rem;
-        display: none !important;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        font-family: var(--font-primary);
-    }
-
-    .dropdown-submenu:hover > .dropdown-menu {
-        display: block !important;
-    }
-
-    .dropdown-submenu .dropdown-menu a {
-        font-family: var(--font-primary);
-        font-weight: 400;
-    }
+/* Dropdown submenu styling */
+.dropdown-submenu {
+    position: relative;
 }
 
-/* Menu Accordéon Mobile */
-@media (max-width: 991.98px) {
-    /* Transformation des dropdowns en accordéons */
-    .dropdown-submenu {
-        position: relative;
-    }
-    
-    .dropdown-submenu > .dropdown-toggle::after {
-        content: "▼";
-        float: right;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        transition: transform 0.3s ease;
-        margin-left: auto;
-    }
-    
-    .dropdown-submenu.active > .dropdown-toggle::after {
-        transform: rotate(180deg);
-    }
-    
-    /* Sous-menus en accordéon */
-    .dropdown-submenu > .dropdown-menu {
-        position: static;
-        display: none;
-        box-shadow: none;
-        border: none;
-        background: rgba(0,0,0,0.05);
-        border-radius: 0;
-        margin: 0;
-        padding-left: 20px;
-        animation: slideDown 0.3s ease;
-    }
-    
-    .dropdown-submenu.active > .dropdown-menu {
-        display: block !important;
-    }
-    
-    /* Animations d'ouverture/fermeture */
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            max-height: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            max-height: 500px;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes slideUp {
-        from {
-            opacity: 1;
-            max-height: 500px;
-            transform: translateY(0);
-        }
-        to {
-            opacity: 0;
-            max-height: 0;
-            transform: translateY(-10px);
-        }
-    }
-    
-    /* Animation pour le menu principal */
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    /* Style des éléments de sous-menu */
-    .dropdown-submenu .dropdown-menu .dropdown-item {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-    
-    .dropdown-submenu .dropdown-menu .dropdown-item:last-child {
-        border-bottom: none;
-    }
-    
-    /* Amélioration tactile */
-    .dropdown-toggle {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        cursor: pointer;
-        user-select: none;
-    }
+.dropdown-submenu > .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -0.25rem;
+    display: none !important;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    font-family: var(--font-primary);
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block !important;
+}
+
+.dropdown-submenu .dropdown-menu a {
+    font-family: var(--font-primary);
+    font-weight: 400;
 }
 
 /*** Améliorations typographiques spécifiques SAAR ***/
@@ -2577,82 +2754,6 @@ body {
     /* Navigation tactile améliorée */
     .navbar-nav .nav-link {
         padding: 12px 15px; /* Plus d'espace tactile */
-    }
-    
-    /* Bouton hamburger optimisé */
-    .navbar-toggler {
-        min-width: 48px;
-        min-height: 48px;
-        padding: 8px;
-        border: 2px solid var(--saar-primary);
-        border-radius: 8px;
-        background: transparent;
-        transition: all 0.3s ease;
-    }
-    
-    .navbar-toggler:focus {
-        box-shadow: 0 0 0 3px rgba(19, 53, 123, 0.25);
-        outline: none;
-    }
-    
-    .navbar-toggler .fa-bars {
-        font-size: 1.2rem;
-        color: var(--saar-primary);
-        transition: transform 0.3s ease;
-    }
-    
-    /* Animation du bouton hamburger */
-    .navbar-toggler[aria-expanded="true"] .fa-bars {
-        transform: rotate(90deg);
-    }
-    
-    /* Menu mobile ouvert */
-    .navbar-collapse.show {
-        animation: fadeInDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(10px);
-        border-radius: 0 0 15px 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
-        padding: 15px;
-        border-top: 3px solid var(--saar-gold);
-    }
-    
-    /* Animation des éléments du menu */
-    .navbar-collapse.show .nav-link,
-    .navbar-collapse.show .dropdown-item {
-        animation: fadeInDown 0.5s ease;
-        animation-fill-mode: both;
-    }
-    
-    /* Délai progressif pour chaque élément */
-    .navbar-collapse.show .nav-item:nth-child(1) { animation-delay: 0.1s; }
-    .navbar-collapse.show .nav-item:nth-child(2) { animation-delay: 0.15s; }
-    .navbar-collapse.show .nav-item:nth-child(3) { animation-delay: 0.2s; }
-    .navbar-collapse.show .nav-item:nth-child(4) { animation-delay: 0.25s; }
-    .navbar-collapse.show .nav-item:nth-child(5) { animation-delay: 0.3s; }
-    .navbar-collapse.show .btn-primary { animation-delay: 0.35s; }
-    
-    /* Bouton CTA optimisé pour mobile */
-    .navbar .btn-primary {
-        width: 100%;
-        margin: 15px 0 0 0 !important;
-        padding: 12px 20px;
-        font-size: 0.95rem;
-        font-weight: 600;
-        border-radius: 25px;
-        text-align: center;
-    }
-    
-    /* Séparateur visuel avant le CTA */
-    .navbar .btn-primary::before {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 2px;
-        background: var(--saar-gold);
-        margin: 0 auto 10px auto;
-        border-radius: 1px;
     }
     
     /* Dropdown tactile */
