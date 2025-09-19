@@ -54,7 +54,7 @@
                             </div>
                         </div>
 
-                        {% comment %} <div class="nav-item dropdown">
+                        <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle 
                                 {% if produit and produit.pk != produits_takaful.pk %}
                                  active
@@ -87,6 +87,7 @@
                                     
                                    {% for prod in produits_vie %}
                                     <li>
+
                                           <a href="{% url 'produit_detail' slug=prod.slug %}" 
                                         class="dropdown-item text-center
                                         {% if produit and prod.pk == produit.pk %} active {% endif %}">
@@ -99,11 +100,11 @@
                                 </li>
                                 
                             </ul>
-                        </div>             {% endcomment %}
+                        </div>            
                        
-                        {% comment %} <a href="{% url 'produit' numero=produits_takaful.pk %}" class="nav-item nav-link {% if produit %}
+                        <a href="{% url 'produit' numero=produits_takaful.pk %}" class="nav-item nav-link {% if produit %}
                         {% if produits_takaful.pk == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurances Takaful</a> {% endcomment %}
+                        {% endif %} text-center">Assurances Takaful</a>
 
                          <a href="{% url 'agences' %}" class="nav-item nav-link text-center {% if active_agences %} active {% endif %}">Trouver une agence</a>
 
