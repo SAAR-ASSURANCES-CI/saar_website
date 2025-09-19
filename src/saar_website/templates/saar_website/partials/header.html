@@ -41,12 +41,12 @@
                         <a href="{% url 'index' %}" class="nav-item nav-link 
                         {% if active_index %}
                         active
-                        {% endif %} text-center">Accueil</a>
+                        {% endif %} text-center" style="font-weight: bold;">Accueil</a>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle 
                             {% if active_about or active_about_grp %}
-                           active {% endif %} text-center" data-bs-toggle="dropdown">A Propos</a>
+                           active {% endif %} text-center" data-bs-toggle="dropdown" style="font-weight: bold;">A Propos</a>
                             <div class="dropdown-menu m-0">
                                 <a href="{% url 'about_grp' %}" class="dropdown-item text-start {% if active_about_grp %} active {% endif %}">Le Groupe SAAR</a>
                                 <a href="{% url 'about' %}" class="dropdown-item text-start {% if active_about %} active {% endif %}">SAAR Côte d'Ivoire</a>
@@ -59,7 +59,7 @@
                                 {% if produit and produit.pk != produits_takaful.pk %}
                                  active
                                 {% endif %} text-center" 
-                                data-bs-toggle="dropdown">
+                                data-bs-toggle="dropdown" style="font-weight: bold;">
                                 Nos Produits
                             </a>
                             
@@ -104,12 +104,12 @@
                        
                         <a href="{% url 'produit' numero=produits_takaful.pk %}" class="nav-item nav-link {% if produit %}
                         {% if produits_takaful.pk == produit.pk %} active {% endif %}
-                        {% endif %} text-center">Assurances Takaful</a>
+                        {% endif %} text-center" style="font-weight: bold;">Assurances Takaful</a>
 
-                         <a href="{% url 'agences' %}" class="nav-item nav-link text-center {% if active_agences %} active {% endif %}">Trouver une agence</a>
+                         <a href="{% url 'agences' %}" class="nav-item nav-link text-center {% if active_agences %} active {% endif %}" style="font-weight: bold;">Trouver une agence</a>
 
                                                   
-                         <a href="{% url 'contact' %}" class="nav-item nav-link text-center {% if active_contact %} active {% endif %}">Contacts</a>
+                         <a href="{% url 'contact' %}" class="nav-item nav-link text-center {% if active_contact %} active {% endif %}" style="font-weight: bold;">Contacts</a>
 
                     </div>
                     <a href="https://sinistres.saarassurancesci.com/" target="blank" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Gérer votre sinistre</a>
