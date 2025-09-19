@@ -61,4 +61,8 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# Pour servir les fichiers statiques en développement avec DEBUG=False
+# if settings.DEBUG == False:  # Forcez temporairement
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 
