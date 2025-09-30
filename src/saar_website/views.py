@@ -248,7 +248,7 @@ def contact(request):
         context_template = {'name': name, 'from_email': from_email, 'message':message}
         html_content = render_to_string('saar_website/email_template_review.html', context=context_template)
 
-        email = EmailMultiAlternatives(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=[settings.EMAIL_HOST_USER])
+        email = EmailMultiAlternatives(subject=subject, body=f'{from_email} {name} : {message}', from_email=from_email, to=['saarci@saar-assurances.com', settings.EMAIL_HOST_USER])
         email.attach_alternative(html_content, "text/html")
         email.send()
 
