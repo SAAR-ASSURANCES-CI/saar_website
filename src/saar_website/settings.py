@@ -62,6 +62,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sitemaps',
+
     'administration'
 ]
 
@@ -175,3 +178,9 @@ MEDIA_URL='/media/'
 # Sessions et CSRF
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+
+# Configuration SEO
+META_SITE_PROTOCOL = 'https'
+META_SITE_DOMAIN = 'saarassurancesci.com'
+META_SITE_NAME = "SAAR Assurances Côte d'Ivoire"
