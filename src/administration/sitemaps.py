@@ -44,7 +44,7 @@ class ProduitSitemap(Sitemap):
 
     def items(self):
         # Retourne tous les produits visibles
-        return Produit.objects.filter(est_visible=True)
+        return Produit.objects.filter(is_visible=True)
     
     def lastmod(self, obj):
         # Date de dernière modification
