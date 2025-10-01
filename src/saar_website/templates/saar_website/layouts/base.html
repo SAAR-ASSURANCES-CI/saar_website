@@ -6,14 +6,36 @@
         <meta charset="utf-8">
         <title>
             
-            {% block titre %}
-             Accueil | Saar CI   
-            {% endblock titre %}
+          {% block title %}SAAR Assurances Côte d'Ivoire - Assurance non-vie et vie en Côte d'Ivoire{% endblock %}
                  
         </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+         <!-- Mots-clés -->
+        <meta content="{% block keywords %}assurance, assurance auto, assurance santé, assurance habitation, assurance entreprise, assurance Côte d'Ivoire, assurance Abidjan, SAAR, SAAR Assurances, SAAR CI, SAAR VIE, SAAR VIE CI, SAAR Vie Côte d'Ivoire, Top 10 marché Ivoirien{% endblock %}" name="keywords">
+        <!-- Description pour Google -->
+        <meta name="description" content="{% block description %}SAAR Assurances CI, votre partenaire de confiance pour tous vos besoins d'assurance en Côte d'Ivoire. Devis gratuit en ligne.{% endblock %}">
+
+        <!-- Auteur et copyright -->
+        <meta name="author" content="SAAR Assurances CI">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="French">
+
+        <!-- Open Graph pour Facebook/LinkedIn -->
+        <meta property="og:site_name" content="SAAR Assurances Côte d'Ivoire">
+        <meta property="og:title" content="{% block og_title %}SAAR Assurances CI - Protection complète en Côte d'Ivoire{% endblock %}">
+        <meta property="og:description" content="{% block og_description %}Découvrez nos solutions d'assurance adaptées à vos besoins. Devis gratuit en ligne.{% endblock %}">
+        <meta property="og:image" content="{% block og_image %}https://saarassurancesci.com{% static 'img/logo-saar.png' %}{% endblock %}">
+        <meta property="og:url" content="https://saarassurancesci.com">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="fr_CI">
+
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@saarassurances">
+        <meta name="twitter:title" content="{% block twitter_title %}SAAR Assurances{% endblock %}">
+        <meta name="twitter:description" content="{% block twitter_description %}Votre partenaire assurance en Côte d'Ivoire{% endblock %}">
+        <meta name="twitter:image" content="{% block twitter_image %}https://saarassurancesci.com{% static 'img/logo-saar.jpg' %}{% endblock %}">
 
          <!-- Favicons -->
         <link href="{% static 'img/logo-saar.png' %}" rel="icon" sizes="60x60">
@@ -45,6 +67,47 @@
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
         <link href="{% static 'css/style_produit.css' %}" rel="stylesheet">
 
+        <!-- Données structurées JSON-LD pour Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "InsuranceAgency",
+        "name": "SAAR Assurances Côte d'Ivoire",
+        "image": "https://saarassurancesci.com{% static 'img/logo-saar.png' %}",
+        "url": "https://saarassurancesci.com",
+        "telephone": "+225-27-22-50-81-50",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Votre adresse complète",
+          "addressLocality": "Abidjan",
+          "addressRegion": "Abidjan",
+          "postalCode": "00225",
+          "addressCountry": "CI"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 5.3845879,
+          "longitude": -3.9942638
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/saarassurances.ci",
+          "https://www.linkedin.com/company/saar-assurances-c%C3%B4te-d-ivoire/posts/?feedView=all",
+        ]
+      }
+      </script>
+
+
+        {% block extra_head %}
+        {% endblock extra_head %}
 
         
     </head>
