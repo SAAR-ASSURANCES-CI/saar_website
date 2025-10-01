@@ -2,6 +2,40 @@
 
 {% load static %}
 
+{% block title %}{{ produit.titre }} - {{ produit.categorie.libelle }} | SAAR Assurances CI{% endblock %}
+
+{% block description %}{{ detail_produit.contenu|safe|truncatewords:30 }} SAAR Assurances, votre partenaire de confiance en Côte d'Ivoire.{% endblock %}
+
+{% block keywords %}{{ produit.titre }}, assurance {{ produit.categorie.libelle }}, SAAR, Côte d'Ivoire, Abidjan, devis assurance{% endblock %}
+
+
+{% block extra_head %}
+<!-- Données structurées pour le produit -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ produit.titre }}",
+  "image": "https://saarassurancesci.com{{ produit.path.url }}",
+  "description": "{{ produit.contenu }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "SAAR Assurances"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://saarassurancesci.com{{ request.path }}",
+    "priceCurrency": "XOF",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "SAAR Assurances"
+    }
+  }
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
      <!-- Header Start -->
