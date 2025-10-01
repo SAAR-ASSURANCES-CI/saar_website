@@ -17,12 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
+
 from django.conf import settings
 from django.conf.urls.static import static
 
 #from .views import index, carousel, CarouselListView, CarouselDetailView
 
 from .views import about, agences, contact, index, produit, about_grp, produit_detail, reclamation, valeurs, carousel_chatbot, test
+
+# Importez vos sitemaps
+from administration.sitemaps import sitemaps
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -58,6 +64,16 @@ urlpatterns = [
     # path('carousel/<slug:slug>', CarouselDetailView.as_view() , name="carousel_detail"),
 
     path('administration/', include('administration.urls')),
+
+    # SEO - Sitemap
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+    # SEO - Robots
+    # SEO - Robots.txt
+    path('robots.txt', TemplateView.as_view(
+        template_name="robots.txt",
+        content_type="text/plain"
+    ), name='robots'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
