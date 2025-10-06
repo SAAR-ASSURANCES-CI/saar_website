@@ -242,6 +242,12 @@
     text-align: left;
 }
 
+.table td {
+    background: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+}
+
 .included {
     color: #27ae60;
     font-weight: 600;
