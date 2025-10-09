@@ -173,26 +173,6 @@
           
                         <div class="divider d-flex align-items-center mb-4">
                         </div>
-
-                        {% comment %} <div class="spinner-grow bg-primary" id="loading-spinner" style="display: none; text-align: center;" role="status">
-                          <span class="sr-only">Loading...</span>
-                        </div> {% endcomment %}
-
-                        {% comment %} <div id="loading-spinner" style="display: none; text-align: center;">
-                          <div class="spinner-border text-primary" role="status">
-                              <span class="visually-hidden">Loading...</span>
-                          </div>
-                        </div> {% endcomment %}
-                      
-          
-                        {% comment %} <div class="d-flex flex-row justify-content-end mb-4 pt-1">
-                          <div>
-                            <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">Hiii, I'm good.</p>
-                            <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">How are you doing?</p>
-                            <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">Long time no see! Tomorrow office. will be free on sunday. ong time no see! Tomorrow office. will be free on sunda ong time no see! Tomorrow office. will be free on sundaong time no see! Tomorrow office. will be free on sunda</p>
-                          </div>
-                            <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8;" ></i>
-                        </div> {% endcomment %}
           
                         <!-- Other chat messages here... -->
           
@@ -273,8 +253,11 @@
               icon.classList.add("fa-chevron-down");*/
           });
 
+          
 
-            document.querySelector('.fa-paper-plane').addEventListener('click', function() {
+
+          {% comment %} fonction qui envoi le message à l'API Flask {% endcomment %}
+            {% comment %} document.querySelector('.fa-paper-plane').addEventListener('click', function() {
 
               // Afficher la réponse de l'API dans l'interface de chat
               var chatBody = document.querySelector('#chat-body');
@@ -287,8 +270,8 @@
                     <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">${userMessage}</p>
                 </div>
                 <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8;"></i>
-            </div>`;
-            chatBody.innerHTML += userMessageElement;
+                </div>`;
+                chatBody.innerHTML += userMessageElement;
 
               
                  // Faire défiler le chat vers le bas pour voir le dernier message
@@ -312,8 +295,8 @@
                 // Récupérer le message de l'utilisateur
               //  var userMessage = document.querySelector('#exampleFormControlInput3').value;
           
-                // Créer une requête POST à l'API Flask
-                fetch('http://127.0.0.1:5000/chat', {
+                // Créer une requête POST à l'API Flask http://127.0.0.1:5000/chat
+                fetch('https://chatbot-api.saarassurancesci.com/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -364,23 +347,177 @@
                   loadingSpinner.style.display = 'none';
                   console.error('Error:', error);
               });
+            }); {% endcomment %}
+
+            // Historique de conversation (à placer en début de script)
+            let conversationHistory = [];
+
+            document.querySelector('.fa-paper-plane').addEventListener('click', function() {
+                sendMessage();
             });
 
-            // Fonction pour afficher la réponse mot par mot
-function displayResponseWordByWord(text, element) {
-    const words = text.split(' ');
-    let index = 0;
+            // NOUVEAUX
+            // Permettre l'envoi avec Entrée (Ctrl+Enter pour nouvelle ligne)
+          document.querySelector('#exampleFormControlInput3').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+          });
 
-    function displayNextWord() {
-        if (index < words.length) {
-            element.innerHTML += words[index] + ' ';
-            index++;
-            setTimeout(displayNextWord, 100); // Délai de 100 ms entre chaque mot
-        }
-    }
+
+          //NOUVEAUX FONCTION SENDMESSAGE
+          function sendMessage() {
+            var chatBody = document.querySelector('#chat-body');
+            var userMessage = document.querySelector('#exampleFormControlInput3').value.trim();
+            
+            // Vérifier que le message n'est pas vide
+            if (!userMessage) {
+                return;
+            }
+            
+            // Afficher le message de l'utilisateur
+            var userMessageElement = `<div class="d-flex flex-row justify-content-end mb-4 pt-1">
+                <div>
+                    <p class="small p-2 me-3 mb-1 rounded-3 bg-light" style="color: black;">${escapeHtml(userMessage)}</p>
+                </div>
+                <i class="fas fa-user" style="font-size: 45px; color: #B4B4B8;"></i>
+            </div>`;
+            chatBody.innerHTML += userMessageElement;
+            
+            // Ajouter à l'historique
+            conversationHistory.push({
+                role: 'user',
+                content: userMessage
+            });
+            
+            // Faire défiler le chat vers le bas
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
+            // Effacer le champ de saisie immédiatement
+            document.querySelector('#exampleFormControlInput3').value = '';
+            
+            // Insérer le spinner
+            var spinnerElement = `<div class="d-flex flex-row justify-content-start mb-4" id="loading-spinner">
+                <i class="fas fa-user-tie" style="font-size: 45px; color: #D6B033;"></i>
+                <div>
+                    <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">
+                        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        En train de réfléchir...
+                    </p>
+                </div>
+            </div>`;
+            chatBody.innerHTML += spinnerElement;
+            
+            // Faire défiler le chat vers le bas
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
+            // Créer une requête POST à l'API Flask avec l'historique http://127.0.0.1:5000/chat
+            fetch('https://chatbot-api.saarassurancesci.com/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    query: userMessage,
+                    history: conversationHistory  // Envoyer l'historique complet
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur réseau');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Retirer le spinner
+                var spinner = document.querySelector('#loading-spinner');
+                if (spinner) {
+                    spinner.remove();
+                }
+                
+                // Ajouter la réponse du bot
+                var botMessageElement = `<div class="d-flex flex-row justify-content-start mb-4">
+                    <i class="fas fa-user-tie" style="font-size: 45px; color: #D6B033;"></i>
+                    <div>
+                        <p class="small p-2 ms-3 mb-1 text-white rounded-3 bg-primary">${escapeHtml(data.response)}</p>
+                    </div>
+                </div>`;
+                chatBody.innerHTML += botMessageElement;
+                
+                // Ajouter la réponse à l'historique
+                conversationHistory.push({
+                    role: 'assistant',
+                    content: data.response
+                });
+                
+                // Limiter l'historique aux 10 derniers messages (5 échanges)
+                if (conversationHistory.length > 10) {
+                    conversationHistory = conversationHistory.slice(-10);
+                }
+                
+                // Faire défiler le chat vers le bas
+                chatBody.scrollTop = chatBody.scrollHeight;
+                
+                console.log('📜 Historique actuel:', conversationHistory.length, 'messages');
+            })
+            .catch(error => {
+                // Retirer le spinner en cas d'erreur
+                var spinner = document.querySelector('#loading-spinner');
+                if (spinner) {
+                    spinner.remove();
+                }
+                
+                // Afficher un message d'erreur
+                var errorMessageElement = `<div class="d-flex flex-row justify-content-start mb-4">
+                    <i class="fas fa-user-tie" style="font-size: 45px; color: #dc3545;"></i>
+                    <div>
+                        <p class="small p-2 ms-3 mb-1 text-white rounded-3" style="background-color: #dc3545;">
+                            ❌ Désolé, une erreur s'est produite. Veuillez réessayer.
+                        </p>
+                    </div>
+                </div>`;
+                chatBody.innerHTML += errorMessageElement;
+                
+                // Faire défiler le chat vers le bas
+                chatBody.scrollTop = chatBody.scrollHeight;
+                
+                console.error('Error:', error);
+            });
+            }
+            //NOUVEAUX FONCTION SENDMESSAGE FIN
+
+            // Fonction pour échapper le HTML (sécurité XSS)
+            function escapeHtml(text) {
+              var map = {
+                  '&': '&amp;',
+                  '<': '&lt;',
+                  '>': '&gt;',
+                  '"': '&quot;',
+                  "'": '&#039;'
+              };
+              return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+            }
+            // Fonction pour échapper le HTML (sécurité XSS) FIN
+
+
+
+
+            // Fonction pour afficher la réponse mot par mot
+  function displayResponseWordByWord(text, element) {
+      const words = text.split(' ');
+      let index = 0;
+
+      function displayNextWord() {
+          if (index < words.length) {
+              element.innerHTML += words[index] + ' ';
+              index++;
+              setTimeout(displayNextWord, 100); // Délai de 100 ms entre chaque mot
+          }
+      }
 
     displayNextWord();
-}
+  }
 
 
      document.querySelectorAll('.dropdown-submenu > a').forEach(function(el){
