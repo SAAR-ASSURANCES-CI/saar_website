@@ -295,8 +295,8 @@
                 // Récupérer le message de l'utilisateur
               //  var userMessage = document.querySelector('#exampleFormControlInput3').value;
           
-                // Créer une requête POST à l'API Flask
-                fetch('http://127.0.0.1:5000/chat', {
+                // Créer une requête POST à l'API Flask http://127.0.0.1:5000/chat
+                fetch('https://chatbot-api.saarassurancesci.com/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -412,8 +412,8 @@
             // Faire défiler le chat vers le bas
             chatBody.scrollTop = chatBody.scrollHeight;
             
-            // Créer une requête POST à l'API Flask avec l'historique
-            fetch('http://127.0.0.1:5000/chat', {
+            // Créer une requête POST à l'API Flask avec l'historique http://127.0.0.1:5000/chat
+            fetch('https://chatbot-api.saarassurancesci.com/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
